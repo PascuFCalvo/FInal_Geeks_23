@@ -22,7 +22,7 @@ const FooterSection = () => {
               <li>Twitter</li>
               <li>Facebook</li>
               <li>Instagram</li>
-              <li>youtube</li>
+              <li>Youtube</li>
               <li>LinkedIn</li>
             </ul>
           </div>
@@ -34,8 +34,8 @@ const FooterSection = () => {
           <p>© 2021 StreamCash. Todos los derechos reservados.</p>
           <p>Política de privacidad</p>
           <p>Términos y condiciones</p>
-          <p>Politica de cookies</p>
-          <p>Terminos y condiciones de contratacion con StreamCash</p>
+          <p>Política de cookies</p>
+          <p>Términos y condiciones de contratación con StreamCash</p>
         </div>
       </div>
     </div>

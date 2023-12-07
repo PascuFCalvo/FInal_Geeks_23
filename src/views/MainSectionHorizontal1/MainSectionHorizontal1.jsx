@@ -23,7 +23,12 @@ const MainSectionHorizontal1 = () => {
             >
               SOY STREAMER
             </div>
-            <div className="button-im-brand">SOY MARCA</div>
+            <div
+              className="button-im-brand"
+              onClick={() => navigate("/brands")}
+            >
+              SOY MARCA
+            </div>
           </div>
           <img
             className="streamer-section-1"

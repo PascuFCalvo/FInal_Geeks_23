@@ -12,9 +12,9 @@ const Register = () => {
 
       {show && (
         <div className="body-register-hover">
-          <div className="register-hover">Registerame como STREAMER</div>
+          <div className="register-hover">Regístrarme como STREAMER</div>
           
-          <div className="register-hover-2">Registerame como MARCA</div>
+          <div className="register-hover-2">Regístrarme como MARCA</div>
         </div>
       )}
     </div>

@@ -25,7 +25,7 @@ const MainSectionHorizontal5 = () => {
             ></img>
             <h2 className="h2-section5">SENCILLO</h2>
             <p className="p-section5">
-              para integrar StreamCash en tus plataforma(s) de streamingo
+              para integrar StreamCash en tus plataforma(s) de streaming
             </p>
           </div>
           <div className="card-section-5">
