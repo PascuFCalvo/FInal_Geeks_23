@@ -1,0 +1,23 @@
+.navbar-background {
+   background-color: rgb(255, 255, 255);
+   display: flex;
+   justify-content: center;
+   height: 12em;
+   background-color: orange;
+
+}
+
+.navbar-content {
+   width: 75em;
+   max-width: 75em;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.buttons-navbar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 3em;
+}

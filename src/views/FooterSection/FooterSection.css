@@ -1,0 +1,43 @@
+.footer-section-background {
+   background: rgb(85, 0, 121);
+
+   width: 100vw;
+   height: 30em;
+}
+
+.footer-section-content {
+
+   width: 100vw;
+   padding: 0em 10em 0em 10em;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex-direction: row;
+}
+
+ul {
+   margin-top: 2em;
+   font-size: 1.5em;
+   font-weight: 400;
+   color: white;
+   list-style: none;
+}
+
+li:hover {
+   color: white;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.register-footer {
+   margin-top: 3em;
+
+}
+
+.footer-section-terms {
+   display: flex;
+   margin-top: 10em;
+   justify-content: space-evenly;
+   color: #ffffff;
+   font-weight: 200;
+}

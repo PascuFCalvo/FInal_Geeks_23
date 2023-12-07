@@ -1,0 +1,62 @@
+.register {
+   width: 7em;
+   height: 2em;
+   border-radius: 3em;
+   background-color: #ffffff;
+   border: none;
+   color: #2b2b2b;
+   font-size: 1.2em;
+   font-weight: bolder;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 1em;
+   position: relative;
+}
+
+.register-hover {
+   position: absolute;
+   margin-left: -11em;
+   margin-top: 0.5em;
+   width: 18em;
+   height: 2em;
+   border-radius: 3em;
+   background-color: #ffffff;
+   border: none;
+   color: #2b2b2b;
+   font-size: 1.2em;
+   font-weight: bolder;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+
+}
+
+.register-hover-2 {
+   position: absolute;
+   margin-left: -11em;
+   margin-top: 3em;
+   width: 18em;
+   height: 2em;
+   border-radius: 3em;
+   background-color: #ffffff;
+   border: none;
+   color: #2b2b2b;
+   font-size: 1.2em;
+   font-weight: bolder;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.register:hover,
+.register-hover:hover,
+.register-hover-2:hover {
+   background-color: #2b2b2b;
+   cursor: pointer;
+   color: white;
+}

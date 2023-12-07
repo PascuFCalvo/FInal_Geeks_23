@@ -1,0 +1,28 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 800;
+
+  color-scheme: light dark;
+
+  background-color: aliceblue;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+
+
+body {
+  background-color: aliceblue;
+  display: flex;
+  margin-top: 0em;
+  padding-top: 0em;
+  justify-content: center;
+  overflow-x: hidden;
+
+}

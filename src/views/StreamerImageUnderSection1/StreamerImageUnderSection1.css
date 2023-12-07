@@ -1,0 +1,31 @@
+.streamer-image-under-section1-background {
+   background-color: #2b2b2b;
+   width: 100vw;
+   height: auto;
+
+
+
+}
+
+.streamer-image-under-section1-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.img-baityBait {
+   margin: 5em;
+   width: 75em;
+   border-radius: 2em;
+}
+
+.publicidad-en-stream {
+   width: 100vw;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 2em;
+}

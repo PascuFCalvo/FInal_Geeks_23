@@ -1,0 +1,47 @@
+.Main-section-horizontal3-background {
+   background-color: white;
+   height: 50em;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.Main-section-horizontal3-content {
+   width: 75em;
+   max-width: 75em;
+   display: flex;
+   height: 100%;
+   background-color: rgb(255, 166, 0);
+
+
+
+}
+
+.Main-section-horizontal3-content-left {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   margin-right: 3em;
+   margin-left: 3em;
+
+}
+
+.Main-section-horizontal3-content-right {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   margin-left: 3em;
+   margin-right: 3em;
+
+}
+
+.Title-section-3 {
+   color: black;
+}
+
+.Paragraf-section-3 {
+   color: black;
+   font-size: 1.5em;
+}

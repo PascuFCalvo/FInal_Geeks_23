@@ -1,0 +1,15 @@
+.banner-marcas1-background {
+   background-color: orangered;
+   width: 100vw;
+   height: 4em;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   font-size: 3em;
+}
+
+.brandImage {
+   margin-right: 0.5em;
+   margin-left: 0.5em;
+}

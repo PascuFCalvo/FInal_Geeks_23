@@ -1,0 +1,51 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@keyframes slideLeft {
+   from {
+      transform: translateX(0);
+   }
+
+   to {
+      transform: translateX(-100%);
+   }
+}
+
+
+
+.logos2 {
+   background-color: #2b2b2b;
+   overflow: hidden;
+   padding: 10px 0;
+   white-space: nowrap;
+   position: relative;
+   width: 100vw;
+}
+
+.logos2:before,
+.logos2:after {
+   position: absolute;
+   top: 0;
+   width: 500px;
+   height: 100%;
+   content: "";
+   z-index: 2;
+}
+
+.logos2:hover .logos2-slide-left {
+   animation-play-state: paused;
+}
+
+.logos2-slide-left {
+   display: inline-block;
+   animation: 60s slideLeft infinite linear;
+}
+
+.logos2-slide-left img {
+   height: 250px;
+   margin: 1em;
+   margin-top: 0em;
+}
