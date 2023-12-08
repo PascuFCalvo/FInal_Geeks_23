@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
-import { getProfile } from "../../services/apiCalls";
+import { getCountries, getProfile } from "../../services/apiCalls";
 import "./Profile.css";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [token] = useState(localStorage.getItem("token"));
+  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    getCountries()
+      .then((response) => {
+        setCountries(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los países:", error);
+      });
+  }, []); // No hay dependencias aquí para evitar bucles infinitos
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,62 +32,50 @@ const Profile = () => {
     fetchData();
   }, [token]);
 
-  console.log(profileData);
+  useEffect(() => {
+    if (profileData && profileData.brand) {
+      const selectedCountry = countries.find(
+        (country) => country.id === profileData.brand.country_id
+      );
+      if (selectedCountry) {
+        setCountry(selectedCountry.country_name);
+      }
+    }
+  }, [profileData, countries]);
 
-  if (profileData && profileData.user.user_role === "streamer") {
-    return (
-      <div>
-        {profileData ? (
-          <>
-            <h1>{profileData.user.user_name}</h1>
-            <h1>{profileData.user.user_email}</h1>
-            <h1>{profileData.user.user_phone}</h1>
-            <h1>{profileData.user.user_role}</h1>
-            <h1>{profileData.user.user_avatar_link}</h1>
-            <br />
-            <br />
-            <h1>{profileData.streamer.streamer_nick}</h1>
-            <h1>{profileData.streamer.streamer_nif}</h1>
-            <h1>{profileData.streamer.streamer_platform}</h1>
-            <h1>Revenue: {profileData.streamer.streamer_revenue}</h1>
-            <h1>
-              Tiene campañas activas:
-              {profileData.streamer.has_active_campaigns === 0 ? "No" : "Yes"}
-            </h1>
-          </>
-        ) : (
-          <p>Cargando...</p>
-        )}
-      </div>
-    );
-  } else if (profileData && profileData.user.user_role === "brand") {
-    return (
-      <div>
-        {profileData ? (
-          <>
-            <h1>{profileData.user.user_name}</h1>
-            <h1>{profileData.user.user_email}</h1>
-            <h1>{profileData.user.user_phone}</h1>
-            <h1>{profileData.user.user_role}</h1>
-            <h1>{profileData.user.user_avatar_link}</h1>
-            <br />
-            <br />
-            <h1>{profileData.brand.brand_name}</h1>
-            <h1>{profileData.brand.brand_description}</h1>
-            <h1>{profileData.brand.brand_logo_link}</h1>
-            <h1>Country: {profileData.brand.country_id}</h1>
-            <h1>{profileData.brand.brand_CIF}</h1>
-            <h1>
-              Tiene campañas activas:
-              {profileData.brand.has_active_campaigns === 0 ? "No" : "Yes"}
-            </h1>
-          </>
-        ) : (
-          <p>Cargando...</p>
-        )}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {profileData && profileData.user.user_role === "streamer" && (
+        <>
+          <h1>{profileData.user.user_name}</h1>
+          <h1>{profileData.user.user_email}</h1>
+          {/* Resto del contenido para streamer */}
+        </>
+      )}
+
+      {profileData && profileData.user.user_role === "brand" && (
+        <>
+          <h1>{profileData.user.user_name}</h1>
+          <h1>{profileData.user.user_email}</h1>
+          <h1>{profileData.user.user_phone}</h1>
+          <h1>{profileData.user.user_role}</h1>
+          <h1>{profileData.user.user_avatar_link}</h1>
+          <br />
+          <br />
+          <h1>{profileData.brand.brand_name}</h1>
+          <h1>{profileData.brand.brand_description}</h1>
+          <h1>{profileData.brand.brand_logo_link}</h1>
+          <h1>Country: {country}</h1>
+          <h1>Country ID: {profileData.brand.country_id}</h1>
+          <h1>{profileData.brand.brand_CIF}</h1>
+          <h1>
+            Tiene campañas activas:
+            {profileData.brand.has_active_campaigns === 0 ? "No" : "Yes"}
+          </h1>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Profile;
