@@ -29,6 +29,7 @@ const LoginUser = () => {
     login(body).then((response) => {
       console.log(response.data);
       localStorage.setItem("token", response.data.data.token);
+      console.log(response.data.data.token)
       setTimeout(() => {
         navigate("/");
       }, 1000);
