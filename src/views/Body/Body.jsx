@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { MainPage } from "../MainPage/MainPage";
 import { StreamersMainPage } from "../StreamersMainPage/StreamersMainPage";
 import BrandMainPage from "../BrandMainPage/BrandMainPage";
+import RegisterStreamer from "../RegisterStreamer/RegisterStreamer";
 
 const Body = () => {
   return (
@@ -11,6 +12,7 @@ const Body = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/streamers" element={<StreamersMainPage />} />
         <Route path="/brands" element={<BrandMainPage />} />
+        <Route path="/registerStreamer" element={<RegisterStreamer />} />
       </Routes>
     </div>
   );
