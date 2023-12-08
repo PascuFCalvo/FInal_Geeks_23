@@ -30,7 +30,7 @@ const RegisterBrand = () => {
     e.preventDefault();
     try {
       const response = await registerBrand(brand);
-      console.log("Respuesta de la API:", response.data);
+      console.log("response:", response.data);
       navigate("/");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);

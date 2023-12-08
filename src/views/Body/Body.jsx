@@ -4,6 +4,7 @@ import { StreamersMainPage } from "../StreamersMainPage/StreamersMainPage";
 import BrandMainPage from "../BrandMainPage/BrandMainPage";
 import RegisterStreamer from "../RegisterStreamer/RegisterStreamer";
 import RegisterBrand from "../RegisterBrand/RegisterBrand";
+import LoginUser from "../LoginUser/LoginUser";
 
 const Body = () => {
   return (
@@ -15,6 +16,7 @@ const Body = () => {
         <Route path="/brands" element={<BrandMainPage />} />
         <Route path="/registerStreamer" element={<RegisterStreamer />} />
         <Route path="/registerBrand" element={<RegisterBrand />} />
+        <Route path="/login" element={<LoginUser />} />
       </Routes>
     </div>
   );

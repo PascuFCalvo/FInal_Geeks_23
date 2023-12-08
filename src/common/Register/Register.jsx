@@ -3,6 +3,11 @@ import "./Register.css";
 
 const Register = () => {
   const [show, setShow] = useState(false);
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    return null;
+  }
 
   return (
     <div className="body-register">
