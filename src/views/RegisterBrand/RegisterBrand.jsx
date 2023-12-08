@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./RegisterBrand.css";
 import { useNavigate } from "react-router-dom";
-import { registerBrand } from "../../services/apiCalls";
+import { getCountries, registerBrand } from "../../services/apiCalls";
 
 const RegisterBrand = () => {
+  let [paises, setPaises] = useState([]);
+
   const navigate = useNavigate();
 
   const [brand, setBrand] = useState({
@@ -18,6 +20,19 @@ const RegisterBrand = () => {
     brand_logo_link: "",
     country_id: "",
   });
+
+  useEffect(() => {
+    getCountries()
+      .then((response) => {
+        setPaises(response.data.data);
+        console.log(paises);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los países:", error);
+      });
+  }, []);
+
+  //mapear los paises para sacar los nombres a un array
 
   const handleChange = (e) => {
     setBrand((prevState) => ({
@@ -116,7 +131,7 @@ const RegisterBrand = () => {
           <input
             type="text"
             name="brand_description"
-            value={brand.description}
+            value={brand.brand_description}
             onChange={handleChange}
           />
         </label>
@@ -132,15 +147,20 @@ const RegisterBrand = () => {
         </label>
         <br />
 
-        <label>
-          Country ID:
-          <input
-            type="text"
-            name="country_id"
-            value={brand.country_id}
-            onChange={handleChange}
-          />
-        </label>
+        <select
+          className="selectCountry"
+          name="country_id"
+          value={brand.country_id}
+          onChange={handleChange}
+        >
+          <option value="">Selecciona un país</option>
+          {paises.map((pais) => (
+            <option key={pais.id} value={pais.id}>
+              {pais.country_name}
+            </option>
+          ))}
+        </select>
+
         <br />
 
         <button type="submit">Enviar</button>

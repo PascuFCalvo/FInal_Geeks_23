@@ -14,6 +14,10 @@ export const login = async (body) => {
   return await axios.post(`${url}/login`, body);
 };
 
+export const getCountries = async () => {
+  return await axios.get(`${url}/getCountries`);
+};
+
 export const getProfile = async (token) => {
   return await axios.get(`${url}/profile`, {
     headers: {

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const token = localStorage.getItem("token");
 
@@ -12,14 +14,24 @@ const Register = () => {
   return (
     <div className="body-register">
       <div onMouseEnter={() => setShow(!show)} className="register">
-       Regístrate 
+        Regístrate
       </div>
 
       {show && (
         <div className="body-register-hover">
-          <div className="register-hover">Regístrarme como STREAMER</div>
-          
-          <div className="register-hover-2">Regístrarme como MARCA</div>
+          <div
+            className="register-hover"
+            onClick={() => navigate("/registerStreamer")}
+          >
+            Regístrarme como STREAMER
+          </div>
+
+          <div
+            className="register-hover-2"
+            onClick={() => navigate("/registerBrand")}
+          >
+            Regístrarme como MARCA
+          </div>
         </div>
       )}
     </div>

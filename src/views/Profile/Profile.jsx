@@ -62,6 +62,7 @@ const Profile = () => {
             <h1>{profileData.brand.brand_name}</h1>
             <h1>{profileData.brand.brand_description}</h1>
             <h1>{profileData.brand.brand_logo_link}</h1>
+            <h1>Country: {profileData.brand.country_id}</h1>
             <h1>{profileData.brand.brand_CIF}</h1>
             <h1>
               Tiene campañas activas:
