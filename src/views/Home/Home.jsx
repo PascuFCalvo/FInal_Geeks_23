@@ -1,4 +1,4 @@
-import Body from "../body/body";
+import Body from "../Body/Body";
 
 import "./Home.css";
 

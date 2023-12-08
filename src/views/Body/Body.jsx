@@ -13,6 +13,7 @@ const Body = () => {
       <Routes>
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/" element={<MainPage />} />
+
         <Route path="/streamers" element={<StreamersMainPage />} />
         <Route path="/brands" element={<BrandMainPage />} />
         <Route path="/registerStreamer" element={<RegisterStreamer />} />
