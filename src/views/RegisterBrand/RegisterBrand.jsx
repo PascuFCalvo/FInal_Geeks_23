@@ -1,27 +1,26 @@
 import { useState } from "react";
 import "./RegisterBrand.css";
 import { useNavigate } from "react-router-dom";
-import { registerStreamer } from "../../services/apiCalls";
+import { registerBrand } from "../../services/apiCalls";
 
-const RegisterStreamer = () => {
+const RegisterBrand = () => {
   const navigate = useNavigate();
 
-  const [streamer, setStreamer] = useState({
+  const [brand, setBrand] = useState({
     user_name: "",
     user_email: "",
     password: "",
     user_phone: "",
     user_avatar_link: "",
-    streamer_nick: "",
-    streamer_nif: "",
-    streamer_platform: "",
-    streamer_revenue: 0,
+    brand_name: "",
+    brand_cif: "",
+    brand_description: "",
+    brand_logo_link: "",
     country_id: "",
-    has_active_campaigns: false,
   });
 
   const handleChange = (e) => {
-    setStreamer((prevState) => ({
+    setBrand((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -30,7 +29,7 @@ const RegisterStreamer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await registerStreamer(streamer);
+      const response = await registerBrand(brand);
       console.log("Respuesta de la API:", response.data);
       navigate("/");
     } catch (error) {
@@ -46,7 +45,7 @@ const RegisterStreamer = () => {
           <input
             type="text"
             name="user_name"
-            value={streamer.user_name}
+            value={brand.user_name}
             onChange={handleChange}
           />
         </label>
@@ -56,7 +55,7 @@ const RegisterStreamer = () => {
           <input
             type="email"
             name="user_email"
-            value={streamer.user_email}
+            value={brand.user_email}
             onChange={handleChange}
           />
         </label>
@@ -66,7 +65,7 @@ const RegisterStreamer = () => {
           <input
             type="password"
             name="password"
-            value={streamer.password}
+            value={brand.password}
             onChange={handleChange}
           />
         </label>
@@ -76,7 +75,7 @@ const RegisterStreamer = () => {
           <input
             type="text"
             name="user_phone"
-            value={streamer.user_phone}
+            value={brand.user_phone}
             onChange={handleChange}
           />
         </label>
@@ -86,37 +85,48 @@ const RegisterStreamer = () => {
           <input
             type="text"
             name="user_avatar_link"
-            value={streamer.user_avatar_link}
+            value={brand.user_avatar_link}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
+        <label>
+          Brand Name:
+          <input
+            type="text"
+            name="brand_name"
+            value={brand.brand_name}
             onChange={handleChange}
           />
         </label>
         <br />
         <label>
-          Streamer Nick:
+          Brand CIF:
           <input
             type="text"
-            name="streamer_nick"
-            value={streamer.streamer_nick}
+            name="brand_cif"
+            value={brand.brand_cif}
             onChange={handleChange}
           />
         </label>
         <br />
         <label>
-          Streamer NIF:
+          Brand Description:
           <input
             type="text"
-            name="streamer_nif"
-            value={streamer.streamer_nif}
+            name="brand_description"
+            value={brand.description}
             onChange={handleChange}
           />
         </label>
         <br />
         <label>
-          Streamer Platform:
+          Brand Logo Link:
           <input
             type="text"
-            name="streamer_platform"
-            value={streamer.streamer_platform}
+            name="brand_logo_link"
+            value={brand.brand_logo_link}
             onChange={handleChange}
           />
         </label>
@@ -127,7 +137,7 @@ const RegisterStreamer = () => {
           <input
             type="text"
             name="country_id"
-            value={streamer.country_id}
+            value={brand.country_id}
             onChange={handleChange}
           />
         </label>
@@ -139,4 +149,4 @@ const RegisterStreamer = () => {
   );
 };
 
-export default RegisterStreamer;
+export default RegisterBrand;
