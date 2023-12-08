@@ -31,14 +31,26 @@ const Profile = () => {
 
     fetchData();
   }, [token]);
+  console.log(profileData);
 
   useEffect(() => {
-    if (profileData && profileData.brand) {
-      const selectedCountry = countries.find(
-        (country) => country.id === profileData.brand.country_id
-      );
-      if (selectedCountry) {
-        setCountry(selectedCountry.country_name);
+    if (profileData && profileData.user.user_role === "brand") {
+      if (profileData && profileData.brand) {
+        const selectedCountry = countries.find(
+          (country) => country.id === profileData.brand.country_id
+        );
+        if (selectedCountry) {
+          setCountry(selectedCountry.country_name);
+        }
+      }
+    } else if (profileData && profileData.user.user_role === "streamer") {
+      if (profileData && profileData.streamer) {
+        const selectedCountry = countries.find(
+          (country) => country.id === profileData.streamer.country_id
+        );
+        if (selectedCountry) {
+          setCountry(selectedCountry.country_name);
+        }
       }
     }
   }, [profileData, countries]);
@@ -49,7 +61,10 @@ const Profile = () => {
         <>
           <h1>{profileData.user.user_name}</h1>
           <h1>{profileData.user.user_email}</h1>
-          {/* Resto del contenido para streamer */}
+          <h1>{profileData.user.user_phone}</h1>
+          <h1>{profileData.user.user_role}</h1>
+          <h1>{profileData.user.user_avatar_link}</h1>
+          <h1>Country: {country}</h1>
         </>
       )}
 

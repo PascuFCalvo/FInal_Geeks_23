@@ -1,44 +1,127 @@
-/* Estilos básicos para el componente de inicio de sesión */
-.container {
+@font-face {
+   font-family: "bauziet";
+   /* Usar el mismo nombre de fuente */
+   src: url("./font/BauzietNormRegular.ttf");
+}
+
+body {
+   position: relative;
+   font-family: bauziet;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   background-color: #ffffff;
    justify-content: center;
-   height: 100vh;
+   margin-top: 200px;
+   margin-bottom: 200px;
+   padding: 0;
+   color: aliceblue;
+   background: rgb(53, 102, 255);
+   background: linear-gradient(90deg, rgba(53, 102, 255, 1) 30%, rgba(0, 140, 255, 1) 53%, rgba(158, 0, 255, 1) 99%);
 }
 
-.form {
-   width: 300px;
+
+#logo {
+   position: absolute;
+   width: 200px;
+   margin-left: 30px;
+   margin-top: -160px;
+   top: 0px
+}
+
+form {
    padding: 20px;
-   background-color: #f2f2f2;
-   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+
+   color: aliceblue;
+   width: 500px;
+   margin: 0 auto;
+   background-color: #ffffff;
+   padding: 20px;
+   border-radius: 36px;
+   box-shadow: 0 0 10px #2196F3;
 }
 
-.input-group {
-   margin-bottom: 10px;
+#myform {
+   padding: 60px 140px 60px 140px;
 }
 
-.label {
-   font-weight: bold;
+label {
+   font-family: "bauziet";
+   /* Utilizar el mismo nombre de fuente */
+   font-weight: 500;
+   color: rgb(0, 0, 0);
+   display: block;
+   margin-bottom: 5px;
+   margin-top: 10px;
 }
 
-.input {
+input {
    width: 100%;
-   padding: 10px;
-   border: 1px solid #ccc;
-   border-radius: 3px;
-}
-
-.button {
-   width: 100%;
-   padding: 10px;
-   background-color: #007bff;
-   color: #fff;
+   color: rgb(0, 0, 0);
+   padding: 16px 24px;
+   margin-bottom: 2px;
    border: none;
-   border-radius: 3px;
-   cursor: pointer;
+   border-radius: 6px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+
 }
 
-.button:hover {
-   background-color: #0056b3;
+input[type="file"]::-webkit-file-upload-button {
+   font-size: medium;
+   padding: 10px;
+   font-weight: bold;
+   background-color: #2196F3;
+   color: #fff;
+   border: #2196F3;
+   border-radius: 12px;
+   cursor: pointer;
+   box-shadow: 0 0 2px #2196F3;
+   margin-left: -10px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+   color: #2196F3;
+   background-color: white;
+   border: #2196F3;
+   box-shadow: 0 0 2px #2196F3;
+
+}
+
+button {
+   width: 100%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: #2196F3;
+   color: #fff;
+   padding: 20px 20px;
+   border: none;
+   border-radius: 12px;
+   cursor: pointer;
+   align-self: center;
+   box-shadow: 0 0 2px #2196F3;
+}
+
+#video,
+#overlay {
+   border: none;
+   padding: none;
+   margin-left: -10px;
+}
+
+#overlay button {
+   padding: 20px;
+   background-color: #2196F3;
+   box-shadow: 0 0 2px #2196F3;
+}
+
+button:hover {
+
+   background-color: white;
+   color: #2196F3;
+}
+
+button:active {
+
+   background-color: #2196F3;
 }

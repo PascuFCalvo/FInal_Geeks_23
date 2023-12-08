@@ -1,62 +1,107 @@
-.form-background {
-   background-color: #ff0000;
-   height: 100vh;
+.form-background-register-brand {
    width: 100vw;
+   height: 180vh;
+   background: rgb(247, 0, 159);
+   background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
+}
+
+.logo-placing-register-brand {
    display: flex;
-   justify-content: center;
-   align-items: center;
+   width: auto;
+   margin-left: 10%;
 
 }
 
-.form {
-   width: 100vw;
-   height: 100vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: black;
-   margin: 0;
-   padding: 0%;
-}
-
-
-.container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-}
-
-.form {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 300px;
+.form-body {
+   font-size: 1em;
+   margin-bottom: 2em;
+   margin-top: 2em;
    padding: 20px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   color: white;
+   width: 34em;
+   margin: 0 auto;
+   background-color: #ffffff;
+   padding: 1.5em;
+   border-radius: 2em;
+   box-shadow: 0 0 10px #2196F3;
 }
 
-.form input {
+.selectCountry {
+   font-size: 1em;
    width: 100%;
-   padding: 10px;
-   margin-bottom: 10px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-}
-
-.form button {
-   width: 100%;
-   padding: 10px;
-   background-color: #007bff;
-   color: #fff;
+   height: 100%;
    border: none;
-   border-radius: 5px;
-   cursor: pointer;
+   border-radius: 6px;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+   background-color: white;
+   color: #2b2b2b;
+
 }
 
-.form button:hover {
-   background-color: #0056b3;
+label {
+   font-size: 1em;
+   font-weight: 500;
+   color: #2b2b2b;
+   display: block;
+   margin-bottom: 0.5em;
+   margin-top: 0.5em;
+}
+
+input {
+   font-size: 1em;
+   background-color: white;
+   width: 100%;
+   color: #2b2b2b;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   border: none;
+   border-radius: 6px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+
+}
+
+.buttons {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+.buttonBack {
+   font-size: 1.2em;
+   background-color: orange;
+   width: 8em;
+   margin-right: 2em;
+}
+
+
+button {
+   font-size: 1.2em;
+   width: 100%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: #2b2b2b;
+   color: #fff;
+   padding: 20px 20px;
+   border: none;
+   border-radius: 3em;
+   cursor: pointer;
+   align-self: center;
+   box-shadow: 0 0 2px #2b2b2b;
+}
+
+
+button:hover {
+
+   background-color: white;
+   color: #2b2b2b;
+}
+
+button:active {
+
+   background-color: #2b2b2b;
 }

@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./RegisterStreamer.css";
 import { useNavigate } from "react-router-dom";
-import { registerStreamer } from "../../services/apiCalls";
+import { getCountries, registerStreamer } from "../../services/apiCalls";
+import Logo from "../../common/Logo/logo";
 
 const RegisterStreamer = () => {
+  let [paises, setPaises] = useState([]);
+
   const navigate = useNavigate();
 
   const [streamer, setStreamer] = useState({
@@ -19,6 +22,17 @@ const RegisterStreamer = () => {
     country_id: "",
     has_active_campaigns: false,
   });
+
+  useEffect(() => {
+    getCountries()
+      .then((response) => {
+        setPaises(response.data.data);
+        console.log(paises);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los países:", error);
+      });
+  }, []);
 
   const handleChange = (e) => {
     setStreamer((prevState) => ({
@@ -39,8 +53,11 @@ const RegisterStreamer = () => {
   };
 
   return (
-    <div className="form-background">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="form-background-register-streamer">
+      <div className="logo-placing-register-streamer">
+        <Logo />
+      </div>
+      <form className="form-body" onSubmit={handleSubmit}>
         <label>
           User Name:
           <input
@@ -122,18 +139,31 @@ const RegisterStreamer = () => {
         </label>
         <br />
 
-        <label>
-          Country ID:
-          <input
-            type="text"
-            name="country_id"
-            value={streamer.country_id}
-            onChange={handleChange}
-          />
-        </label>
+        <select
+          className="selectCountry"
+          name="country_id"
+          value={streamer.country_id}
+          onChange={handleChange}
+        >
+          <option value="">Selecciona un país</option>
+          {paises.map((pais) => (
+            <option key={pais.id} value={pais.id}>
+              {pais.country_name}
+            </option>
+          ))}
+        </select>
         <br />
 
-        <button type="submit">Enviar</button>
+        <div className="buttons">
+          <button
+            className="buttonBack"
+            type="submit"
+            onClick={() => navigate("/")}
+          >
+            Volver
+          </button>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </div>
   );

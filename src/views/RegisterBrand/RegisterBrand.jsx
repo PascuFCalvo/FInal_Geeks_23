@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./RegisterBrand.css";
 import { useNavigate } from "react-router-dom";
 import { getCountries, registerBrand } from "../../services/apiCalls";
+import Logo from "../../common/Logo/logo";
 
 const RegisterBrand = () => {
   let [paises, setPaises] = useState([]);
@@ -53,118 +54,140 @@ const RegisterBrand = () => {
   };
 
   return (
-    <div className="form-background">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          User Name:
-          <input
-            type="text"
-            name="user_name"
-            value={brand.user_name}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          User Email:
-          <input
-            type="email"
-            name="user_email"
-            value={brand.user_email}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={brand.password}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          User Phone:
-          <input
-            type="text"
-            name="user_phone"
-            value={brand.user_phone}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          User Avatar Link:
-          <input
-            type="text"
-            name="user_avatar_link"
-            value={brand.user_avatar_link}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
+    <div className="form-background-register-brand">
+      <div className="logo-placing-register-brand">
+        <Logo />
+      </div>
+      <div className="form-body">
+        <form className="form" onSubmit={handleSubmit}>
+          <label>
+            User Name:
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Nombre de usuario"
+              value={brand.user_name}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            User Email:
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Email"
+              value={brand.user_email}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              placeholder="********"
+              value={brand.password}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            User Phone:
+            <input
+              type="text"
+              name="user_phone"
+              placeholder="Teléfono"
+              value={brand.user_phone}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            User Avatar Link:
+            <input
+              type="text"
+              name="user_avatar_link"
+              placeholder="Link de la imagen   htttp://imgurl.com"
+              value={brand.user_avatar_link}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
 
-        <label>
-          Brand Name:
-          <input
-            type="text"
-            name="brand_name"
-            value={brand.brand_name}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Brand CIF:
-          <input
-            type="text"
-            name="brand_cif"
-            value={brand.brand_cif}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Brand Description:
-          <input
-            type="text"
-            name="brand_description"
-            value={brand.brand_description}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Brand Logo Link:
-          <input
-            type="text"
-            name="brand_logo_link"
-            value={brand.brand_logo_link}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
+          <label>
+            Brand Name:
+            <input
+              type="text"
+              name="brand_name"
+              placeholder="Nombre de la marca"
+              value={brand.brand_name}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Brand CIF:
+            <input
+              type="text"
+              name="brand_cif"
+              placeholder="X12345678"
+              value={brand.brand_cif}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Brand Description:
+            <input
+              type="text"
+              name="brand_description"
+              placeholder="Descripción de la marca"
+              value={brand.brand_description}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Brand Logo Link:
+            <input
+              type="text"
+              name="brand_logo_link"
+              placeholder="Link de la imagen   htttp://imgurl.com"
+              value={brand.brand_logo_link}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
 
-        <select
-          className="selectCountry"
-          name="country_id"
-          value={brand.country_id}
-          onChange={handleChange}
-        >
-          <option value="">Selecciona un país</option>
-          {paises.map((pais) => (
-            <option key={pais.id} value={pais.id}>
-              {pais.country_name}
-            </option>
-          ))}
-        </select>
+          <select
+            className="selectCountry"
+            name="country_id"
+            value={brand.country_id}
+            onChange={handleChange}
+          >
+            <option value="">Selecciona un país</option>
+            {paises.map((pais) => (
+              <option key={pais.id} value={pais.id}>
+                {pais.country_name}
+              </option>
+            ))}
+          </select>
 
-        <br />
-
-        <button type="submit">Enviar</button>
-      </form>
+          <br />
+          <div className="buttons">
+            <button
+              className="buttonBack"
+              type="submit"
+              onClick={() => navigate("/")}
+            >
+              Volver
+            </button>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
