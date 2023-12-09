@@ -6,7 +6,6 @@ import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
 
 const RegisterStreamer = () => {
-  let url;
   const [paises, setPaises] = useState([]);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
@@ -73,26 +72,26 @@ const RegisterStreamer = () => {
     }));
 
     // Verifica si hay algún error en cualquier campo
+
     const hasErrors = Object.values(setStreamerError).some(
       (error) => error !== ""
     );
     setErrors(hasErrors);
   };
 
+  // manejador del formulario, se espera a que se suba la imagen y luego se envía el formulario
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Upload the image and get the URL
       const imageUrl = await submitImage();
 
-      // Update the streamer state with the retrieved URL
       setStreamer((prevStreamer) => ({
         ...prevStreamer,
         user_avatar_link: imageUrl,
       }));
 
-      // Submit the form with the updated streamer state
       const response = await registerStreamer(streamer);
       console.log("response:", response.data);
       navigate("/");
@@ -100,6 +99,8 @@ const RegisterStreamer = () => {
       console.error("Error al enviar el formulario:", error);
     }
   };
+
+  //cloudinary api para subir fotos en el formulario
 
   const submitImage = async () => {
     const data = new FormData();
@@ -121,7 +122,7 @@ const RegisterStreamer = () => {
       return imageData.url;
     } catch (err) {
       console.log(err);
-      throw err; // Rethrow the error to be caught by the calling function
+      throw err;
     }
   };
 
@@ -207,23 +208,7 @@ const RegisterStreamer = () => {
           )}
         </label>
         <br />
-        {/* <label>
-          User Avatar Link:
-          <input
-            className={`input-form-streamer ${
-              streamerError.user_avatar_link ? "error" : "normal"
-            }`}
-            type="fil"
-            name="user_avatar_link"
-            value={url}
-            onChange={handleChange}
-          />
-          {streamerError.user_avatar_link && (
-            <span className="error-message">
-              {streamerError.user_avatar_link}
-            </span>
-          )}
-        </label> */}
+
         <br />
         <label>
           Streamer Nick:
