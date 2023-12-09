@@ -6,8 +6,10 @@ import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
 
 const RegisterStreamer = () => {
+  let url;
   const [paises, setPaises] = useState([]);
   const navigate = useNavigate();
+  const [image, setImage] = useState("");
   const [streamerError, setStreamerError] = useState({
     user_name: "",
     user_email: "",
@@ -79,13 +81,47 @@ const RegisterStreamer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
+      // Upload the image and get the URL
+      const imageUrl = await submitImage();
+
+      // Update the streamer state with the retrieved URL
+      setStreamer((prevStreamer) => ({
+        ...prevStreamer,
+        user_avatar_link: imageUrl,
+      }));
+
+      // Submit the form with the updated streamer state
       const response = await registerStreamer(streamer);
       console.log("response:", response.data);
       navigate("/");
     } catch (error) {
-      alert("El formulario contiene errores, imposible enviar.");
       console.error("Error al enviar el formulario:", error);
+    }
+  };
+
+  const submitImage = async () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "dt5zg2l9");
+    data.append("cloud_name", "dlcgfuujm");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dlcgfuujm/image/upload",
+        {
+          method: "post",
+          body: data,
+        }
+      );
+      const imageData = await res.json();
+      console.log(imageData);
+
+      return imageData.url;
+    } catch (err) {
+      console.log(err);
+      throw err; // Rethrow the error to be caught by the calling function
     }
   };
 
@@ -95,6 +131,14 @@ const RegisterStreamer = () => {
         <Logo />
       </div>
       <form className="form-body-streamer" onSubmit={handleSubmit}>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <div className="button-send-pic" onClick={submitImage}>
+          Upload
+        </div>
+
         <label>
           User Name:
           <input
@@ -163,15 +207,15 @@ const RegisterStreamer = () => {
           )}
         </label>
         <br />
-        <label>
+        {/* <label>
           User Avatar Link:
           <input
             className={`input-form-streamer ${
               streamerError.user_avatar_link ? "error" : "normal"
             }`}
-            type="text"
+            type="fil"
             name="user_avatar_link"
-            value={streamer.user_avatar_link}
+            value={url}
             onChange={handleChange}
           />
           {streamerError.user_avatar_link && (
@@ -179,7 +223,7 @@ const RegisterStreamer = () => {
               {streamerError.user_avatar_link}
             </span>
           )}
-        </label>
+        </label> */}
         <br />
         <label>
           Streamer Nick:

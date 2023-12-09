@@ -27,7 +27,17 @@
 
 }
 
+.button-send-pic {
+   background-color: red;
+   width: 100px;
+   cursor: pointer;
 
+}
+
+.button-send-pic:active {
+   background-color: #2b2b2b;
+
+}
 
 
 .selectCountry {
