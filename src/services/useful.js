@@ -9,15 +9,17 @@ export const validator = (type, value) => {
           value
         )
       ) {
-        return "Invalid e-mail format";
+        return "Formato de email no valido, email@dominio.xyz";
       } else {
         return "";
       }
 
     case "name":
     case "user_name":
-      if (value.length > 25 || value.length < 3) {
-        return "Escribe un nombre correcto";
+    case "streamer_nick":
+    case "streamer_platform":
+      if (value.length > 50 || value.length < 3) {
+        return "Escribe un nombre correcto[3-50 caracteres]";
       } else {
         return "";
       }
@@ -34,16 +36,21 @@ export const validator = (type, value) => {
     case "password":
     case "password2":
     case "contraseña":
-      if (value.length < 8) {
+      if (value.length < 6) {
         return "Write 8 characters at least";
       } else {
-        
-
-        if (!/[\d()+-]/g.test(value)) {
+        if (!/^(?=.*[a-zA-Z])(?=.*\d).+/.test(value)) {
           return "Invalid password format";
         } else {
           return "";
         }
+      }
+
+    case "streamer_nif":
+      if (!/^(?=.*[0-9]).+$/.test(value)) {
+        return "Invalid NIF/NIE/CIF format";
+      } else {
+        return "";
       }
   }
 };

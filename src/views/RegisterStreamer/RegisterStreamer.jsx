@@ -7,6 +7,7 @@ import { validator } from "../../services/useful";
 
 const RegisterStreamer = () => {
   const [paises, setPaises] = useState([]);
+  const navigate = useNavigate();
   const [streamerError, setStreamerError] = useState({
     user_name: "",
     user_email: "",
@@ -35,7 +36,6 @@ const RegisterStreamer = () => {
     has_active_campaigns: false,
   });
   const [errors, setErrors] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getCountries()
@@ -71,7 +71,9 @@ const RegisterStreamer = () => {
     }));
 
     // Verifica si hay algún error en cualquier campo
-    const hasErrors = Object.values(setStreamerError).some((error) => error !== "");
+    const hasErrors = Object.values(setStreamerError).some(
+      (error) => error !== ""
+    );
     setErrors(hasErrors);
   };
 
@@ -82,6 +84,7 @@ const RegisterStreamer = () => {
       console.log("response:", response.data);
       navigate("/");
     } catch (error) {
+      alert("El formulario contiene errores, imposible enviar.");
       console.error("Error al enviar el formulario:", error);
     }
   };

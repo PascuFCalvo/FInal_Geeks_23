@@ -79,6 +79,13 @@ label {
 
 }
 
+.error-message {
+   font-size: 0.8em;
+   color: red;
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+}
+
 .buttons {
    display: flex;
    flex-direction: row;
