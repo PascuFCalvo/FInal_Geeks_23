@@ -6,6 +6,7 @@ import RegisterStreamer from "../RegisterStreamer/RegisterStreamer";
 import RegisterBrand from "../RegisterBrand/RegisterBrand";
 import LoginUser from "../LoginUser/LoginUser";
 import Profile from "../Profile/Profile";
+import EditUserInfo from "../EditUserInfo/EditUserInfo";
 
 const Body = () => {
   return (
@@ -20,6 +21,7 @@ const Body = () => {
         <Route path="/registerBrand" element={<RegisterBrand />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/editUserInfo" element={<EditUserInfo />} />
       </Routes>
     </div>
   );

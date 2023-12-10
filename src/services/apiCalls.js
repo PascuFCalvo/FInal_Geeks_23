@@ -25,3 +25,13 @@ export const getProfile = async (token) => {
     },
   });
 };
+
+export const editUserProfile = async (body, token) => {
+  console.log(token);
+  console.log(body);
+  return await axios.put(`${url}/editUserProfile`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

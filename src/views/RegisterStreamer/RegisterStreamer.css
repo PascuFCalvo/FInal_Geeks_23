@@ -27,16 +27,74 @@
 
 }
 
-.button-send-pic {
-   background-color: red;
-   width: 100px;
+.image-input-form {
+
+   display: none
+}
+
+
+.image-input-form+label {
+   display: flex;
+   justify-content: space-between;
+
+
+}
+
+.image-input-form__image-input-form-name,
+.image-input-form__image-input-form-button {
+   padding: 0.8em;
+   border-radius: 6px;
+}
+
+.image-input-form__image-input-form-name {
+   background-color: white;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+   width: 68%;
+
+}
+
+.image-input-form__image-input-form-button {
+   background-color: orange;
+   text-align: center;
+   width: 30%;
    cursor: pointer;
 
 }
 
-.button-send-pic:active {
-   background-color: #2b2b2b;
+.image-input-form__image-input-form-button:hover {
+   background-color: white;
+   color: orange;
+   border: 1px solid orange;
+}
 
+.image-input-form__image-input-form-button:active {
+   background-color: orange;
+   color: white
+}
+
+
+
+.button-send-pic {
+   background-color: orangered;
+   width: 30%;
+   padding: 0.5em;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 2em;
+   margin-top: 0.5em;
+   margin-left: 21.8em;
+
+}
+
+.button-send-pic:hover {
+   background-color: white;
+   color: orangered;
+   border: 1px solid orangered;
+}
+
+.button-send-pic:active {
+   background-color: orangered;
+   color: white
 }
 
 

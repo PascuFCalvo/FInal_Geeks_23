@@ -132,16 +132,30 @@ const RegisterStreamer = () => {
         <Logo />
       </div>
       <form className="form-body-streamer" onSubmit={handleSubmit}>
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-        ></input>
-        <div className="button-send-pic" onClick={submitImage}>
-          Upload
+        <div>
+          <label>Selecciona una foto de perfil</label>
+          <input
+            className="image-input-form"
+            name="profile-pic"
+            id="profile-pic"
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          ></input>
+          <label htmlFor="profile-pic">
+            <span className="image-input-form__image-input-form-name">
+              {image.name}
+            </span>
+            <span className="image-input-form__image-input-form-button">
+              Buscar archivo
+            </span>
+          </label>
         </div>
+        {/* <div className="button-send-pic" onClick={submitImage}>
+          Upload
+        </div> */}
 
         <label>
-          User Name:
+          Nombre de Usuario:
           <input
             className={`input-form-streamer ${
               streamerError.user_name ? "error" : "normal"
@@ -158,7 +172,7 @@ const RegisterStreamer = () => {
         </label>
         <br />
         <label>
-          User Email:
+          Email:
           <input
             className={`input-form-streamer ${
               streamerError.user_email ? "error" : "normal"
@@ -192,7 +206,7 @@ const RegisterStreamer = () => {
         </label>
         <br />
         <label>
-          User Phone:
+          Telefono:
           <input
             className={`input-form-streamer ${
               streamerError.user_phone ? "error" : "normal"
@@ -211,7 +225,7 @@ const RegisterStreamer = () => {
 
         <br />
         <label>
-          Streamer Nick:
+          Nickname:
           <input
             className={`input-form-streamer ${
               streamerError.streamer_nick ? "error" : "normal"
@@ -227,7 +241,7 @@ const RegisterStreamer = () => {
         </label>
         <br />
         <label>
-          Streamer NIF:
+          NIF/NIE/DNI:
           <input
             className={`input-form-streamer ${
               streamerError.streamer_nif ? "error" : "normal"
@@ -243,7 +257,7 @@ const RegisterStreamer = () => {
         </label>
         <br />
         <label>
-          Streamer Platform:
+          Plataforma donde haces stream (Twith, Youtube, etc):
           <input
             className={`input-form-streamer ${
               streamerError.streamer_platform ? "error" : "normal"
