@@ -164,7 +164,10 @@ const Profile = () => {
                 <p>country</p>
                 <br></br>
               </div>
-              <button className="edit-profile-button">
+              <button
+                className="edit-profile-button"
+                onClick={() => navigate("/editBrandInfo")}
+              >
                 Editar informacion
               </button>
             </div>

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import {
-  editStreamerProfile,
+  editBrandProfile,
   editUserProfile,
   getProfile,
 } from "../../services/apiCalls";
-import "./EditUserInfo.css";
+import "./EditBrandInfo.css";
 import { useNavigate } from "react-router-dom";
 
-const EditUserInfo = () => {
+const EditBrandInfo = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [image, setImage] = useState(null); // Cambiado a null para manejar mejor la carga inicial
@@ -19,9 +19,9 @@ const EditUserInfo = () => {
       user_phone: "",
       user_avatar_link: "",
     },
-    streamer: {
-      streamer_nick: "",
-      streamer_platform: "",
+    brand: {
+      brand_name: "",
+      brand_description: "",
     },
   });
   const [isEnabled, setIsEnabled] = useState(true);
@@ -46,11 +46,11 @@ const EditUserInfo = () => {
     }));
   };
 
-  const handleStreamerChange = (name, value) => {
+  const handleBrandChange = (name, value) => {
     setProfileData((prevData) => ({
       ...prevData,
-      streamer: {
-        ...prevData.streamer,
+      brand: {
+        ...prevData.brand,
         [name]: value,
       },
     }));
@@ -106,16 +106,16 @@ const EditUserInfo = () => {
           user_email,
           user_phone,
         },
-        streamer: {
-          ...profileData.streamer,
-          streamer_nick: profileData.streamer.streamer_nick || "", // Manejar valores nulos o undefined
-          streamer_platform: profileData.streamer.streamer_platform || "", // Manejar valores nulos o undefined
+        brand: {
+          ...profileData.brand,
+          brand_name: profileData.brand.brand_name || "", // Manejar valores nulos o undefined
+          brand_description: profileData.brand.brand_description || "", // Manejar valores nulos o undefined
         },
       };
 
       console.log("Updated Profile Data:", updatedProfileData);
 
-      editStreamerProfile(updatedProfileData.streamer, token);
+      editBrandProfile(updatedProfileData.brand, token);
       editUserProfile(updatedProfileData.user, token);
 
       alert("Usuario editado correctamente");
@@ -179,7 +179,7 @@ const EditUserInfo = () => {
         onChange={(e) => handleProfileChange("user_phone", e.target.value)}
       />
 
-      {profileData.user.user_role === "streamer" && (
+      {profileData.user.user_role === "brand" && (
         <>
           <input
             className="input-form-streamer-edit"
@@ -187,10 +187,8 @@ const EditUserInfo = () => {
             type="text"
             name="streamer_nick"
             placeholder="Streamer Nick"
-            value={profileData.streamer?.streamer_nick || ""}
-            onChange={(e) =>
-              handleStreamerChange("streamer_nick", e.target.value)
-            }
+            value={profileData.brand?.brand_name || ""}
+            onChange={(e) => handleBrandChange("brand_name", e.target.value)}
           />
           <input
             className="input-form-streamer-edit"
@@ -198,9 +196,9 @@ const EditUserInfo = () => {
             type="text"
             name="streamer_platform"
             placeholder="Streamer Platform"
-            value={profileData.streamer?.streamer_platform || ""}
+            value={profileData.brand?.brand_description || ""}
             onChange={(e) =>
-              handleStreamerChange("streamer_platform", e.target.value)
+              handleBrandChange("brand_description", e.target.value)
             }
           />
         </>
@@ -219,4 +217,4 @@ const EditUserInfo = () => {
   );
 };
 
-export default EditUserInfo;
+export default EditBrandInfo;
