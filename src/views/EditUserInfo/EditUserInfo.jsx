@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { editUserProfile, getProfile } from "../../services/apiCalls";
 import "./EditUserInfo.css";
+import { useNavigate } from "react-router-dom";
 
 const EditUserInfo = () => {
   const token = localStorage.getItem("token");
-
+  const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [profileData, setProfileData] = useState({
@@ -15,7 +16,6 @@ const EditUserInfo = () => {
       user_avatar_link: "",
     },
   });
-
   const [isEnabled, setIsEnabled] = useState(true);
 
   useEffect(() => {
@@ -27,6 +27,19 @@ const EditUserInfo = () => {
         console.error("Error al obtener el usuario:", error);
       });
   }, [token]);
+
+  const handleProfileChange = (name, value) => {
+    setProfileData((prevData) => ({
+      user: {
+        ...prevData.user,
+        [name]: value,
+      },
+    }));
+  };
+
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
 
   const submitImage = async () => {
     const data = new FormData();
@@ -47,43 +60,38 @@ const EditUserInfo = () => {
 
       setImageUrl(imageData.url);
       alert("Imagen subida correctamente");
-      return imageData.url;
     } catch (err) {
-      console.log(err);
-      throw err;
+      console.error("Error al subir la imagen:", err);
     }
-  };
-
-  const functionHandler = (e) => {
-    const { name, value } = e.target;
-
-    setProfileData((prevData) => ({
-      user: {
-        ...prevData.user,
-        [name]: value,
-      },
-    }));
   };
 
   const sendData = async () => {
     try {
+      const { user_name, user_email, user_phone } = profileData.user;
+
+      if (!user_name || !user_email || !user_phone) {
+        console.error("Error: User name, email, and phone are required.");
+        return;
+      }
+
       const updatedProfileData = {
-        ...profileData,
+        ...profileData.user,
         user_avatar_link: imageUrl,
         user_name: profileData.user.user_name,
         user_email: profileData.user.user_email,
         user_phone: profileData.user.user_phone,
       };
 
-      editUserProfile(updatedProfileData, token)
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.error("Error al enviar el formulario:", error);
-        });
+      console.log("Updated Profile Data:", updatedProfileData);
+
+      editUserProfile(updatedProfileData, token);
+
+      alert("Usuario editado correctamente");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
+      console.error("Error al editar el usuario:", error);
     }
   };
 
@@ -96,7 +104,7 @@ const EditUserInfo = () => {
           name="profile-pic"
           id="profile-pic"
           type="file"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={handleImageChange}
         ></input>
         <label htmlFor="profile-pic">
           <span className="image-input-form__image-input-form-name">
@@ -118,7 +126,7 @@ const EditUserInfo = () => {
         name="user_name"
         placeholder=""
         value={profileData.user?.user_name || ""}
-        onChange={functionHandler}
+        onChange={(e) => handleProfileChange("user_name", e.target.value)}
       />
       <input
         className="input-form-streamer-edit"
@@ -127,7 +135,7 @@ const EditUserInfo = () => {
         name="user_email"
         placeholder=""
         value={profileData.user?.user_email || ""}
-        onChange={functionHandler}
+        onChange={(e) => handleProfileChange("user_email", e.target.value)}
       />
       <input
         className="input-form-streamer-edit"
@@ -136,7 +144,7 @@ const EditUserInfo = () => {
         name="user_phone"
         placeholder=""
         value={profileData.user?.user_phone || ""}
-        onChange={functionHandler}
+        onChange={(e) => handleProfileChange("user_phone", e.target.value)}
       />
 
       {isEnabled ? (
@@ -144,7 +152,7 @@ const EditUserInfo = () => {
           Edit
         </div>
       ) : (
-        <div className="sendDesign" onClick={() => sendData()}>
+        <div className="sendDesign" onClick={sendData}>
           Send
         </div>
       )}

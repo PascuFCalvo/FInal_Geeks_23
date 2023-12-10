@@ -7,7 +7,7 @@ import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [profileData, setProfileData] = useState(null);
   const [token] = useState(localStorage.getItem("token"));
   const [countries, setCountries] = useState([]);
@@ -17,6 +17,7 @@ const Profile = () => {
     getCountries()
       .then((response) => {
         setCountries(response.data.data);
+        console.log(response.data.data);
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -24,15 +25,18 @@ const Profile = () => {
   }, []); // No hay dependencias aquí para evitar bucles infinitos
 
   useEffect(() => {
-    getProfile(token)
-      .then((response) => {
-        console.log(response.data.data);
+    const fetchData = async () => {
+      try {
+        const response = await getProfile(token);
         setProfileData(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error al obtener el usuario:", error);
-      });
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetchData();
   }, [token]);
+  console.log(profileData);
 
   useEffect(() => {
     if (profileData && profileData.user.user_role === "brand") {
@@ -85,7 +89,7 @@ const Profile = () => {
               </div>
               <button
                 className="edit-profile-button"
-                onClick={() => Navigate("/editUserInfo")}
+                onClick={() => navigate("/editUserInfo")}
               >
                 Editar informacion
               </button>

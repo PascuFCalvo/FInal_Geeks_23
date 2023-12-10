@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { login } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { setToken } from "../tokenSlice";
 
 const LoginUser = () => {
   const navigate = useNavigate();
+
+  // const dispatch = useDispatch();
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -28,8 +33,13 @@ const LoginUser = () => {
 
       const response = await login(body);
       console.log(response.data);
+
       localStorage.setItem("token", response.data.data.token);
-      console.log(response.data.data.token);
+      //almacenar el token en redux
+
+      // const newToken = response.data.data.token;
+      // dispatch(setToken(newToken));
+      // console.log("New Token:", newToken);
 
       setTimeout(() => {
         navigate("/");
