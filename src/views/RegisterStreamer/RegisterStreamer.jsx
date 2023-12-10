@@ -86,7 +86,7 @@ const RegisterStreamer = () => {
 
     try {
       const imageUrl = await submitImage();
-
+      
       setStreamer((prevStreamer) => ({
         ...prevStreamer,
         user_avatar_link: imageUrl,
@@ -103,6 +103,7 @@ const RegisterStreamer = () => {
   //cloudinary api para subir fotos en el formulario
 
   const submitImage = async () => {
+    
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "dt5zg2l9");
@@ -118,7 +119,7 @@ const RegisterStreamer = () => {
       );
       const imageData = await res.json();
       console.log(imageData);
-
+      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);
@@ -150,9 +151,9 @@ const RegisterStreamer = () => {
             </span>
           </label>
         </div>
-        {/* <div className="button-send-pic" onClick={submitImage}>
+        <div className="button-send-pic" onClick={submitImage}>
           Upload
-        </div> */}
+        </div>
 
         <label>
           Nombre de Usuario:

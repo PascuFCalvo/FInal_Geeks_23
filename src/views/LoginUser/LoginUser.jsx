@@ -1,5 +1,4 @@
-import { useState } from "react"; // Assuming you're using React Router
-
+import { useState } from "react";
 import { login } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +8,7 @@ const LoginUser = () => {
     email: "",
     password: "",
   });
-  const [error] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
     setCredentials({
@@ -18,22 +17,28 @@ const LoginUser = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const body = {
-      email: credentials.email,
-      password: credentials.password,
-    };
+    try {
+      const body = {
+        email: credentials.email,
+        password: credentials.password,
+      };
 
-    login(body).then((response) => {
+      const response = await login(body);
       console.log(response.data);
       localStorage.setItem("token", response.data.data.token);
       console.log(response.data.data.token);
+
       setTimeout(() => {
         navigate("/");
       }, 1000);
-    });
+    } catch (error) {
+      setError(
+        "Datos erróneos o usuario desactivado. Por favor, contacta con un administrador."
+      );
+    }
   };
 
   return (

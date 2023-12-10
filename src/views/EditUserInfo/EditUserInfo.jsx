@@ -46,6 +46,7 @@ const EditUserInfo = () => {
       console.log(imageData.url);
 
       setImageUrl(imageData.url);
+      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);
@@ -111,6 +112,7 @@ const EditUserInfo = () => {
       </div>
 
       <input
+        className="input-form-streamer-edit"
         disabled={isEnabled}
         type="text"
         name="user_name"
@@ -119,6 +121,7 @@ const EditUserInfo = () => {
         onChange={functionHandler}
       />
       <input
+        className="input-form-streamer-edit"
         disabled={isEnabled}
         type="text"
         name="user_email"
@@ -127,6 +130,7 @@ const EditUserInfo = () => {
         onChange={functionHandler}
       />
       <input
+        className="input-form-streamer-edit"
         disabled={isEnabled}
         type="text"
         name="user_phone"
