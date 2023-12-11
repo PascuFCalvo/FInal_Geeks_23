@@ -119,9 +119,10 @@ const EditBrandInfo = () => {
       editUserProfile(updatedProfileData.user, token);
 
       alert("Usuario editado correctamente");
-      // setTimeout(() => {
-      //   navigate("/");
-      // }, 1000);
+      localStorage.removeItem("token ");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
       console.error("Error al editar el usuario:", error);
     }

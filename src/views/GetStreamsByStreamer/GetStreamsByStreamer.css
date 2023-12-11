@@ -1,0 +1,11 @@
+/* Basic styles for the component */
+
+
+body {
+   background-color: #282c34;
+   color: white;
+}
+
+.stream-report-image {
+   height: 300px;
+}

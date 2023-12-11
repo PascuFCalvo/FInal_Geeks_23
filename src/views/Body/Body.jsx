@@ -8,6 +8,7 @@ import LoginUser from "../LoginUser/LoginUser";
 import Profile from "../Profile/Profile";
 import EditUserInfo from "../EditUserInfo/EditUserInfo";
 import EditBrandInfo from "../EditBrandInfo/EditBrandInfo";
+import { GetStreamsByStreamer } from "../GetStreamsByStreamer/GetStreamsByStreamer";
 
 const Body = () => {
   return (
@@ -24,6 +25,10 @@ const Body = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/editUserInfo" element={<EditUserInfo />} />
         <Route path="/editBrandInfo" element={<EditBrandInfo />} />
+        <Route
+          path="/getStreamsByStreamer"
+          element={<GetStreamsByStreamer />}
+        />
       </Routes>
     </div>
   );

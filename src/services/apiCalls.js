@@ -27,8 +27,6 @@ export const getProfile = async (token) => {
 };
 
 export const editUserProfile = async (body, token) => {
-  console.log(token);
-  console.log(body);
   return await axios.put(`${url}/editUserProfile`, body, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -37,8 +35,6 @@ export const editUserProfile = async (body, token) => {
 };
 
 export const editStreamerProfile = async (body, token) => {
-  console.log(token);
-  console.log(body);
   return await axios.put(`${url}/editStreamerProfile`, body, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -47,9 +43,16 @@ export const editStreamerProfile = async (body, token) => {
 };
 
 export const editBrandProfile = async (body, token) => {
-  console.log(token);
-  console.log(body);
   return await axios.put(`${url}/editBrandProfile`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getAllmyStreams = async (token) => {
+  console.log(token);
+  return await axios.get(`${url}/getStreamsByStreamer`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

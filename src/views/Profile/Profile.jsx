@@ -132,7 +132,12 @@ const Profile = () => {
               <button className="create-stream-button">
                 Reportar un Stream
               </button>
-              <button className="create-stream-button2">Ver mis Streams</button>
+              <button
+                className="create-stream-button2"
+                onClick={() => navigate("/getStreamsByStreamer")}
+              >
+                Ver mis Streams
+              </button>
             </div>
           </div>
           <BannerMarcas1 />
