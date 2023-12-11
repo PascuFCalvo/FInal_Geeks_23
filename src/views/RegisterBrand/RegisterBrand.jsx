@@ -41,7 +41,7 @@ const RegisterBrand = () => {
     getCountries()
       .then((response) => {
         setPaises(response.data.data);
-        console.log(paises);
+        
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -82,7 +82,7 @@ const RegisterBrand = () => {
     e.preventDefault();
     try {
       const response = await registerBrand(brand);
-      console.log("response:", response.data);
+      
       navigate("/");
     } catch (error) {
       alert("El formulario contiene errores, imposible enviar.");

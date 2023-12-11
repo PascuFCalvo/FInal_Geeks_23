@@ -10,9 +10,8 @@ const Login = () => {
 
   const handleLogout = () => {
     if (token) {
-      // Dispatchea la acción removeToken para eliminar el token
       dispatch(removeToken());
-      console.log("Token:", token);
+
       setTimeout(() => {
         navigate("/");
       }, 1000);

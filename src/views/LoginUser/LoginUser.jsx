@@ -32,14 +32,14 @@ const LoginUser = () => {
       };
 
       const response = await login(body);
-      console.log(response.data);
+      
 
       // localStorage.setItem("token", response.data.data.token);
       // almacenar el token en redux
 
       const newToken = response.data.data.token;
       dispatch(setToken(newToken));
-      console.log("New Token:", newToken);
+      
 
       setTimeout(() => {
         navigate("/");

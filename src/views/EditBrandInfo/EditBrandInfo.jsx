@@ -85,7 +85,7 @@ const EditBrandInfo = () => {
         }
       );
       const imageData = await res.json();
-      console.log(imageData.url);
+      
 
       setImageUrl(imageData.url);
       alert("Imagen subida correctamente");
@@ -118,7 +118,7 @@ const EditBrandInfo = () => {
         },
       };
 
-      console.log("Updated Profile Data:", updatedProfileData);
+      
 
       editBrandProfile(updatedProfileData.brand, token);
       editUserProfile(updatedProfileData.user, token);

@@ -20,7 +20,7 @@ const Profile = () => {
     getCountries()
       .then((response) => {
         setCountries(response.data.data);
-        console.log(response.data.data);
+        
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -39,7 +39,7 @@ const Profile = () => {
 
     fetchData();
   }, [token]);
-  console.log(profileData);
+ 
 
   useEffect(() => {
     if (profileData && profileData.user.user_role === "brand") {

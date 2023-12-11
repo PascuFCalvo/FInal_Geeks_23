@@ -85,7 +85,7 @@ const EditUserInfo = () => {
         }
       );
       const imageData = await res.json();
-      console.log(imageData.url);
+      
 
       setImageUrl(imageData.url);
       alert("Imagen subida correctamente");
@@ -118,7 +118,7 @@ const EditUserInfo = () => {
         },
       };
 
-      console.log("Updated Profile Data:", updatedProfileData);
+      
 
       editStreamerProfile(updatedProfileData.streamer, token);
       editUserProfile(updatedProfileData.user, token);

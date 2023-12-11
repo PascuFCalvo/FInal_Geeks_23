@@ -93,7 +93,7 @@ const RegisterStreamer = () => {
       }));
 
       const response = await registerStreamer(streamer);
-      console.log("response:", response.data);
+      
       navigate("/");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
@@ -118,7 +118,7 @@ const RegisterStreamer = () => {
         }
       );
       const imageData = await res.json();
-      console.log(imageData);
+      
       alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {

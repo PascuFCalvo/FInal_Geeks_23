@@ -44,7 +44,6 @@ export const ReportAStream = () => {
 
     fetchData();
   }, [token]);
-  console.log("Profile Data:", formData.profileData);
 
   useEffect(() => {
     getCountries()
@@ -53,7 +52,6 @@ export const ReportAStream = () => {
           ...prevData,
           paises: response.data.data,
         }));
-        console.log("Paises:", response.data.data);
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -67,7 +65,6 @@ export const ReportAStream = () => {
           ...prevData,
           campañas: response.data.campaigns,
         }));
-        console.log("Campañas:", response.data.campaigns);
       })
       .catch((error) => {
         console.error("Error al obtener las Campañas:", error);
@@ -110,7 +107,7 @@ export const ReportAStream = () => {
 
     const response = await reportAStream(newStreamData, token);
     alert("Stream reported successfully!");
-    console.log("Response:", response);
+    
   };
 
   const submitImage = async (image) => {
@@ -128,7 +125,7 @@ export const ReportAStream = () => {
         }
       );
       const imageData = await res.json();
-      console.log(imageData);
+      
       return imageData.url;
     } catch (err) {
       console.log(err);
