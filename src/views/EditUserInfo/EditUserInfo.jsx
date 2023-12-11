@@ -85,7 +85,6 @@ const EditUserInfo = () => {
         }
       );
       const imageData = await res.json();
-      
 
       setImageUrl(imageData.url);
       alert("Imagen subida correctamente");
@@ -117,8 +116,6 @@ const EditUserInfo = () => {
           streamer_platform: profileData.streamer.streamer_platform || "", // Manejar valores nulos o undefined
         },
       };
-
-      
 
       editStreamerProfile(updatedProfileData.streamer, token);
       editUserProfile(updatedProfileData.user, token);

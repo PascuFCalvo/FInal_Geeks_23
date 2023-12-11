@@ -15,8 +15,8 @@
    position: relative;
 }
 
-.panel-user {
-   width: 8em;
+.user-panel {
+   width: 14em;
    height: 2em;
    border-radius: 3em;
    background-color: #ffffff;
@@ -34,7 +34,7 @@
 
 }
 
-.panel-user:hover {
+.user-panel:hover {
    background-color: #2b2b2b;
    cursor: pointer;
    color: white;
