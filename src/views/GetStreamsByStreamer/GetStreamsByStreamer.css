@@ -4,8 +4,37 @@
 body {
    background-color: #282c34;
    color: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
 }
 
 .stream-report-image {
    height: 300px;
+}
+
+.stream-approved {
+   color: green;
+}
+
+.stream-not-approved {
+   color: red;
+}
+
+ul {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.streamcard-background {
+   display: flex;
+   flex-direction: column;
+   width: 60em;
+   background-color: #8b8b8b;
+   color: white;
+   margin-bottom: 2em;
 }

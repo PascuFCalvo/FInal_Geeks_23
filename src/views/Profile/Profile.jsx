@@ -5,11 +5,14 @@ import "./Profile.css";
 import FooterSection from "../FooterSection/FooterSection";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const navigate = useNavigate();
   const [profileData, setProfileData] = useState(null);
-  const [token] = useState(localStorage.getItem("token"));
+
+  const token = useSelector((state) => state.token.value);
+
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
 

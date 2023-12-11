@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Register = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.token.value);
+
 
   if (token) {
     return null;

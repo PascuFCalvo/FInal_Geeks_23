@@ -8,13 +8,13 @@ export const tokenSlice = createSlice({
   reducers: {
     setToken: (state, action) => {
       state.value = action.payload;
-      console.log(state.value);
     },
     removeToken: (state) => {
-      state.value = null;
+      state.value = ""; // Cambia {} a ""
     },
   },
 });
+
 export const { setToken, removeToken } = tokenSlice.actions;
 
 export default tokenSlice.reducer;

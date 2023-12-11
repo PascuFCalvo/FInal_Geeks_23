@@ -6,9 +6,11 @@ import {
 } from "../../services/apiCalls";
 import "./EditUserInfo.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const EditUserInfo = () => {
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.token.value);
+
   const navigate = useNavigate();
   const [image, setImage] = useState(null); // Cambiado a null para manejar mejor la carga inicial
   const [imageUrl, setImageUrl] = useState("");
