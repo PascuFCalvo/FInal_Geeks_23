@@ -23,7 +23,7 @@ export default configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }).concat(thunk),
-});   
+});
 
 ///////////////////////////////////////////////////////////////////
 //el del estudio de tatus que si funcionaba

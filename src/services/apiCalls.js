@@ -58,3 +58,11 @@ export const getAllmyStreams = async (token) => {
     },
   });
 };
+
+export const getAllCampaigns = async (token) => {
+  return await axios.get(`${url}/getAllCampaigns`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

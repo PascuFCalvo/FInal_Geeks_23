@@ -6,9 +6,12 @@ import {
 } from "../../services/apiCalls";
 import "./EditUserInfo.css";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeToken } from "../tokenSlice";
 
 const EditUserInfo = () => {
+  const dispatch = useDispatch();
+
   const token = useSelector((state) => state.token.value);
 
   const navigate = useNavigate();
@@ -121,7 +124,7 @@ const EditUserInfo = () => {
       editUserProfile(updatedProfileData.user, token);
 
       alert("Usuario editado correctamente");
-      localStorage.removeItem("token ");
+      dispatch(removeToken());
       setTimeout(() => {
         navigate("/");
       }, 1000);

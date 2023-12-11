@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  getAllCampaigns,
   getAllmyStreams,
   getCountries,
   getProfile,
@@ -11,13 +12,26 @@ import { useSelector } from "react-redux";
 
 export const GetStreamsByStreamer = () => {
   const token = useSelector((state) => state.token.value);
-
   const [profileData, setProfileData] = useState(null);
-  const [streams, setStreams] = useState([]);
+  const [streams, setStreams] = useState({ streams: [] });
   const [loading, setLoading] = useState(true);
-  const [countries, setCountries] = useState("");
-  const [country, setCountry] = useState("");
-  // const [campaigns, setCampaigns] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState({});
+  const [campaigns, setCampaigns] = useState([]);
+  const [streamCampaign, setStreamCampaign] = useState([]);
+  const [totalProfit, setTotalProfit] = useState(0);
+
+  useEffect(() => {
+    getAllCampaigns(token)
+      .then((response) => {
+        setCampaigns(response.data.campaigns);
+        console.log(response.data.campaigns);
+      })
+      .catch((error) => {
+        console.error("Error al obtener las campañas:", error);
+      });
+  }, []);
+  console.log(campaigns);
 
   useEffect(() => {
     getCountries()
@@ -43,21 +57,17 @@ export const GetStreamsByStreamer = () => {
 
     fetchData();
   }, [token]);
-
   console.log(profileData);
-
-  //obtener el pais del usuario filtrando por su streamer.country_id
 
   useEffect(() => {
     if (profileData) {
       setCountry(
         countries.find(
           (country) => country.id === profileData.streamer.country_id
-        )
+        ) || {}
       );
     }
   }, [countries, profileData]);
-
   console.log(country);
 
   useEffect(() => {
@@ -74,8 +84,18 @@ export const GetStreamsByStreamer = () => {
 
     fetchData();
   }, [token]);
-
   console.log(streams.streams);
+
+  useEffect(() => {
+    if (profileData && streams.streams.length > 0) {
+      const streamCampaigns = streams.streams.map((stream) => {
+        return campaigns.find((campaign) => campaign.id === stream.campaign_id);
+      });
+
+      setStreamCampaign(streamCampaigns);
+    }
+  }, [campaigns, profileData, streams]);
+  console.log(streamCampaign);
 
   return (
     <div>
@@ -96,8 +116,11 @@ export const GetStreamsByStreamer = () => {
                   <p>Viewer Count: {stream.stream_ammount_of_viewers}</p>
                   <p>Platform: {profileData.streamer.streamer_platform}</p>
                   <p>Descripcion: {stream.stream_date}</p>
+                  <p>Campaña:{campaigns[0].campaign_name}</p>
+                  <p>PPV:{campaigns[0].price_per_single_view}</p>
                   <p>Pais: {country.country_name}</p>
-                  <p>Bonus:{country.country_bonus}</p>
+                  <p>Bonus: {country.country_bonus}</p>
+                  <p>Total a cobrar :{stream.stream_total_to_receive}</p>
                   <p>
                     Stream aprovado :
                     {stream.is_stream_approved ? (
@@ -110,11 +133,13 @@ export const GetStreamsByStreamer = () => {
                     <img
                       className="stream-report-image"
                       src={stream.stream_check_picture_1}
-                    ></img>
+                      alt="Report 1"
+                    />
                     <img
                       className="stream-report-image"
                       src={stream.stream_check_picture_2}
-                    ></img>
+                      alt="Report 2"
+                    />
                   </div>
                 </li>
               ))}
