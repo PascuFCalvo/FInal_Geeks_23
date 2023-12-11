@@ -67,7 +67,6 @@ const EditBrandInfo = () => {
 
   const submitImage = async () => {
     if (!image) {
-      alert("Seleccione una imagen antes de cargarla.");
       return;
     }
 
@@ -85,10 +84,8 @@ const EditBrandInfo = () => {
         }
       );
       const imageData = await res.json();
-      
 
       setImageUrl(imageData.url);
-      alert("Imagen subida correctamente");
     } catch (err) {
       console.error("Error al subir la imagen:", err);
     }
@@ -117,8 +114,6 @@ const EditBrandInfo = () => {
           brand_description: profileData.brand.brand_description || "", // Manejar valores nulos o undefined
         },
       };
-
-      
 
       editBrandProfile(updatedProfileData.brand, token);
       editUserProfile(updatedProfileData.user, token);

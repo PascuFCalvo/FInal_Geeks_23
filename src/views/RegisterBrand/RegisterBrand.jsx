@@ -8,6 +8,8 @@ import { validator } from "../../services/useful";
 const RegisterBrand = () => {
   let [paises, setPaises] = useState([]);
   const navigate = useNavigate();
+  const [image, setImage] = useState("");
+  const [logo, setLogo] = useState("");
   const [brandError, setBrandError] = useState({
     user_name: "",
     user_email: "",
@@ -41,7 +43,6 @@ const RegisterBrand = () => {
     getCountries()
       .then((response) => {
         setPaises(response.data.data);
-        
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -49,7 +50,7 @@ const RegisterBrand = () => {
   }, []);
 
   const handleChange = (e) => {
-    setBrand((prevState) => ({
+    setBrandError((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -71,7 +72,6 @@ const RegisterBrand = () => {
       [fieldName]: error,
     }));
 
-    // Verifica si hay algún error en cualquier campo
     const hasErrors = Object.values(setBrandError).some(
       (error) => error !== ""
     );
@@ -81,12 +81,73 @@ const RegisterBrand = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await registerBrand(brand);
+      const imageUrl = await submitImage();
+      const logoUrl = await submitLogo();
+  
+      
+      setBrand((prevBrand) => ({
+        ...prevBrand,
+        user_avatar_link: imageUrl,
+        brand_logo_link: logoUrl,
+      }));
+  
+      
+      await registerBrand(brand);
+  
       
       navigate("/");
     } catch (error) {
       alert("El formulario contiene errores, imposible enviar.");
       console.error("Error al enviar el formulario:", error);
+    }
+  };
+  };
+
+  const submitImage = async () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "dt5zg2l9");
+    data.append("cloud_name", "dlcgfuujm");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dlcgfuujm/image/upload",
+        {
+          method: "post",
+          body: data,
+        }
+      );
+      const imageData = await res.json();
+
+      
+      return imageData.url;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
+  const submitLogo = async () => {
+    const data = new FormData();
+    data.append("file", logo);
+    data.append("upload_preset", "dt5zg2l9");
+    data.append("cloud_name", "dlcgfuujm");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dlcgfuujm/image/upload",
+        {
+          method: "post",
+          body: data,
+        }
+      );
+      const imageData = await res.json();
+
+      
+      return imageData.url;
+    } catch (err) {
+      console.log(err);
+      throw err;
     }
   };
 
@@ -97,6 +158,27 @@ const RegisterBrand = () => {
       </div>
       <div className="form-body">
         <form className="form" onSubmit={handleSubmit}>
+          <div>
+            <label>Selecciona una foto de perfil</label>
+            <input
+              className="image-input-form"
+              name="profile-pic"
+              id="profile-pic"
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+            ></input>
+            <label htmlFor="profile-pic">
+              <span className="image-input-form__image-input-form-name">
+                {image.name}
+              </span>
+              <span className="image-input-form__image-input-form-button">
+                Buscar archivo
+              </span>
+            </label>
+          </div>
+          <div className="button-send-pic" onClick={submitImage}>
+            Upload
+          </div>
           <label>
             User Name:
             <input
@@ -157,20 +239,7 @@ const RegisterBrand = () => {
             />
           </label>
           <br />
-          <label>
-            User Avatar Link:
-            <input
-              className={`input-form-brand ${
-                brandError.user_avatar_link ? "error" : "normal"
-              }`}
-              type="text"
-              name="user_avatar_link"
-              placeholder="Link de la imagen   htttp://imgurl.com"
-              value={brand.user_avatar_link}
-              onChange={handleChange}
-              onBlur={errorCheck}
-            />
-          </label>
+
           <br />
 
           <label>
@@ -187,6 +256,27 @@ const RegisterBrand = () => {
               onBlur={errorCheck}
             />
           </label>
+          <div>
+            <label>Selecciona el logo de tu marca</label>
+            <input
+              className="image-input-form"
+              name="logo-pic"
+              id="logo-pic"
+              type="file"
+              onChange={(e) => setLogo(e.target.files[0])}
+            ></input>
+            <label htmlFor="logo-pic">
+              <span className="image-input-form__image-input-form-name">
+                {logo.name}
+              </span>
+              <span className="image-input-form__image-input-form-button">
+                Buscar archivo
+              </span>
+            </label>
+          </div>
+          <div className="button-send-pic" onClick={submitLogo}>
+            Upload
+          </div>
           <br />
           <label>
             Brand CIF:
@@ -218,20 +308,7 @@ const RegisterBrand = () => {
             />
           </label>
           <br />
-          <label>
-            Brand Logo Link:
-            <input
-              className={`input-form-brand ${
-                brandError.brand_logo_link ? "error" : "normal"
-              }`}
-              type="text"
-              name="brand_logo_link"
-              placeholder="Link de la imagen   htttp://imgurl.com"
-              value={brand.brand_logo_link}
-              onChange={handleChange}
-              onBlur={errorCheck}
-            />
-          </label>
+
           <br />
 
           <select

@@ -67,7 +67,6 @@ const EditUserInfo = () => {
 
   const submitImage = async () => {
     if (!image) {
-      alert("Seleccione una imagen antes de cargarla.");
       return;
     }
 
@@ -87,7 +86,7 @@ const EditUserInfo = () => {
       const imageData = await res.json();
 
       setImageUrl(imageData.url);
-      alert("Imagen subida correctamente");
+      
     } catch (err) {
       console.error("Error al subir la imagen:", err);
     }

@@ -92,7 +92,7 @@ const RegisterStreamer = () => {
         user_avatar_link: imageUrl,
       }));
 
-      const response = await registerStreamer(streamer);
+      await registerStreamer(streamer);
       
       navigate("/");
     } catch (error) {
@@ -119,7 +119,7 @@ const RegisterStreamer = () => {
       );
       const imageData = await res.json();
       
-      alert("Imagen subida correctamente");
+      
       return imageData.url;
     } catch (err) {
       console.log(err);

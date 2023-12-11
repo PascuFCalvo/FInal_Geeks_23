@@ -20,7 +20,7 @@ export const ImageLoader = () => {
       );
       const imageData = await res.json();
       console.log(imageData);
-      alert("Imagen subida correctamente");
+      
       return imageData.url;
     } catch (err) {
       console.log(err);

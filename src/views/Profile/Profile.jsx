@@ -20,7 +20,6 @@ const Profile = () => {
     getCountries()
       .then((response) => {
         setCountries(response.data.data);
-        
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -39,7 +38,6 @@ const Profile = () => {
 
     fetchData();
   }, [token]);
- 
 
   useEffect(() => {
     if (profileData && profileData.user.user_role === "brand") {
@@ -132,7 +130,10 @@ const Profile = () => {
                 </div>
               </div>
 
-              <button className="create-stream-button">
+              <button
+                className="create-stream-button"
+                onClick={() => navigate("/reportAStream")}
+              >
                 Reportar un Stream
               </button>
               <button
