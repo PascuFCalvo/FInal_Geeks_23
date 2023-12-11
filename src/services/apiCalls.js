@@ -66,3 +66,13 @@ export const getAllCampaigns = async (token) => {
     },
   });
 };
+
+export const reportAStream = async (body, token) => {
+  console.log(body);
+  console.log(token);
+  return await axios.post(`${url}/createStream`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

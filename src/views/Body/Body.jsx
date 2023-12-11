@@ -9,6 +9,7 @@ import Profile from "../Profile/Profile";
 import EditUserInfo from "../EditUserInfo/EditUserInfo";
 import EditBrandInfo from "../EditBrandInfo/EditBrandInfo";
 import { GetStreamsByStreamer } from "../GetStreamsByStreamer/GetStreamsByStreamer";
+import { ReportAStream } from "../ReportAStream/ReportAStream";
 
 const Body = () => {
   return (
@@ -29,6 +30,7 @@ const Body = () => {
           path="/getStreamsByStreamer"
           element={<GetStreamsByStreamer />}
         />
+        <Route path="/reportAStream" element={<ReportAStream />} />
       </Routes>
     </div>
   );

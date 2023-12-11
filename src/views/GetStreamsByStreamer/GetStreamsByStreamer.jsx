@@ -18,8 +18,6 @@ export const GetStreamsByStreamer = () => {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState({});
   const [campaigns, setCampaigns] = useState([]);
-  const [streamCampaign, setStreamCampaign] = useState([]);
-  const [totalProfit, setTotalProfit] = useState(0);
 
   useEffect(() => {
     getAllCampaigns(token)
@@ -31,7 +29,6 @@ export const GetStreamsByStreamer = () => {
         console.error("Error al obtener las campañas:", error);
       });
   }, []);
-  console.log(campaigns);
 
   useEffect(() => {
     getCountries()
@@ -43,7 +40,6 @@ export const GetStreamsByStreamer = () => {
         console.error("Error al obtener los países:", error);
       });
   }, []);
-  console.log(countries);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +53,6 @@ export const GetStreamsByStreamer = () => {
 
     fetchData();
   }, [token]);
-  console.log(profileData);
 
   useEffect(() => {
     if (profileData) {
@@ -68,7 +63,6 @@ export const GetStreamsByStreamer = () => {
       );
     }
   }, [countries, profileData]);
-  console.log(country);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,18 +78,6 @@ export const GetStreamsByStreamer = () => {
 
     fetchData();
   }, [token]);
-  console.log(streams.streams);
-
-  useEffect(() => {
-    if (profileData && streams.streams.length > 0) {
-      const streamCampaigns = streams.streams.map((stream) => {
-        return campaigns.find((campaign) => campaign.id === stream.campaign_id);
-      });
-
-      setStreamCampaign(streamCampaigns);
-    }
-  }, [campaigns, profileData, streams]);
-  console.log(streamCampaign);
 
   return (
     <div>
