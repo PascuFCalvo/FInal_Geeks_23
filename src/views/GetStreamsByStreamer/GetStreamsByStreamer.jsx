@@ -20,30 +20,20 @@ export const GetStreamsByStreamer = () => {
   const [country, setCountry] = useState({});
   const [campaigns, setCampaigns] = useState([]);
 
-  const payStream = (streamId) => {
-    console.log(`Cobrar stream: ${streamId}`);
-    payStreamAPI(streamId, token)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error("Error al cobrar stream:", error);
-      });
-  };
-
-  const handlerPayStream = (streamId) => {
-    payStream(streamId);
+  const handlerPayStream = (streamId, token) => {
+    payStreamAPI(streamId, token);
   };
 
   useEffect(() => {
     getAllCampaigns(token)
       .then((response) => {
+        console.log(response.data.campaigns);
         setCampaigns(response.data.campaigns);
       })
       .catch((error) => {
         console.error("Error al obtener las campañas:", error);
       });
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     getCountries()
@@ -60,6 +50,7 @@ export const GetStreamsByStreamer = () => {
       try {
         const profileResponse = await getProfile(token);
         setProfileData(profileResponse.data.data);
+        console.log(profileResponse.data.data);
       } catch (error) {
         console.error("Error fetching profile:", error);
       }
@@ -83,6 +74,7 @@ export const GetStreamsByStreamer = () => {
       try {
         const streamsResponse = await getAllmyStreams(token);
         setStreams(streamsResponse.data);
+        console.log(streamsResponse.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching streams:", error);
@@ -152,13 +144,19 @@ export const GetStreamsByStreamer = () => {
                           <span className="bold-and-small">
                             Campaña activada:
                           </span>{" "}
-                          {campaigns[0].campaign_name}
+                          {
+                            campaigns[parseInt(stream.campaign_id) - 1]
+                              .campaign_name
+                          }
                         </p>
                         <p>
                           <span className="bold-and-small">
                             Pago por visualizacion:
                           </span>{" "}
-                          {campaigns[0].price_per_single_view}
+                          {
+                            campaigns[parseInt(stream.campaign_id) - 1]
+                              .price_per_single_view
+                          }
                         </p>
                         <p>
                           <span className="bold-and-small">
@@ -175,7 +173,7 @@ export const GetStreamsByStreamer = () => {
                     </div>
                     <div className="payed-and-approved-inner">
                       <p>
-                        Stream aprovado :
+                        Stream aprobado :
                         {stream.is_stream_approved ? (
                           <span className="stream-approved">SI</span>
                         ) : (
@@ -196,7 +194,7 @@ export const GetStreamsByStreamer = () => {
                   {!stream.is_stream_payed ? (
                     <button
                       className="button-pay-stream"
-                      onClick={() => handlerPayStream(stream.id)}
+                      onClick={() => handlerPayStream(stream.id, token)}
                     >
                       cobrar stream
                     </button>

@@ -23,27 +23,28 @@ const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
-  const [setStreams] = useState({ streams: [] });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const streamsResponse = await getAllmyStreams(token);
-        console.log(streamsResponse.data.streams);
-        setStreams(streamsResponse.data.streams);
-      } catch (error) {
-        console.error("Error fetching streams:", error);
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const [streams, setStreams] = useState([]);
+  const [laststream, setLaststream] = useState([]);
 
   useEffect(() => {
     getProfile(token).then((response) => {
       setProfile(response.data.data.user.id);
-      console.log(profile);
+      console.log(response.data.data.user);
     });
+  }, [token]);
+
+  useEffect(() => {
+    getAllmyStreams(token)
+      .then((response) => {
+        setStreams(response.data.streams);
+        return response.data.streams;
+      })
+      .then((streamsData) => {
+        setLaststream(streamsData[streamsData.length - 1]);
+      })
+      .catch((error) => {
+        console.error("Error fetching streams:", error);
+      });
   }, [token]);
 
   const handleInactivateUser = async () => {
@@ -135,7 +136,7 @@ const Profile = () => {
                 <h2>{profileData.user.user_phone}</h2>
                 <p>phone</p>
                 <br></br>
-                <h2>{country}</h2>
+                <h2>Country: {country}</h2>
                 <p>country</p>
                 <br></br>
               </div>
@@ -179,7 +180,7 @@ const Profile = () => {
                       {profileData.streamer.streamer_revenue}
                     </h2>
                     <h2 className="streamer-campaigns">
-                      Tienes streams activos:
+                      Tienes campañas activas:
                       {profileData.streamer.has_active_campaigns === 0
                         ? "No"
                         : "Yes"}
@@ -190,7 +191,7 @@ const Profile = () => {
                   <p>Tu último stream:</p>
                   <img
                     className="streamer-stream-image"
-                    src={profileData.streamer.image_stream}
+                    src={laststream.stream_check_picture_2}
                   ></img>
                 </div>
               </div>
