@@ -51,7 +51,6 @@ export const editBrandProfile = async (body, token) => {
 };
 
 export const getAllmyStreams = async (token) => {
-  
   return await axios.get(`${url}/getStreamsByStreamer`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -68,8 +67,17 @@ export const getAllCampaigns = async (token) => {
 };
 
 export const reportAStream = async (body, token) => {
-  
   return await axios.post(`${url}/createStream`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const inactivateUserProfile = async (body, token) => {
+  console.log(body);
+  console.log(token);
+  return await axios.put(`${url}/inactivateUser`, body, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

@@ -1,0 +1,38 @@
+.pop-up-delete-user-container {
+   width: 90%;
+   height: 40%;
+   position: absolute;
+   background-color: lightcoral;
+   border: solid 2px red;
+   display: flex;
+   justify-content: center;
+
+}
+
+.pop-up-delete-user-container p {
+   color: white;
+   margin-top: 1em;
+   margin-bottom: 1em;
+   font-size: 1.2em;
+   font-weight: bold;
+}
+
+
+.buttons-pop-up-delete-user {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 2em;
+}
+
+.buttons-pop-up-delete-user :first-child {
+   background-color: red;
+
+}
+
+.buttons-pop-up-delete-user:hover :first-child {
+   background-color: darkred;
+   color: white;
+}

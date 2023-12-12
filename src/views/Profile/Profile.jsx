@@ -1,20 +1,47 @@
 import { useState, useEffect } from "react";
-import { getCountries, getProfile } from "../../services/apiCalls";
+import {
+  getCountries,
+  getProfile,
+  inactivateUserProfile,
+} from "../../services/apiCalls";
 import NavBar from "../NavBar/NavBar";
 import "./Profile.css";
 import FooterSection from "../FooterSection/FooterSection";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import PopupDeleteUser from "../../common/PopupDeleteUser/PopupDeleteUser";
+import { removeToken } from "../tokenSlice";
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [profileData, setProfileData] = useState(null);
-
+  const [popupDisplay, setPopupDisplay] = useState(false); // [1
   const token = useSelector((state) => state.token.value);
-
+  const [profile, setProfile] = useState(null);
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    getProfile(token).then((response) => {
+      setProfile(response.data.data.user.id);
+      console.log(profile);
+    });
+  }, [token]);
+
+  const handleInactivateUser = async () => {
+    try {
+      inactivateUserProfile(profile, token);
+      dispatch(removeToken());
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+      setPopupDisplay(false);
+    } catch (error) {
+      console.error("Error al desactivar al usuario:", error);
+    }
+  };
 
   useEffect(() => {
     getCountries()
@@ -24,7 +51,7 @@ const Profile = () => {
       .catch((error) => {
         console.error("Error al obtener los países:", error);
       });
-  }, []); // No hay dependencias aquí para evitar bucles infinitos
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +65,14 @@ const Profile = () => {
 
     fetchData();
   }, [token]);
+
+  const handlerPopupDisplay = () => {
+    setPopupDisplay(!popupDisplay);
+  };
+
+  const handleCancelDelete = () => {
+    setPopupDisplay(false);
+  };
 
   useEffect(() => {
     if (profileData && profileData.user.user_role === "brand") {
@@ -88,12 +123,26 @@ const Profile = () => {
                 <p>country</p>
                 <br></br>
               </div>
-              <button
-                className="edit-profile-button"
-                onClick={() => navigate("/editUserInfo")}
-              >
-                Editar informacion
-              </button>
+              <div className="buttons-user-panel-profile">
+                <button
+                  className="edit-profile-button"
+                  onClick={() => navigate("/editUserInfo")}
+                >
+                  Editar informacion
+                </button>
+                <button
+                  className="delete-profile-button"
+                  onClick={() => handlerPopupDisplay()}
+                >
+                  X
+                </button>
+              </div>
+              {popupDisplay && (
+                <PopupDeleteUser
+                  onCancelDelete={handleCancelDelete}
+                  onInactivateUser={handleInactivateUser}
+                />
+              )}
             </div>
 
             <div className="profile-streamer-card">

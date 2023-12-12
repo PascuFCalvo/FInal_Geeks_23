@@ -83,24 +83,21 @@ const RegisterBrand = () => {
     try {
       const imageUrl = await submitImage();
       const logoUrl = await submitLogo();
-  
       
+
       setBrand((prevBrand) => ({
         ...prevBrand,
         user_avatar_link: imageUrl,
         brand_logo_link: logoUrl,
       }));
-  
-      
+
       await registerBrand(brand);
-  
-      
+
       navigate("/");
     } catch (error) {
       alert("El formulario contiene errores, imposible enviar.");
       console.error("Error al enviar el formulario:", error);
     }
-  };
   };
 
   const submitImage = async () => {
@@ -119,7 +116,7 @@ const RegisterBrand = () => {
       );
       const imageData = await res.json();
 
-      
+      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);
@@ -143,7 +140,7 @@ const RegisterBrand = () => {
       );
       const imageData = await res.json();
 
-      
+      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);

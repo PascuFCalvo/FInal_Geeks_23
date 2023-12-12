@@ -22,8 +22,6 @@ export const ReportAStream = () => {
     campaign_id: "",
     country_id: "",
     stream_total_to_receive: "",
-    image1: null,
-    image2: null,
     profileData: null,
     paises: [],
     campañas: [],
@@ -105,9 +103,8 @@ export const ReportAStream = () => {
       stream_total_to_receive: formData.stream_total_to_receive,
     };
 
-    const response = await reportAStream(newStreamData, token);
+    await reportAStream(newStreamData, token);
     alert("Stream reported successfully!");
-    
   };
 
   const submitImage = async (image) => {
@@ -125,7 +122,7 @@ export const ReportAStream = () => {
         }
       );
       const imageData = await res.json();
-      
+
       return imageData.url;
     } catch (err) {
       console.log(err);
