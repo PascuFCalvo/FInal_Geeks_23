@@ -83,3 +83,13 @@ export const inactivateUserProfile = async (body, token) => {
     },
   });
 };
+
+export const payStreamAPI = async (body, token) => {
+  console.log(body);
+  console.log(token);
+  return await axios.put(`${url}/payStream`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

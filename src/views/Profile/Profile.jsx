@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  getAllmyStreams,
   getCountries,
   getProfile,
   inactivateUserProfile,
@@ -22,6 +23,21 @@ const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
+  const [setStreams] = useState({ streams: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const streamsResponse = await getAllmyStreams(token);
+        console.log(streamsResponse.data.streams);
+        setStreams(streamsResponse.data.streams);
+      } catch (error) {
+        console.error("Error fetching streams:", error);
+      }
+    };
+
+    fetchData();
+  }, [token]);
 
   useEffect(() => {
     getProfile(token).then((response) => {
@@ -119,7 +135,7 @@ const Profile = () => {
                 <h2>{profileData.user.user_phone}</h2>
                 <p>phone</p>
                 <br></br>
-                <h2>Country: {country}</h2>
+                <h2>{country}</h2>
                 <p>country</p>
                 <br></br>
               </div>
@@ -163,7 +179,7 @@ const Profile = () => {
                       {profileData.streamer.streamer_revenue}
                     </h2>
                     <h2 className="streamer-campaigns">
-                      Tienes campañas activas:
+                      Tienes streams activos:
                       {profileData.streamer.has_active_campaigns === 0
                         ? "No"
                         : "Yes"}
