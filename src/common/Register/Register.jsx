@@ -9,7 +9,7 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const token = useSelector((state) => state.token.value);
 
-  const enroutador = {
+  const enrutador = {
     "/": { textButton: "Ir a mi panel de Usuario", navigation: "/profile" },
     "/profile": { textButton: "Volver al inicio", navigation: "/" },
     "/getStreamsByStreamer": {
@@ -38,8 +38,11 @@ const Register = () => {
     },
   };
 
-  if (token && enroutador[location.pathname]) {
-    const { textButton, navigation } = enroutador[location.pathname];
+  if (token && enrutador[location.pathname]) {
+    const infoRuta = enrutador[location.pathname];
+    const textButton = infoRuta.textButton;
+    const navigation = infoRuta.navigation;
+
     return (
       <div className="body-register">
         <div className="user-panel" onClick={() => navigate(navigation)}>

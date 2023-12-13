@@ -9,7 +9,7 @@ const MainSectionHorizontal5 = () => {
           <div className="card-section-5">
             <img
               className="img-section5"
-              src="../../src/assets/images/ICONS/faster-icon-png-17753.png"
+              src="../src/assets/images/ICONS/faster-icon-png-17753.png"
               width={150}
             ></img>
             <h2 className="h2-section5">RÁPIDO</h2>
@@ -20,7 +20,7 @@ const MainSectionHorizontal5 = () => {
           <div className="card-section-5">
             <img
               className="img-section5"
-              src="../../src/assets/images/ICONS/easy.png"
+              src="../src/assets/images/ICONS/easy.png"
               width={150}
             ></img>
             <h2 className="h2-section5">SENCILLO</h2>
@@ -31,7 +31,7 @@ const MainSectionHorizontal5 = () => {
           <div className="card-section-5">
             <img
               className="img-section5"
-              src="../../src/assets/images/ICONS/rueda-dentada.png"
+              src="../src/assets/images/ICONS/rueda-dentada.png"
               width={150}
             ></img>
             <h2 className="h2-section5">FÁCIL</h2>
@@ -43,7 +43,7 @@ const MainSectionHorizontal5 = () => {
           <div className="card-section-5">
             <img
               className="img-section5"
-              src="../../src/assets/images/ICONS/change-management-512.png"
+              src="../src/assets/images/ICONS/change-management-512.png"
               width={150}
             ></img>
             <h2 className="h2-section5">CAMBIANDO</h2>

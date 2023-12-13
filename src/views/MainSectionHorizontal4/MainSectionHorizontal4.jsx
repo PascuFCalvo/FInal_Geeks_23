@@ -8,7 +8,7 @@ const MainSectionHorizontal4 = () => {
           <div className="Main-section-horizontal4-content-left">
             <img
               className="Image-section-4"
-              src="../../src/assets/images/WEBIMAGES/s1mple.jpg"
+              src="../src/assets/images/WEBIMAGES/s1mple.jpg"
               alt="Imagen de la sección 4"
             />
           </div>
@@ -22,7 +22,7 @@ const MainSectionHorizontal4 = () => {
             </p>
             <img
               className="Image-section-4"
-              src="../../src/assets/images/WEBICONS/twitch.png"
+              src="../src/assets/images/WEBICONS/twitch.png"
               width={100}
               alt="Imagen de la sección 4"
             />

@@ -98,7 +98,7 @@ export const GetStreamsByStreamer = () => {
         <div className="spinner-screen">
           <p>Accediendo a tus Streams</p>
           <img
-            src="../../src/assets/images/GIFS/Spinner.gif"
+            src="../src/assets/images/GIFS/Spinner.gif"
             alt="loading"
             className="loading-gif"
           />

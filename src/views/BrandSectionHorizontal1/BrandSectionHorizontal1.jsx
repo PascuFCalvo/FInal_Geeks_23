@@ -15,7 +15,7 @@ const BrandSectionHorizontal1 = () => {
 
           <img
             className="image-brand-section"
-            src="../../src/assets/images/BRANDS/Computer.png"
+            src="../src/assets/images/BRANDS/Computer.png"
           ></img>
           <p className="paragraf-section1">
             Diseña campañas geniales y conecta con las generaciones jóvenes a

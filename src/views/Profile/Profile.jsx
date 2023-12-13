@@ -144,7 +144,7 @@ const Profile = () => {
         <div className="spinner-screen">
           <p>Accediendo a tu pefil</p>
           <img
-            src="../../src/assets/images/GIFS/Spinner.gif"
+            src="../src/assets/images/GIFS/Spinner.gif"
             alt="loading"
             className="loading-gif"
           />
@@ -226,7 +226,7 @@ const Profile = () => {
                             <div className="modal-container-credit-out">
                               <p>Realizando el pago...</p>
                               <img
-                                src="../../src/assets/images/GIFS/Spinner.gif"
+                                src="../src/assets/images/GIFS/Spinner.gif"
                                 alt="loading"
                                 className="loading-gif-credit-out"
                               />

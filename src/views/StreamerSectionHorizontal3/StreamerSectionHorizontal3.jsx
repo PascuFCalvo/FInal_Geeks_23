@@ -14,7 +14,7 @@ const StreamerSectionHorizontal3 = () => {
           <div className="card-streamer-section-3">
             <img
               className="img-section3"
-              src="../../src/assets/images/WEBIMAGES/you.jpg"
+              src="../src/assets/images/WEBIMAGES/you.jpg"
             ></img>
             <h2 className="h2-section3">Definitivamente es para ti</h2>
             <p className="p-section3">
@@ -25,7 +25,7 @@ const StreamerSectionHorizontal3 = () => {
           <div className="card-streamer-section-3">
             <img
               className="img-section3"
-              src="../../src/assets/images/WEBIMAGES/audience.jpg"
+              src="../src/assets/images/WEBIMAGES/audience.jpg"
             ></img>
             <h2 className="h2-section3">A tu audiencia le encantará</h2>
             <p className="p-section3">
@@ -35,7 +35,7 @@ const StreamerSectionHorizontal3 = () => {
           <div className="card-streamer-section-3">
             <img
               className="img-section3"
-              src="../../src/assets/images/WEBIMAGES/gente.jpg"
+              src="../src/assets/images/WEBIMAGES/gente.jpg"
             ></img>
             <h2 className="h2-section3">Todos son bienvenidos</h2>
             <p className="p-section3">
@@ -45,7 +45,7 @@ const StreamerSectionHorizontal3 = () => {
           <div className="card-streamer-section-3">
             <img
               className="img-section3"
-              src="../../src/assets/images/WEBIMAGES/vigilante.jpg"
+              src="../src/assets/images/WEBIMAGES/vigilante.jpg"
             ></img>
             <h2 className="h2-section3">100% bajo tu control</h2>
             <p className="p-section3">

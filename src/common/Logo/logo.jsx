@@ -7,10 +7,9 @@ const Logo = () => {
     <div className="logo">
       <img
         className="image-logo"
-        src="../../src/assets/images/logo-largo.png"
+        src="../src/assets/images/logo-largo.png"
         alt="logo"
         onClick={() => navigate("/")}
-        
       />
     </div>
   );

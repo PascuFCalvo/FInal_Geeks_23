@@ -21,7 +21,7 @@ const StreamerSectionHorizontal1 = () => {
             </div>
           </div>
           <img
-            src="../../src/assets/images/WEBIMAGES/drdisrespect.jpg"
+            src="../src/assets/images/WEBIMAGES/drdisrespect.jpg"
             className="streamer-section-img1"
           ></img>
           <div className="reclamo-streamer">

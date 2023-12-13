@@ -32,7 +32,7 @@ const MainSectionHorizontal1 = () => {
           </div>
           <img
             className="streamer-section-1"
-            src="../../src/assets/images/WEBICONS/streamer.png"
+            src="../src/assets/images/WEBICONS/streamer.png"
           ></img>
         </section>
       </div>

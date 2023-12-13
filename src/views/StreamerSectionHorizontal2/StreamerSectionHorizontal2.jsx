@@ -7,7 +7,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../../src/assets/images/BRANDS/brandspanel.png"
+            src="../src/assets/images/BRANDS/brandspanel.png"
             alt="Imagen de la sección 2"
           />
         </div>
@@ -26,7 +26,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../../src/assets/images/WEBIMAGES/eldenring.png"
+            src="../src/assets/images/WEBIMAGES/eldenring.png"
             alt="Imagen de la sección 2"
           />
         </div>
@@ -45,7 +45,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../../src/assets/images/WEBIMAGES/charts.jpg"
+            src="../src/assets/images/WEBIMAGES/charts.jpg"
             alt="Imagen de la sección 2"
           />
         </div>
