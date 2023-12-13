@@ -53,6 +53,12 @@ const Register = () => {
         Ir a mi panel de Usuario
       </div>
     );
+  } else if (token && location.pathname === "/editBrandInfo") {
+    return (
+      <div className="user-panel" onClick={() => navigate("/profile")}>
+        Ir a mi panel de Usuario
+      </div>
+    );
   }
 
   return (

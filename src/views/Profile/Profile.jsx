@@ -35,7 +35,6 @@ const Profile = () => {
     getProfile(token).then((response) => {
       setProfile(response.data.data.user.id);
       setCompleteProfile(response.data.data);
-      console.log(response.data.data);
     });
   }, [token]);
 
@@ -55,8 +54,6 @@ const Profile = () => {
 
   const handlerCreditToZero = async () => {
     setCreditToZero(true);
-
-    console.log(completeProfile.streamer);
 
     const updatedProfileData = {
       streamer: {
@@ -145,7 +142,7 @@ const Profile = () => {
       <NavBar />
       {loading ? (
         <div className="spinner-screen">
-          <p>Accediendo a tus pefil</p>
+          <p>Accediendo a tu pefil</p>
           <img
             src="../../src/assets/images/GIFS/Spinner.gif"
             alt="loading"
