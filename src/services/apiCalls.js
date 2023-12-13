@@ -35,6 +35,8 @@ export const editUserProfile = async (body, token) => {
 };
 
 export const editStreamerProfile = async (body, token) => {
+  console.log(body);
+  console.log(token);
   return await axios.put(`${url}/editStreamerProfile`, body, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -90,7 +92,7 @@ export const payStreamAPI = async (stream_id, token) => {
   console.log(token);
   return await axios.put(
     `${url}/payStream`,
-    { "stream_id": stream_id },
+    { stream_id: stream_id },
     {
       headers: {
         Authorization: `Bearer ${token}`,

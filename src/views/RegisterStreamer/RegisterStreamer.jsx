@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { getCountries, registerStreamer } from "../../services/apiCalls";
 import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
+import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
+import FooterSection from "../FooterSection/FooterSection";
 
 const RegisterStreamer = () => {
   const [paises, setPaises] = useState([]);
@@ -71,39 +73,38 @@ const RegisterStreamer = () => {
       [fieldName]: error,
     }));
 
-    // Verifica si hay algún error en cualquier campo
-
     const hasErrors = Object.values(setStreamerError).some(
       (error) => error !== ""
     );
     setErrors(hasErrors);
   };
 
-  // manejador del formulario, se espera a que se suba la imagen y luego se envía el formulario
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const imageUrl = await submitImage();
-      
-      setStreamer((prevStreamer) => ({
+      const imageUrl = await submitImage(image);
+      console.log(imageUrl);
+
+      setStreamer((prevStreamer, imageUrl) => ({
         ...prevStreamer,
         user_avatar_link: imageUrl,
       }));
 
       await registerStreamer(streamer);
-      
+
+      alert("Streamer registrado correctamente");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
       navigate("/");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
   };
 
-  //cloudinary api para subir fotos en el formulario
-
-  const submitImage = async () => {
-    
+  const submitImage = async (image) => {
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "dt5zg2l9");
@@ -118,8 +119,7 @@ const RegisterStreamer = () => {
         }
       );
       const imageData = await res.json();
-      
-      
+
       return imageData.url;
     } catch (err) {
       console.log(err);
@@ -150,9 +150,6 @@ const RegisterStreamer = () => {
               Buscar archivo
             </span>
           </label>
-        </div>
-        <div className="button-send-pic" onClick={submitImage}>
-          Upload
         </div>
 
         <label>
@@ -310,6 +307,8 @@ const RegisterStreamer = () => {
           </button>
         </div>
       </form>
+      <BannerMarcas1 />
+      <FooterSection />
     </div>
   );
 };

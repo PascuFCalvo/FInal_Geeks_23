@@ -12,7 +12,7 @@ const MainSectionHorizontal1 = () => {
             STREAMERS Y MARCAS CONECTADOS PARA CRECER
           </h1>
           <p className="paragraf-section1">
-            Conectamos las marcas mas destacadas con los treamers mas
+            Conectamos las marcas mas destacadas con los Streamers mas
             influyentes para captar nuevas audiencias y potenciar tu stream
             mediante breves anuncios integrados en tus transmisiones en vivo
           </p>

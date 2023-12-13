@@ -20,7 +20,7 @@ const Register = () => {
   } else if (token && location.pathname === "/profile") {
     return (
       <div className="user-panel" onClick={() => navigate("/")}>
-        volver al menu principal
+        volver al inicio
       </div>
     );
   } else if (token && location.pathname === "/getStreamsByStreamer") {
@@ -36,6 +36,18 @@ const Register = () => {
       </div>
     );
   } else if (token && location.pathname === "/brands") {
+    return (
+      <div className="user-panel" onClick={() => navigate("/profile")}>
+        Ir a mi panel de Usuario
+      </div>
+    );
+  } else if (token && location.pathname === "/reportAStream") {
+    return (
+      <div className="user-panel" onClick={() => navigate("/profile")}>
+        Ir a mi panel de Usuario
+      </div>
+    );
+  } else if (token && location.pathname === "/editUserInfo") {
     return (
       <div className="user-panel" onClick={() => navigate("/profile")}>
         Ir a mi panel de Usuario

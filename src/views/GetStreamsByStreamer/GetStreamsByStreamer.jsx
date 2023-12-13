@@ -10,6 +10,7 @@ import "./GetStreamsByStreamer.css";
 import NavBar from "../NavBar/NavBar";
 import FooterSection from "../FooterSection/FooterSection";
 import { useSelector } from "react-redux";
+import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 
 export const GetStreamsByStreamer = () => {
   const token = useSelector((state) => state.token.value);
@@ -235,6 +236,7 @@ export const GetStreamsByStreamer = () => {
           )}
         </div>
       )}
+      <BannerMarcas1 />
       <FooterSection />
     </div>
   );

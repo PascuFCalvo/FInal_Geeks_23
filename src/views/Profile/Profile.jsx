@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  editStreamerProfile,
   getAllmyStreams,
   getCountries,
   getProfile,
@@ -21,16 +22,20 @@ const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [popupDisplay, setPopupDisplay] = useState(false); // [1
   const token = useSelector((state) => state.token.value);
+  const [completeProfile, setCompleteProfile] = useState(false); // [1
   const [profile, setProfile] = useState(null);
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [streams, setStreams] = useState([]);
   const [laststream, setLaststream] = useState([]);
+  const [creditToZero, setCreditToZero] = useState(false);
 
   useEffect(() => {
     getProfile(token).then((response) => {
       setProfile(response.data.data.user.id);
-      console.log(response.data.data.user);
+      setCompleteProfile(response.data.data);
+      console.log(response.data.data);
     });
   }, [token]);
 
@@ -47,6 +52,25 @@ const Profile = () => {
         console.error("Error fetching streams:", error);
       });
   }, [token]);
+
+  const handlerCreditToZero = async () => {
+    setCreditToZero(true);
+
+    console.log(completeProfile.streamer);
+
+    const updatedProfileData = {
+      streamer: {
+        ...completeProfile.streamer,
+        streamer_revenue: 0,
+      },
+    };
+
+    await editStreamerProfile(updatedProfileData.streamer, token);
+
+    setTimeout(() => {
+      setCreditToZero(false);
+    }, 3000);
+  };
 
   const handleInactivateUser = async () => {
     try {
@@ -84,7 +108,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, creditToZero]);
 
   const handlerPopupDisplay = () => {
     setPopupDisplay(!popupDisplay);
@@ -146,10 +170,10 @@ const Profile = () => {
                   <p>email</p>
                   <br></br>
                   <h2>{profileData.user.user_phone}</h2>
-                  <p>phone</p>
+                  <p>Telefono</p>
                   <br></br>
-                  <h2>Country: {country}</h2>
-                  <p>country</p>
+                  <h2> {country}</h2>
+                  <p>Pais</p>
                   <br></br>
                 </div>
                 <div className="buttons-user-panel-profile">
@@ -186,16 +210,40 @@ const Profile = () => {
                       <h1 className="streamer-platform">
                         {profileData.streamer.streamer_platform}
                       </h1>
-                      <p className="p-streamer-platform">Streamer platform</p>
-                      <h2 className="streamer-revenue">
-                        Ganancias acumuladas:{" "}
-                        {profileData.streamer.streamer_revenue}
-                      </h2>
+                      <div>
+                        <p className="p-streamer-platform">
+                          Plataforma de Stream
+                        </p>
+                        <div className="reset-profit-to-0">
+                          <h2 className="streamer-revenue">
+                            Ganancias acumuladas:{" "}
+                            {profileData.streamer.streamer_revenue}
+                          </h2>
+                          <button
+                            className="reset-profit-to-0-button"
+                            onClick={() => handlerCreditToZero()}
+                          >
+                            Retirar credito
+                          </button>
+                          {creditToZero && (
+                            <div className="modal-container-credit-out">
+                              <p>Realizando el pago...</p>
+                              <img
+                                src="../../src/assets/images/GIFS/Spinner.gif"
+                                alt="loading"
+                                className="loading-gif-credit-out"
+                              />
+                              <p>gracias por trabajar con StreamCash</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
                       <h2 className="streamer-campaigns">
                         Tienes campañas activas:
                         {profileData.streamer.has_active_campaigns === 0
-                          ? "No"
-                          : "Yes"}
+                          ? " No"
+                          : " Si"}
                       </h2>
                     </div>
                   </div>

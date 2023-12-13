@@ -7,10 +7,16 @@ import {
   reportAStream,
 } from "../../services/apiCalls";
 import "./ReportAStream.css";
+import { useNavigate } from "react-router-dom";
+
+import BannerMarcas1 from "../../views/BannerMarcas1/BannerMarcas1";
+import FooterSection from "../../views/FooterSection/FooterSection";
+import NavBar from "../NavBar/NavBar";
 
 export const ReportAStream = () => {
+  const navigate = useNavigate();
   const token = useSelector((state) => state.token.value);
-
+  const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState("");
   const [image2, setImage2] = useState("");
   const [formData, setFormData] = useState({
@@ -79,24 +85,33 @@ export const ReportAStream = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const imageUrl1 = await submitImage(formData.image1);
-    const imageUrl2 = await submitImage(formData.image2);
+    try {
+      const imageUrl1 = await submitImage(image);
+      console.log(imageUrl1);
+      const imageUrl2 = await submitImage(image2);
+      console.log(imageUrl2);
 
-    const newStreamData = {
-      streamer_id: formData.profileData.user.id,
-      stream_title: formData.stream_title,
-      stream_description: formData.stream_description,
-      stream_date: formData.stream_date,
-      stream_ammount_of_viewers: formData.stream_ammount_of_viewers,
-      stream_check_picture_1: imageUrl1,
-      stream_check_picture_2: imageUrl2,
-      campaign_id: formData.campaign_id,
-      country_id: formData.country_id,
-      stream_total_to_receive: formData.stream_total_to_receive,
-    };
+      const newStreamData = {
+        streamer_id: formData.profileData.user.id,
+        stream_title: formData.stream_title,
+        stream_description: formData.stream_description,
+        stream_date: formData.stream_date,
+        stream_ammount_of_viewers: formData.stream_ammount_of_viewers,
+        stream_check_picture_1: imageUrl1,
+        stream_check_picture_2: imageUrl2,
+        campaign_id: formData.campaign_id,
+        country_id: formData.country_id,
+        stream_total_to_receive: formData.stream_total_to_receive,
+      };
 
-    await reportAStream(newStreamData, token);
-    alert("Stream reported successfully!");
+      await reportAStream(newStreamData, token);
+      setModalVisible(true);
+      setTimeout(() => {
+        navigate("/profile");
+      }, 2000);
+    } catch (error) {
+      console.error("Error uploading images:", error);
+    }
   };
 
   const submitImage = async (image) => {
@@ -124,6 +139,7 @@ export const ReportAStream = () => {
 
   return (
     <div>
+      <NavBar />
       <div className="body-report-stream">
         <form onSubmit={handleSubmit} className="form-body-streamer">
           <label>
@@ -237,12 +253,29 @@ export const ReportAStream = () => {
               </span>
             </label>
           </div>
-
-          <button type="submit" className="button-send-pic">
-            Submit
-          </button>
+          <div className="buttons-report-stream-form">
+            <button
+              type="back"
+              className="button-back-to-profile"
+              onClick={() => navigate("/profile")}
+            >
+              Volver
+            </button>
+            <button type="submit" className="button-send-form">
+              Enviar
+            </button>
+            {modalVisible && (
+              <div className="modal-container">
+                <div className="modal">
+                  <h3>Stream reportado con éxito</h3>
+                </div>
+              </div>
+            )}
+          </div>
         </form>
       </div>
+      <BannerMarcas1 />
+      <FooterSection />
     </div>
   );
 };
