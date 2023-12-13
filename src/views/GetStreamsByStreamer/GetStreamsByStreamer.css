@@ -1,16 +1,43 @@
 /* Basic styles for the component */
 
-.streamcard-background {
-   width: 50em;
-   height: auto;
+.container-streamcard-grid {
+   display: flex;
+   width: 100vw;
+   justify-content: center;
+   align-items: center;
+}
+
+.spinner-screen {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   height: 100vh;
+   width: 100vw;
+   font-size: 2em;
+   color: #2b2b2b;
+
+}
+
+.stramcard-grid {
+   width: 80%;
+   display: grid;
+   ;
+   flex-wrap: wrap;
+   grid-template-columns: repeat(auto-fill, minmax(50em, 1fr));
+
+}
+
+.streamcard-background {
+
+   width: 95%;
+   display: flex;
+   flex-direction: column;
    background-color: lightgrey;
-   margin-bottom: 2em;
    border: solid 2px #2b2b2b27;
    border-radius: 1em;
+   margin: 1em;
+   margin-top: 2em;
 }
 
 .streamcard-streamer-data {
@@ -62,6 +89,12 @@
 
 }
 
+.modal-stream-payed {
+   color: green;
+   margin-left: 2em;
+   margin-bottom: 2em;
+}
+
 .streamcard-stream-data {
 
    display: flex;
@@ -104,12 +137,7 @@
    color: red;
 }
 
-ul {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
+
 
 
 

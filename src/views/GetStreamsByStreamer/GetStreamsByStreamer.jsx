@@ -19,9 +19,14 @@ export const GetStreamsByStreamer = () => {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState({});
   const [campaigns, setCampaigns] = useState([]);
+  const [selectedStreamId, setSelectedStreamId] = useState(null);
 
   const handlerPayStream = (streamId, token) => {
     payStreamAPI(streamId, token);
+    setSelectedStreamId(streamId);
+    setTimeout(() => {
+      setSelectedStreamId(null);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -83,18 +88,24 @@ export const GetStreamsByStreamer = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, selectedStreamId]);
 
   return (
     <div>
       <NavBar />
-      <p>My Streams</p>
       {loading ? (
-        <p>Loading streams...</p>
+        <div className="spinner-screen">
+          <p>Accediendo a tus Streams</p>
+          <img
+            src="../../src/assets/images/GIFS/Spinner.gif"
+            alt="loading"
+            className="loading-gif"
+          />
+        </div>
       ) : (
-        <div>
+        <div className="container-streamcard-grid">
           {streams.streams.length > 0 ? (
-            <ul>
+            <div className="stramcard-grid">
               {streams.streams.map((stream) => (
                 <div key={stream.id} className="streamcard-background">
                   <div className="streamcard-streamer-data">
@@ -191,14 +202,6 @@ export const GetStreamsByStreamer = () => {
                     </div>
                   </div>
 
-                  {!stream.is_stream_payed ? (
-                    <button
-                      className="button-pay-stream"
-                      onClick={() => handlerPayStream(stream.id, token)}
-                    >
-                      cobrar stream
-                    </button>
-                  ) : null}
                   <div className="images-report-streams">
                     <img
                       className="stream-report-image"
@@ -211,9 +214,22 @@ export const GetStreamsByStreamer = () => {
                       alt="Report 2"
                     />
                   </div>
+                  {!stream.is_stream_payed ? (
+                    <button
+                      className="button-pay-stream"
+                      onClick={() => handlerPayStream(stream.id, token)}
+                    >
+                      cobrar stream
+                    </button>
+                  ) : null}
+                  {selectedStreamId === stream.id ? (
+                    <div className="modal-stream-payed">
+                      Se ha transferido el saldo a tu cartera de Stramer.
+                    </div>
+                  ) : null}
                 </div>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>No streams available.</p>
           )}

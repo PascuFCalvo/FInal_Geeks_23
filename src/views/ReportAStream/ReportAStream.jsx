@@ -11,6 +11,8 @@ import "./ReportAStream.css";
 export const ReportAStream = () => {
   const token = useSelector((state) => state.token.value);
 
+  const [image, setImage] = useState("");
+  const [image2, setImage2] = useState("");
   const [formData, setFormData] = useState({
     streamer_id: "",
     stream_title: "",
@@ -74,16 +76,6 @@ export const ReportAStream = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleImage1Change = (e) => {
-    const file = e.target.files[0];
-    setFormData((prevData) => ({ ...prevData, image1: file }));
-  };
-
-  const handleImage2Change = (e) => {
-    const file = e.target.files[0];
-    setFormData((prevData) => ({ ...prevData, image2: file }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -132,93 +124,125 @@ export const ReportAStream = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        {/* Stream Information Fields */}
-        <label>
-          Stream Title:
-          <input
-            type="text"
-            name="stream_title"
-            value={formData.stream_title}
-            onChange={handleChange}
-          />
-        </label>
+      <div className="body-report-stream">
+        <form onSubmit={handleSubmit} className="form-body-streamer">
+          <label>
+            Titulo del Stream:
+            <input
+              type="text"
+              name="stream_title"
+              value={formData.stream_title}
+              onChange={handleChange}
+              className="input-form-stream"
+            />
+          </label>
 
-        <label>
-          Stream Description:
-          <textarea
-            name="stream_description"
-            value={formData.stream_description}
-            onChange={handleChange}
-          />
-        </label>
+          <label>
+            Description:
+            <input
+              name="stream_description"
+              value={formData.stream_description}
+              onChange={handleChange}
+              className="input-form-stream"
+            />
+          </label>
 
-        <label>
-          Stream Date:
-          <input
-            type="date"
-            name="stream_date"
-            value={formData.stream_date}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Total Amount of views:
-          <input
-            type="number"
-            name="stream_ammount_of_viewers"
-            value={formData.stream_ammount_of_viewers}
-            onChange={handleChange}
-          />
-        </label>
+          <label>
+            Fecha:
+            <input
+              type="date"
+              name="stream_date"
+              value={formData.stream_date}
+              onChange={handleChange}
+              className="input-form-stream"
+            />
+          </label>
+          <label>
+            Visitas totales:
+            <input
+              type="number"
+              name="stream_ammount_of_viewers"
+              value={formData.stream_ammount_of_viewers}
+              onChange={handleChange}
+              className="input-form-stream"
+            />
+          </label>
 
-        <label>
-          Upload Picture 1:
-          <input type="file" onChange={handleImage1Change} />
-        </label>
+          <label>
+            Pais:
+            <select
+              name="country_id"
+              value={formData.country_id}
+              onChange={handleChange}
+              className="selectCountry"
+            >
+              <option value="">Select Country</option>
+              {formData.paises.map((pais) => (
+                <option key={pais.id} value={pais.id}>
+                  {pais.country_name}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <label>
-          Upload Picture 2:
-          <input type="file" onChange={handleImage2Change} />
-        </label>
+          <label>
+            Campaña:
+            <select
+              name="campaign_id"
+              value={formData.campaign_id}
+              onChange={handleChange}
+              className="selectCountry"
+            >
+              <option value="">Select Campaign</option>
+              {formData.campañas.map((campaña) => (
+                <option key={campaña.id} value={campaña.id}>
+                  {campaña.campaign_name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <div>
+            <label>Foto comprobante 1 (Datos del stream)</label>
+            <input
+              className="image-input-form"
+              name="comprobante-image-1"
+              id="comprobante-image-1"
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+            ></input>
+            <label htmlFor="comprobante-image-1">
+              <span className="image-input-form__image-input-form-name">
+                {image.name}
+              </span>
+              <span className="image-input-form__image-input-form-button">
+                Buscar archivo
+              </span>
+            </label>
+          </div>
+          <div>
+            <label>Foto comprobante 2 (Vista de la publicidad)</label>
+            <input
+              className="image-input-form"
+              name="comprobante-image-2"
+              id="comprobante-image-2"
+              type="file"
+              onChange={(e) => setImage2(e.target.files[0])}
+            ></input>
+            <label htmlFor="comprobante-image-2">
+              <span className="image-input-form__image-input-form-name">
+                {image2.name}
+              </span>
+              <span className="image-input-form__image-input-form-button">
+                Buscar archivo
+              </span>
+            </label>
+          </div>
 
-        <label>
-          Country:
-          <select
-            name="country_id"
-            value={formData.country_id}
-            onChange={handleChange}
-          >
-            <option value="">Select Country</option>
-            {formData.paises.map((pais) => (
-              <option key={pais.id} value={pais.id}>
-                {pais.country_name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Campaña:
-          <select
-            name="campaign_id"
-            value={formData.campaign_id}
-            onChange={handleChange}
-          >
-            <option value="">Select Campaign</option>
-            {formData.campañas.map((campaña) => (
-              <option key={campaña.id} value={campaña.id}>
-                {campaña.campaign_name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        {/* Stream Financial Information */}
-        {/* Add more fields as needed */}
-
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit" className="button-send-pic">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
