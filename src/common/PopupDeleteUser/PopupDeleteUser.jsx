@@ -2,10 +2,6 @@ import "./PopupDeleteUser.css";
 
 // eslint-disable-next-line react/prop-types
 const PopupDeleteUser = ({ onCancelDelete, onInactivateUser }) => {
-
-    
-
-   
   const handleCancel = () => {
     onCancelDelete();
   };
@@ -21,11 +17,14 @@ const PopupDeleteUser = ({ onCancelDelete, onInactivateUser }) => {
         <div className="buttons-pop-up-delete-user">
           <button
             className="button-pop-up-delete-user"
-            onClick={handleInactivateUser}
+            onClick={() => handleInactivateUser()}
           >
             Si, darme de baja.
           </button>
-          <button className="button-pop-up-delete-user" onClick={handleCancel}>
+          <button
+            className="button-pop-up-delete-user"
+            onClick={() => handleCancel()}
+          >
             No, volver atras.
           </button>
         </div>

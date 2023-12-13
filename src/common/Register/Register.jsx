@@ -9,54 +9,42 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const token = useSelector((state) => state.token.value);
 
-  if (token && location.pathname === "/") {
+  const enroutador = {
+    "/": { textButton: "Ir a mi panel de Usuario", navigation: "/profile" },
+    "/profile": { textButton: "Volver al inicio", navigation: "/" },
+    "/getStreamsByStreamer": {
+      textButton: "Volver al panel de usuario",
+      navigation: "/profile",
+    },
+    "/streamers": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
+    "/brands": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
+    "/reportAStream": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
+    "/editUserInfo": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
+    "/editBrandInfo": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
+  };
+
+  if (token && enroutador[location.pathname]) {
+    const { textButton, navigation } = enroutador[location.pathname];
     return (
       <div className="body-register">
-        <div className="user-panel" onClick={() => navigate("/profile")}>
-          Ir a mi panel de Usuario
+        <div className="user-panel" onClick={() => navigate(navigation)}>
+          {textButton}
         </div>
-      </div>
-    );
-  } else if (token && location.pathname === "/profile") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/")}>
-        volver al inicio
-      </div>
-    );
-  } else if (token && location.pathname === "/getStreamsByStreamer") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        volver al panel de usuario
-      </div>
-    );
-  } else if (token && location.pathname === "/streamers") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        Ir a mi panel de Usuario
-      </div>
-    );
-  } else if (token && location.pathname === "/brands") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        Ir a mi panel de Usuario
-      </div>
-    );
-  } else if (token && location.pathname === "/reportAStream") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        Ir a mi panel de Usuario
-      </div>
-    );
-  } else if (token && location.pathname === "/editUserInfo") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        Ir a mi panel de Usuario
-      </div>
-    );
-  } else if (token && location.pathname === "/editBrandInfo") {
-    return (
-      <div className="user-panel" onClick={() => navigate("/profile")}>
-        Ir a mi panel de Usuario
       </div>
     );
   }

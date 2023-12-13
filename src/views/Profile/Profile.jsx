@@ -285,18 +285,32 @@ const Profile = () => {
                   <p>email</p>
                   <br></br>
                   <h2>{profileData.user.user_phone}</h2>
-                  <p>phone</p>
+                  <p>telefono</p>
                   <br></br>
-                  <h2>Country: {country}</h2>
-                  <p>country</p>
+                  <h2>{country}</h2>
+                  <p>pais</p>
                   <br></br>
                 </div>
-                <button
-                  className="edit-profile-button"
-                  onClick={() => navigate("/editBrandInfo")}
-                >
-                  Editar informacion
-                </button>
+                <div className="buttons-user-panel-profile">
+                  <button
+                    className="edit-profile-button"
+                    onClick={() => navigate("/editBrandInfo")}
+                  >
+                    Editar informacion
+                  </button>
+                  <button
+                    className="delete-profile-button"
+                    onClick={() => handlerPopupDisplay()}
+                  >
+                    X
+                  </button>
+                </div>
+                  {popupDisplay && (
+                    <PopupDeleteUser
+                      onCancelDelete={handleCancelDelete}
+                      onInactivateUser={handleInactivateUser}
+                    />
+                  )}
               </div>
 
               <div className="profile-brand-card">
@@ -318,8 +332,8 @@ const Profile = () => {
                       <h2 className="brand-campaigns">
                         Tienes campañas activas:
                         {profileData.brand.has_active_campaigns === 0
-                          ? "No"
-                          : "Yes"}
+                          ? " No"
+                          : " SI "}
                       </h2>
                     </div>
                   </div>
@@ -332,7 +346,7 @@ const Profile = () => {
                 </div>
 
                 <button className="create-stream-button2">
-                  Historico Campañas
+                  Ver mis campañas
                 </button>
                 <button className="create-stream-button">
                   Crear una campaña
