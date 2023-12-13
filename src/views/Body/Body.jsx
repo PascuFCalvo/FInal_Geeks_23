@@ -10,6 +10,7 @@ import EditUserInfo from "../EditUserInfo/EditUserInfo";
 import EditBrandInfo from "../EditBrandInfo/EditBrandInfo";
 import { GetStreamsByStreamer } from "../GetStreamsByStreamer/GetStreamsByStreamer";
 import { ReportAStream } from "../ReportAStream/ReportAStream";
+import GetCampaignsAsABrand from "../GetCampaignsAsABrand/GetCampaignsAsABrand";
 
 const Body = () => {
   return (
@@ -31,6 +32,10 @@ const Body = () => {
           element={<GetStreamsByStreamer />}
         />
         <Route path="/reportAStream" element={<ReportAStream />} />
+        <Route
+          path="/getCampaignsAsABrand"
+          element={<GetCampaignsAsABrand />}
+        />
       </Routes>
     </div>
   );

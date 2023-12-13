@@ -305,12 +305,12 @@ const Profile = () => {
                     X
                   </button>
                 </div>
-                  {popupDisplay && (
-                    <PopupDeleteUser
-                      onCancelDelete={handleCancelDelete}
-                      onInactivateUser={handleInactivateUser}
-                    />
-                  )}
+                {popupDisplay && (
+                  <PopupDeleteUser
+                    onCancelDelete={handleCancelDelete}
+                    onInactivateUser={handleInactivateUser}
+                  />
+                )}
               </div>
 
               <div className="profile-brand-card">
@@ -345,7 +345,10 @@ const Profile = () => {
                   </div>
                 </div>
 
-                <button className="create-stream-button2">
+                <button
+                  className="create-stream-button2"
+                  onClick={() => navigate("/getCampaignsAsABrand")}
+                >
                   Ver mis campañas
                 </button>
                 <button className="create-stream-button">
