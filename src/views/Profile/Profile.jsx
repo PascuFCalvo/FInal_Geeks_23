@@ -45,7 +45,7 @@ const Profile = () => {
         return response.data.streams;
       })
       .then((streamsData) => {
-        setLaststream(streamsData[streamsData.length - 1]);
+        setLaststream(streamsData[0]);
       })
       .catch((error) => {
         console.error("Error fetching streams:", error);
