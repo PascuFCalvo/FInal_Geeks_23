@@ -17,6 +17,12 @@
 
 }
 
+.campaign-list-background {
+   width: 100vw;
+   height: auto;
+   background-color: #2b2b2b;
+}
+
 .campaigns-list-style {
    display: flex;
    width: 80vw;
@@ -31,7 +37,7 @@
    text-align: center;
    height: 3em;
 
-   background-color: antiquewhite;
+
    display: flex;
    padding-left: 2em;
    align-items: center;
@@ -43,6 +49,7 @@
 }
 
 .column-campagn-list-col-odd {
+
 
 
    font-size: 0.8em;
@@ -63,6 +70,7 @@
 }
 
 .complete-row {
+   background-color: white;
    display: flex;
    position: relative;
    border-top: solid 1px black;
@@ -115,6 +123,7 @@
    justify-content: space-around;
    width: 100%;
    margin-top: 1em;
+   position: relative;
 }
 
 .delete-campaign-button-no {
@@ -133,4 +142,26 @@
    background-color: darkred;
    padding: 0.2em;
    width: 4em;
+}
+
+
+
+.error-message {
+   width: 100%;
+
+   background-color: pink;
+   border: solid 1px red;
+   position: absolute;
+   z-index: 2;
+
+
+
+}
+
+.error-message p {
+   color: red;
+   width: 80%;
+   text-align: center;
+   margin-top: 1em;
+   font-size: 3em;
 }

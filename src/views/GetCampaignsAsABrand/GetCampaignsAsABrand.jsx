@@ -18,7 +18,7 @@ const GetCampaignsAsABrand = () => {
   const [loading, setLoading] = useState(true);
   const [selectedCampaignId, setSelectedCampaignId] = useState(null);
   const [someCampaignDeleted, setSomeCampaignDeleted] = useState(false);
-
+  const [deleteError, setDeleteError] = useState(null);
   const handleDeleteModal = (id) => {
     setSelectedCampaignId(id);
     console.log(id);
@@ -26,12 +26,16 @@ const GetCampaignsAsABrand = () => {
 
   const handleDeleteCampaign = async (id) => {
     try {
-      console.log("Eliminando campaña", id);
-      deleteACampaign(id, token);
+      await deleteACampaign(id, token);
       setSelectedCampaignId(null);
       setSomeCampaignDeleted(!someCampaignDeleted);
+      setDeleteError(null);
     } catch (error) {
       console.error("Error eliminando campaña", error);
+      setDeleteError("No");
+      setTimeout(() => {
+        setDeleteError(null);
+      }, 2000);
     }
   };
 
@@ -63,7 +67,7 @@ const GetCampaignsAsABrand = () => {
     };
 
     fetchData();
-  }, [token, someCampaignDeleted]);
+  }, [token, someCampaignDeleted, deleteError]);
 
   return (
     <div>
@@ -71,7 +75,7 @@ const GetCampaignsAsABrand = () => {
       <div className="campaings-list-body-design">
         {loading ? (
           <div className="spinner-screen">
-            <p>Accediendo a tus Streams</p>
+            <p>Accediendo a tus campañas</p>
             <img
               src="../src/assets/images/GIFS/Spinner.gif"
               alt="loading"
@@ -79,7 +83,7 @@ const GetCampaignsAsABrand = () => {
             />
           </div>
         ) : (
-          <ul className="campaing-list-background">
+          <div className = "general-campaign-background"><ul className="campaing-list-background">
             <div className="campaigns-list-style-header">
               <p className="title-campaiogn-list-col">Nombre de la campaña</p>
               <p className="title-campaiogn-list-col">Descripcion</p>
@@ -88,8 +92,9 @@ const GetCampaignsAsABrand = () => {
                 Precio por visualizacion
               </p>
             </div>
-
+          
             {campaigns.campaigns.map((campaign) => (
+              
               <div key={campaign.id} className="complete-row">
                 <div className="campaigns-list-style">
                   <div className="column-campagn-list-col-even">
@@ -114,7 +119,11 @@ const GetCampaignsAsABrand = () => {
                 </button>
                 {selectedCampaignId === campaign.id ? (
                   <div className="modal-delete-campaign">
-                    <p>¿Estas seguro de que quieres eliminar esta campaña?</p>
+                    <p>
+                      {!deleteError
+                        ? "¿Estas seguro de que quieres eliminar esta campaña?"
+                        : "N0 se puede eliminar campañas activas. Espera a que finalice."}
+                    </p>
                     <div className="buttons-modal-delete-campaign">
                       <button
                         className="delete-campaign-button-no"
@@ -135,7 +144,8 @@ const GetCampaignsAsABrand = () => {
                 ) : null}
               </div>
             ))}
-          </ul>
+          </ul></div>
+          
         )}
       </div>
 
