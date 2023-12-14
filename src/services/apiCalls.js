@@ -109,3 +109,13 @@ export const payStreamAPI = async (stream_id, token) => {
     }
   );
 };
+
+export const createACampaign = async (body, token) => {
+  console.log(body);
+  console.log(token);
+  return await axios.post(`${url}/createACampaign`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
