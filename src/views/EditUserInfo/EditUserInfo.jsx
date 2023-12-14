@@ -107,7 +107,7 @@ const EditUserInfo = () => {
       const updatedProfileData = {
         user: {
           ...profileData.user,
-          user_avatar_link: imageUrl,
+          user_avatar_link: imageUrl1,
           user_name: user_name || "",
           user_email,
           user_phone,

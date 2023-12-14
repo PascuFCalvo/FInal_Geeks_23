@@ -351,7 +351,10 @@ const Profile = () => {
                 >
                   Ver mis campañas
                 </button>
-                <button className="create-stream-button">
+                <button
+                  className="create-stream-button"
+                  onClick={() => navigate("/createACampaign")}
+                >
                   Crear una campaña
                 </button>
               </div>

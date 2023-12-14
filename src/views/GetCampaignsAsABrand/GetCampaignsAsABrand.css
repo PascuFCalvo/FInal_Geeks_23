@@ -1,0 +1,136 @@
+.campaings-list-body-design {
+   width: 100vw;
+   display: flex;
+   flex: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.campaigns-list-style-header {
+   width: 82vw;
+   display: flex;
+   justify-content: space-around;
+   text-align: flex-start;
+   align-items: center;
+   height: 3em;
+   background-color: orange;
+
+}
+
+.campaigns-list-style {
+   display: flex;
+   width: 80vw;
+
+}
+
+.column-campagn-list-col-even {
+
+   font-size: 0.8em;
+   width: 20vw;
+   overflow-x: hidden;
+   text-align: center;
+   height: 3em;
+
+   background-color: antiquewhite;
+   display: flex;
+   padding-left: 2em;
+   align-items: center;
+}
+
+.title-campaiogn-list-col {
+   font-weight: bold;
+   font-size: 0.8em;
+}
+
+.column-campagn-list-col-odd {
+
+
+   font-size: 0.8em;
+   width: 20vw;
+   text-align: center;
+   height: 3em;
+   display: flex;
+   padding-left: 2em;
+   align-items: center;
+
+}
+
+.campaing-list-background {
+
+   margin-top: 5em;
+   margin-bottom: 5em;
+   border: solid 1px black;
+}
+
+.complete-row {
+   display: flex;
+   position: relative;
+   border-top: solid 1px black;
+
+}
+
+.delete-campaign-button {
+   background-color: red;
+   color: white;
+   border: none;
+   border-radius: 50%;
+   font-size: 0.8em;
+   padding: 0.3em;
+   position: absolute;
+   width: 2em;
+   right: 1em;
+}
+
+.delete-campaign-button:hover {
+   background-color: white;
+   color: red;
+   border: solid 1px red;
+
+}
+
+.modal-delete-campaign {
+   width: 20em;
+   height: 10em;
+   background-color: pink;
+   border: solid 2px red;
+   position: absolute;
+   z-index: 2;
+   right: 4em;
+   top: 0.3em;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.modal-delete-campaign p {
+   color: red;
+   width: 80%;
+   text-align: center;
+   margin-top: 1em;
+}
+
+.buttons-modal-delete-campaign {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   margin-top: 1em;
+}
+
+.delete-campaign-button-no {
+   background-color: #2b2b2b;
+   padding: 0.2em;
+   width: 4em;
+}
+
+.delete-campaign-button-yes {
+   background-color: red;
+   padding: 0.2em;
+   width: 4em;
+}
+
+.delete-campaign-button-yes:hover {
+   background-color: darkred;
+   padding: 0.2em;
+   width: 4em;
+}

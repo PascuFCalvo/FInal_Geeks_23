@@ -27,12 +27,12 @@
    margin-top: 2em;
 }
 
-.buttons-pop-up-delete-user :first-child {
+.button-pop-up-delete-user-yes {
    background-color: red;
 
 }
 
-.buttons-pop-up-delete-user:hover :first-child {
+.button-pop-up-delete-user-yes:hover {
    background-color: darkred;
    color: white;
 }

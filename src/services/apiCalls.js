@@ -119,3 +119,13 @@ export const createACampaign = async (body, token) => {
     },
   });
 };
+
+export const deleteACampaign = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.delete(`${url}/deleteCampaign/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

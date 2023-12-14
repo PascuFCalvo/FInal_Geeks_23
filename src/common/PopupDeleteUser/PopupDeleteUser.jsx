@@ -16,13 +16,13 @@ const PopupDeleteUser = ({ onCancelDelete, onInactivateUser }) => {
         <p>Quieres dar de baja tu cuenta?</p>
         <div className="buttons-pop-up-delete-user">
           <button
-            className="button-pop-up-delete-user"
+            className="button-pop-up-delete-user-yes"
             onClick={() => handleInactivateUser()}
           >
             Si, darme de baja.
           </button>
           <button
-            className="button-pop-up-delete-user"
+            className="button-pop-up-delete-user-no"
             onClick={() => handleCancel()}
           >
             No, volver atras.
