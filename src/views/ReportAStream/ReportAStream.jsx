@@ -170,7 +170,7 @@ export const ReportAStream = () => {
               name="stream_date"
               value={formData.stream_date}
               onChange={handleChange}
-              className="input-form-stream"
+              className="input-form-strem"
             />
           </label>
           <label>
@@ -264,14 +264,14 @@ export const ReportAStream = () => {
             <button type="submit" className="button-send-form">
               Enviar
             </button>
-            {modalVisible && (
-              <div className="modal-container">
-                <div className="modal">
-                  <h3>Stream reportado con éxito</h3>
-                </div>
-              </div>
-            )}
           </div>
+          {modalVisible && (
+            <div className="modal-container">
+              <div className="modal">
+                <h3>Stream reportado con éxito</h3>
+              </div>
+            </div>
+          )}
         </form>
       </div>
       <BannerMarcas1 />

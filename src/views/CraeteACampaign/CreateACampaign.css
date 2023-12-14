@@ -1,0 +1,110 @@
+.body-report-stream {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   height: auto;
+   background: rgb(247, 0, 159);
+   background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
+}
+
+.logo-placing-register-streamer {
+   display: flex;
+   width: auto;
+   margin-left: 10%;
+
+}
+
+.form-body-streamer {
+   font-size: 1em;
+   margin-bottom: 2em;
+   margin-top: 2em;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   width: 34em;
+   margin: 0 auto;
+   background-color: #ffffff;
+   padding: 1.5em;
+   border-radius: 2em;
+   margin-bottom: 10em;
+
+}
+
+
+.selectCountry {
+   font-size: 1em;
+   width: 100%;
+   height: 80%;
+   border: none;
+   border-radius: 6px;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+   background-color: white;
+   color: #2b2b2b;
+
+}
+
+.input-form-stream {
+   font-size: 1em;
+   background-color: white;
+   width: 100%;
+   color: #2b2b2b;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   border: none;
+   border-radius: 6px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+
+}
+
+.error-message {
+   font-size: 0.8em;
+   color: red;
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+}
+
+
+.buttons-report-stream-form {
+   display: flex;
+   width: 24em;
+
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 20px;
+   margin-left: 7em;
+}
+
+.button-back-to-profile {
+   background-color: #2b2b2b;
+   color: white;
+   border: none;
+   border-radius: 3em;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   width: 40%;
+   font-size: 1em;
+   cursor: pointer;
+}
+
+.button-send-form {
+   background-color: orange;
+   color: white;
+   border: none;
+   border-radius: 3em;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   width: 50%;
+   font-size: 1em;
+   cursor: pointer;
+}
+
+.modal-container {
+   margin-top: 1em;
+   text-align: center;
+   width: 90%;
+   color: green;
+}

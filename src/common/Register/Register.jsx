@@ -36,6 +36,10 @@ const Register = () => {
       textButton: "Ir a mi panel de Usuario",
       navigation: "/profile",
     },
+    "/createACampaign": {
+      textButton: "Ir a mi panel de Usuario",
+      navigation: "/profile",
+    },
   };
 
   if (token && enrutador[location.pathname]) {
