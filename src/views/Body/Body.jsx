@@ -12,6 +12,7 @@ import { GetStreamsByStreamer } from "../GetStreamsByStreamer/GetStreamsByStream
 import { ReportAStream } from "../ReportAStream/ReportAStream";
 import GetCampaignsAsABrand from "../GetCampaignsAsABrand/GetCampaignsAsABrand";
 import CreateACampaign from "../CraeteACampaign/CreateACampaign";
+import { AdminPanel } from "../AdminPanel/AdminPanel";
 
 const Body = () => {
   return (
@@ -38,6 +39,7 @@ const Body = () => {
           element={<GetCampaignsAsABrand />}
         />
         <Route path="/createACampaign" element={<CreateACampaign />} />
+        <Route path="/adminPanel" element={<AdminPanel />} />
       </Routes>
     </div>
   );
