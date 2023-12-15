@@ -1,5 +1,6 @@
 import "./MainSectionHorizontal1.css";
 import { useNavigate } from "react-router-dom";
+import streamer from "../../assets/images/WEBICONS/streamer.png";
 
 const MainSectionHorizontal1 = () => {
   const navigate = useNavigate();
@@ -30,10 +31,7 @@ const MainSectionHorizontal1 = () => {
               SOY MARCA
             </div>
           </div>
-          <img
-            className="streamer-section-1"
-            src="../src/assets/images/WEBICONS/streamer.png"
-          ></img>
+          <img className="streamer-section-1" src={streamer}></img>
         </section>
       </div>
     </div>
