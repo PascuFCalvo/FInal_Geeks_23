@@ -1,4 +1,6 @@
 import "./MainSectionHorizontal3.css";
+import livestream from "../../assets/images/WEBICONS/livestream.png";
+import likes from "../../assets/images/WEBICONS/likes.png";
 
 const MainSectionHorizontal3 = () => {
   return (
@@ -12,12 +14,12 @@ const MainSectionHorizontal3 = () => {
             YA NO! Obtén patrocinadores independientemente de cuántas personas
             vean tu stream!
           </p>
-          <img src="../src/assets/images/WEBICONS/livestream.png" />
+          <img src={livestream} />
         </div>
         <div className="Main-section-horizontal3-content-right">
           <img
             className="Image-section-3"
-            src="../src/assets/images/WEBICONS/likes.png"
+            src={likes}
             alt="Imagen de la sección 2"
           />
         </div>

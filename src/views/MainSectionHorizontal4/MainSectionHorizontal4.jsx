@@ -1,4 +1,6 @@
 import "./MainSectionHorizontal4.css";
+import s1mple from "../../assets/images/WEBIMAGES/s1mple.jpg";
+import twitch from "../../assets/images/WEBICONS/twitch.png";
 
 const MainSectionHorizontal4 = () => {
   return (
@@ -8,7 +10,7 @@ const MainSectionHorizontal4 = () => {
           <div className="Main-section-horizontal4-content-left">
             <img
               className="Image-section-4"
-              src="../src/assets/images/WEBIMAGES/s1mple.jpg"
+              src={s1mple}
               alt="Imagen de la sección 4"
             />
           </div>
@@ -22,7 +24,7 @@ const MainSectionHorizontal4 = () => {
             </p>
             <img
               className="Image-section-4"
-              src="../src/assets/images/WEBICONS/twitch.png"
+              src={twitch}
               width={100}
               alt="Imagen de la sección 4"
             />

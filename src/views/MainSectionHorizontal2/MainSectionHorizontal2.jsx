@@ -1,4 +1,5 @@
 import "./MainSectionHorizontal2.css";
+import megafono from "../../assets/images/WEBICONS/megafono.png";
 
 const MainSectionHorizontal2 = () => {
   return (
@@ -7,7 +8,7 @@ const MainSectionHorizontal2 = () => {
         <div className="Main-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../src/assets/images/WEBICONS/megafono.png"
+            src={megafono}
             alt="Imagen de la sección 2"
           />
         </div>

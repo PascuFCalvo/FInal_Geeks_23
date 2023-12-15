@@ -1,4 +1,8 @@
 import "./MainSectionHorizontal5.css";
+import faster from "../../assets/images/ICONS/faster-icon-png-17753.png";
+import easy from "../../assets/images/ICONS/easy.png";
+import rueda from "../../assets/images/ICONS/rueda-dentada.png";
+import change from "../../assets/images/ICONS/change-management-512.png";
 
 const MainSectionHorizontal5 = () => {
   return (
@@ -7,33 +11,21 @@ const MainSectionHorizontal5 = () => {
         <h1>STREAMERS Y MARCAS CONECTADOS PARA CRECER</h1>
         <div className="cards-container-5">
           <div className="card-section-5">
-            <img
-              className="img-section5"
-              src="../src/assets/images/ICONS/faster-icon-png-17753.png"
-              width={150}
-            ></img>
+            <img className="img-section5" src={faster} width={150}></img>
             <h2 className="h2-section5">RÁPIDO</h2>
             <p className="p-section5">
               Configura tu cuenta en menos de 1 minuto
             </p>
           </div>
           <div className="card-section-5">
-            <img
-              className="img-section5"
-              src="../src/assets/images/ICONS/easy.png"
-              width={150}
-            ></img>
+            <img className="img-section5" src={easy} width={150}></img>
             <h2 className="h2-section5">SENCILLO</h2>
             <p className="p-section5">
               para integrar StreamCash en tus plataforma(s) de streaming
             </p>
           </div>
           <div className="card-section-5">
-            <img
-              className="img-section5"
-              src="../src/assets/images/ICONS/rueda-dentada.png"
-              width={150}
-            ></img>
+            <img className="img-section5" src={rueda} width={150}></img>
             <h2 className="h2-section5">FÁCIL</h2>
             <p className="p-section5">
               para seleccionar las marcas con las que quieres trabajar y
@@ -41,11 +33,7 @@ const MainSectionHorizontal5 = () => {
             </p>
           </div>
           <div className="card-section-5">
-            <img
-              className="img-section5"
-              src="../src/assets/images/ICONS/change-management-512.png"
-              width={150}
-            ></img>
+            <img className="img-section5" src={change} width={150}></img>
             <h2 className="h2-section5">CAMBIANDO</h2>
             <p className="p-section5">
               tu vida para mejor o incluso para siempre
