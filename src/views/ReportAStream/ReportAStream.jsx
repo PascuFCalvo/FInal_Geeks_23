@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
+  editStreamerProfile,
   getAllCampaigns,
   getCountries,
   getProfile,
@@ -50,6 +51,8 @@ export const ReportAStream = () => {
 
     fetchData();
   }, [token]);
+
+  console.log(formData.profileData.streamer.streamer_nick);
 
   useEffect(() => {
     getCountries()
@@ -105,6 +108,15 @@ export const ReportAStream = () => {
       };
 
       await reportAStream(newStreamData, token);
+
+      const newStreamerData = {
+        streamer_nick: formData.profileData.streamer.streamer_nick,
+        streamer_platform: formData.profileData.streamer.streamer_platform,
+        streamer_revenue: formData.profileData.streamer.streamer_revenue,
+        image_stream: imageUrl2,
+      };
+      await editStreamerProfile(newStreamerData, token);
+
       setModalVisible(true);
       setTimeout(() => {
         navigate("/profile");

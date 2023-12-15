@@ -3,6 +3,7 @@ import axios from "axios";
 const url = "http://localhost:8000/api";
 
 export const registerStreamer = async (body) => {
+  console.log(body);
   return await axios.post(`${url}/registerStreamer`, body);
 };
 
@@ -96,6 +97,14 @@ export const getAllBrands = async (token) => {
 
 export const getAllStreamers = async (token) => {
   return await axios.get(`${url}/getAllStreamers`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getAllStreams = async (token) => {
+  return await axios.get(`${url}/getAllStreams`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

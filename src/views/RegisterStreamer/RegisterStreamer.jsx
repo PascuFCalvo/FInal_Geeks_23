@@ -81,23 +81,24 @@ const RegisterStreamer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const imageUrl = await submitImage(image);
       console.log(imageUrl);
-
-      setStreamer((prevStreamer, imageUrl) => ({
+  
+      
+      setStreamer((prevStreamer) => ({
         ...prevStreamer,
         user_avatar_link: imageUrl,
       }));
-
+  
       await registerStreamer(streamer);
-
+  
       alert("Streamer registrado correctamente");
       setTimeout(() => {
         navigate("/");
       }, 2000);
-
+  
       navigate("/");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);

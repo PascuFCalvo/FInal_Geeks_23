@@ -1,32 +1,38 @@
-.users-table-resume-content-background {
+.streams-table-resume-content-background {
    width: 80vw;
-   height: auto;
-
+   height: 100vh;
+   overflow-y: scroll;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
    color: #2b2b2b;
+   position: relative;
 }
 
-.users-resume-table {
-   width: 75vw;
+.streams-resume-table {
+   min-width: 140em;
    border-collapse: collapse;
-   font-size: 18px;
+   font-size: 1em;
    text-align: center;
-   margin-top: 20px;
    color: #2b2b2b;
+   overflow-x: scroll;
+   position: absolute;
+   left: 2em;
+   top: 8em;
+
+
+
 }
 
-.users-resume-table-title {
+.streams-resume-table-title {
    background-color: #2b2b2b;
    color: #fff;
-   padding: 10px;
+
    height: 3em;
    margin-bottom: 2em;
 }
 
-.users-resume-table-rows {
+.streams-resume-table-rows {
 
    color: #2b2b2b;
    padding: 10px;

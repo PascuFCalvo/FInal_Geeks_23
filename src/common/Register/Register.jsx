@@ -1,55 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Register.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { getProfile } from "../../services/apiCalls";
 
 const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const token = useSelector((state) => state.token.value);
+  const [profile, setProfile] = useState({});
 
-  const enrutador = {
-    "/": { textButton: "Ir a mi panel de Usuario", navigation: "/profile" },
-    "/profile": { textButton: "Volver al inicio", navigation: "/" },
-    "/getStreamsByStreamer": {
-      textButton: "Volver al panel de usuario",
-      navigation: "/profile",
-    },
-    "/streamers": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/brands": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/reportAStream": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/editUserInfo": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/editBrandInfo": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/createACampaign": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    "/getCampaignsAsABrand": {
-      textButton: "Ir a mi panel de Usuario",
-      navigation: "/profile",
-    },
-    
-    "/adminPanel": {
-      textButton: "Volver a administracion",
-      navigation: "/profile",
-    },
-  };
+  useEffect(() => {
+    getProfile(token).then((response) => {
+      setProfile(response.data.data.user.user_role);
+    });
+  }, [token]);
+
+  const enrutador =
+    profile === "admin"
+      ? {
+          "/": { textButton: "Ir a administracion", navigation: "/adminPanel" },
+          "/adminPanel": { textButton: "Volver al inicio", navigation: "/" },
+        }
+      : {
+          "/": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/profile": { textButton: "Volver al inicio", navigation: "/" },
+          "/getStreamsByStreamer": {
+            textButton: "Volver al panel de usuario",
+            navigation: "/profile",
+          },
+          "/streamers": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/brands": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/reportAStream": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/editUserInfo": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/editBrandInfo": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/createACampaign": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+          "/getCampaignsAsABrand": {
+            textButton: "Ir a mi panel de Usuario",
+            navigation: "/profile",
+          },
+        };
 
   if (token && enrutador[location.pathname]) {
     const infoRuta = enrutador[location.pathname];

@@ -6,18 +6,71 @@ import NavBar from "../NavBar/NavBar";
 import "./AdminPanel.css";
 import AdminUsersResumeView from "../AdminUsersResumeView/AdminUsersResumeView";
 
+import AdminBrandsResumeView from "../AdminBrandsResumeView/AdminBrandsResumeView";
+import AdminStreamersResumeView from "../AdminStreamersResumeView/AdminStreamersResumeView";
+import AdminStreamsResumeView from "../AdminStreamsResumeView/AdminStreamsResumeView";
+import AdminCampaignsResumeView from "../AdminCampaignsResumeView/AdminCampaignsResumeView";
+
 export const AdminPanel = () => {
   const [isOnDashboard, setIsOnDashboard] = useState(true);
   const [isOnUsers, setIsOnUsers] = useState(false);
+  const [isOnBrands, setIsOnBrands] = useState(false);
+  const [isOnStreamers, setIsOnStreamers] = useState(false);
+  const [isOnStreams, setIsOnStreams] = useState(false);
+  const [isOnCampaigns, setIsOnCampaigns] = useState(false);
 
   const isOnDashboardHandler = () => {
+    setIsOnStreams(false);
+    setIsOnBrands(false);
     setIsOnUsers(false);
     setIsOnDashboard(true);
+    setIsOnStreamers(false);
+    setIsOnCampaigns(false);
   };
 
   const isOnUsersHandler = () => {
+    setIsOnStreams(false);
+    setIsOnBrands(false);
     setIsOnUsers(true);
     setIsOnDashboard(false);
+    setIsOnStreamers(false);
+    setIsOnCampaigns(false);
+  };
+
+  const isOnBrandsHandler = () => {
+    setIsOnStreams(false);
+    setIsOnBrands(true);
+    setIsOnUsers(false);
+    setIsOnDashboard(false);
+    setIsOnStreamers(false);
+    setIsOnCampaigns(false);
+  };
+
+  const isOnStreamersHandler = () => {
+    setIsOnStreams(false);
+    setIsOnBrands(false);
+    setIsOnUsers(false);
+    setIsOnDashboard(false);
+    setIsOnStreamers(true);
+    setIsOnCampaigns(false);
+  };
+
+  const isOnStreamsHandler = () => {
+    setIsOnStreams(true);
+    setIsOnBrands(false);
+    setIsOnUsers(false);
+    setIsOnDashboard(false);
+    setIsOnStreamers(false);
+    setIsOnCampaigns(false);
+  };
+
+  const isOnCampaignsHandler = () => {
+    setIsOnStreams(false);
+    setIsOnBrands(false);
+    setIsOnUsers(false);
+    setIsOnDashboard(false);
+    setIsOnStreamers(false);
+    setIsOnCampaigns(true);
   };
 
   return (
@@ -38,14 +91,39 @@ export const AdminPanel = () => {
             >
               Users
             </div>
-            <div className="admin-panel-aside-menu-item">Brands</div>
-            <div className="admin-panel-aside-menu-item">Streamers</div>
-            <div className="admin-panel-aside-menu-item">Campaigns</div>
+            <div
+              className="admin-panel-aside-menu-item"
+              onClick={() => isOnBrandsHandler()}
+            >
+              Brands
+            </div>
+            <div
+              className="admin-panel-aside-menu-item"
+              onClick={() => isOnStreamersHandler()}
+            >
+              Streamers
+            </div>
+            <div
+              className="admin-panel-aside-menu-item"
+              onClick={() => isOnStreamsHandler()}
+            >
+              Streams
+            </div>
+            <div
+              className="admin-panel-aside-menu-item"
+              onClick={() => isOnCampaignsHandler()}
+            >
+              Campaigns
+            </div>
           </div>
         </div>
         <div className="admin-panel-main-content">
           {isOnDashboard && <Dashboard />}
           {isOnUsers && <AdminUsersResumeView />}
+          {isOnBrands && <AdminBrandsResumeView />}
+          {isOnStreamers && <AdminStreamersResumeView />}
+          {isOnStreams && <AdminStreamsResumeView />}
+          {isOnCampaigns && <AdminCampaignsResumeView />}
         </div>
       </div>
       <BannerMarcas1 />

@@ -3,7 +3,7 @@
    display: flex;
    height: 100vh;
    overflow-y: scroll;
-   width: 100vw;
+   width: auto;
 }
 
 .admin-panel-aside-menu {
@@ -31,6 +31,8 @@
    color: white;
    font-size: 1.5rem;
    cursor: pointer;
+   height: 3em;
+   margin-bottom: 1em;
 }
 
 .admin-panel-aside-menu-item:hover {
@@ -38,4 +40,6 @@
    width: 150%;
    padding-left: 3em;
    border-radius: 2em;
+   color: orange;
+
 }
