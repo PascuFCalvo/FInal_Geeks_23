@@ -10,6 +10,10 @@ const AdminBrandsResumeView = () => {
   const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {

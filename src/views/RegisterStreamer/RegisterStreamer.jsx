@@ -8,6 +8,10 @@ import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import FooterSection from "../FooterSection/FooterSection";
 
 const RegisterStreamer = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [paises, setPaises] = useState([]);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
@@ -81,24 +85,23 @@ const RegisterStreamer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const imageUrl = await submitImage(image);
       console.log(imageUrl);
-  
-      
+
       setStreamer((prevStreamer) => ({
         ...prevStreamer,
         user_avatar_link: imageUrl,
       }));
-  
+
       await registerStreamer(streamer);
-  
+
       alert("Streamer registrado correctamente");
       setTimeout(() => {
         navigate("/");
       }, 2000);
-  
+
       navigate("/");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
@@ -134,6 +137,7 @@ const RegisterStreamer = () => {
         <Logo />
       </div>
       <form className="form-body-streamer" onSubmit={handleSubmit}>
+        <div className="title-register"> Regístrate como STREAMER</div>
         <div>
           <label>Selecciona una foto de perfil</label>
           <input

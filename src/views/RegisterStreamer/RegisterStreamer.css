@@ -5,6 +5,13 @@
    background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
 }
 
+.title-register {
+   color: black;
+   font-size: 2em;
+   text-align: center;
+   margin-bottom: 2em;
+}
+
 .logo-placing-register-streamer {
    display: flex;
    width: auto;

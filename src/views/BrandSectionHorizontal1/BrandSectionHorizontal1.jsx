@@ -1,7 +1,9 @@
 import "./BrandSectionHorizontal1.css";
 import computer from "../../assets/images/BRANDS/Computer.png";
+import { useNavigate } from "react-router-dom";
 
 const BrandSectionHorizontal1 = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="brand-section-1-background">
@@ -11,7 +13,12 @@ const BrandSectionHorizontal1 = () => {
             LO QUE VENDES
           </h1>
           <div className="buttons">
-            <div className="button-brand-crate-campaign">CREAR UNA CAMPAÑA</div>
+            <div
+              className="button-brand-crate-campaign"
+              onClick={() => navigate("/registerBrand")}
+            >
+              CREAR UNA CAMPAÑA
+            </div>
           </div>
 
           <img className="image-brand-section" src={computer}></img>

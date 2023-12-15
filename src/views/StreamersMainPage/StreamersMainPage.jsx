@@ -5,8 +5,12 @@ import "./StreamersMainPage.css";
 import StreamerSectionHorizontal2 from "../StreamerSectionHorizontal2/StreamerSectionHorizontal2";
 import StreamerSectionHorizontal3 from "../StreamerSectionHorizontal3/StreamerSectionHorizontal3";
 import FooterSection from "../FooterSection/FooterSection";
+import { useEffect } from "react";
 
 export const StreamersMainPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <NavBar />

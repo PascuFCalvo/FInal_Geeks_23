@@ -18,6 +18,10 @@ const Dashboard = () => {
   const token = useSelector((state) => state.token.value);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {

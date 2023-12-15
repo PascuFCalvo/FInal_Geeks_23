@@ -3,8 +3,15 @@ import faster from "../../assets/images/ICONS/faster-icon-png-17753.png";
 import easy from "../../assets/images/ICONS/easy.png";
 import rueda from "../../assets/images/ICONS/rueda-dentada.png";
 import change from "../../assets/images/ICONS/change-management-512.png";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const MainSectionHorizontal5 = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <section className="main-section-5">
@@ -42,8 +49,18 @@ const MainSectionHorizontal5 = () => {
         </div>
 
         <div className="buttons">
-          <div className="button-im-streamer-5">SOY STREAMER</div>
-          <div className="button-im-brand-5">SOY MARCA</div>
+          <div
+            className="button-im-streamer-5"
+            onClick={() => navigate("/streamers")}
+          >
+            SOY STREAMER
+          </div>
+          <div
+            className="button-im-brand-5"
+            onClick={() => navigate("/brands")}
+          >
+            SOY MARCA
+          </div>
         </div>
       </section>
     </div>

@@ -1,8 +1,11 @@
 import "./MainSectionHorizontal4.css";
 import s1mple from "../../assets/images/WEBIMAGES/s1mple.jpg";
 import twitch from "../../assets/images/WEBICONS/twitch.png";
+import { useNavigate } from "react-router-dom";
 
 const MainSectionHorizontal4 = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="Main-section-horizontal4-background">
@@ -33,7 +36,12 @@ const MainSectionHorizontal4 = () => {
       </div>
       <div className="buttons-section-4">
         <div className="button-saber-mas">SABER MAS</div>
-        <div className="button-empezar-ahora">EMPEZAR AHORA</div>
+        <div
+          className="button-empezar-ahora"
+          onClick={() => navigate("/registerStreamer")}
+        >
+          EMPEZAR AHORA
+        </div>
       </div>
     </div>
   );

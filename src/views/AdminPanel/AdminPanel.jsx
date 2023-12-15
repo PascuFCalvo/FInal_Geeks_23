@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import Dashboard from "../Dashboard/Dashboard";
 import FooterSection from "../FooterSection/FooterSection";
@@ -72,6 +72,10 @@ export const AdminPanel = () => {
     setIsOnStreamers(false);
     setIsOnCampaigns(true);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

@@ -32,6 +32,10 @@ const Profile = () => {
   const [creditToZero, setCreditToZero] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     getProfile(token).then((response) => {
       setProfile(response.data.data.user.id);
       setCompleteProfile(response.data.data);

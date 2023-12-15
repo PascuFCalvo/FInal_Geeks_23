@@ -16,15 +16,12 @@ const StreamerSectionHorizontal1 = () => {
           <div className="buttons">
             <div
               className="quiero-ser-streamer"
-              onClick={() => navigate("/streamers")}
+              onClick={() => navigate("/registerStreamer")}
             >
               ¡QUIERO SER STREAMER!
             </div>
           </div>
-          <img
-            src={drdisrespect}
-            className="streamer-section-img1"
-          ></img>
+          <img src={drdisrespect} className="streamer-section-img1"></img>
           <div className="reclamo-streamer">
             Ganar dinero haciendo lo que amas es más sencillo que nunca.
             Reconocemos tu dedicación, por eso vinculamos a streamers con marcas

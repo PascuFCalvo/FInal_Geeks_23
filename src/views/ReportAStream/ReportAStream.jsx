@@ -37,6 +37,10 @@ export const ReportAStream = () => {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const profileResponse = await getProfile(token);

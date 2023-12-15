@@ -26,6 +26,10 @@ const CreateACampaign = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     getProfile(token).then((res) => {
       setProfile(res.data.data.user);
       console.log(profile);

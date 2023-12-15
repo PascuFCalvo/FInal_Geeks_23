@@ -36,6 +36,10 @@ const EditUserInfo = () => {
   const [isEnabled, setIsEnabled] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     getProfile(token)
       .then((response) => {
         setProfileData(response.data.data);

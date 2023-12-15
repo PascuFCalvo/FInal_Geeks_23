@@ -3,8 +3,11 @@ import you from "../../assets/images/WEBIMAGES/you.jpg";
 import audience from "../../assets/images/WEBIMAGES/audience.jpg";
 import gente from "../../assets/images/WEBIMAGES/gente.jpg";
 import vigilante from "../../assets/images/WEBIMAGES/vigilante.jpg";
+import { useNavigate } from "react-router-dom";
 
 const StreamerSectionHorizontal3 = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <section className="streamer-section-3">
@@ -47,7 +50,12 @@ const StreamerSectionHorizontal3 = () => {
         </div>
 
         <div className="buttons">
-          <div className="button-im-streamer-3">Decidido, UNIRME!</div>
+          <div
+            className="button-im-streamer-3"
+            onClick={() => navigate("/registerStreamer")}
+          >
+            Decidido, UNIRME!
+          </div>
         </div>
       </section>
     </div>

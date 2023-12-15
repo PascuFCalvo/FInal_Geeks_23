@@ -6,6 +6,10 @@ import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
 
 const RegisterBrand = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   let [paises, setPaises] = useState([]);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
@@ -83,7 +87,6 @@ const RegisterBrand = () => {
     try {
       const imageUrl = await submitImage();
       const logoUrl = await submitLogo();
-      
 
       setBrand((prevBrand) => ({
         ...prevBrand,
@@ -154,6 +157,7 @@ const RegisterBrand = () => {
         <Logo />
       </div>
       <div className="form-body">
+        <div className="title-register">Regístrate como MARCA</div>
         <form className="form" onSubmit={handleSubmit}>
           <div>
             <label>Selecciona una foto de perfil</label>

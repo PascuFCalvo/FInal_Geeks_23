@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import StreamersCarousel from "../../common/StreamersCarousel/StreamersCarousel";
 import StreamersCarousel2 from "../../common/StreamersCarousel2/StreamersCarousel2";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
@@ -12,6 +13,9 @@ import StreamerImageUnderSection1 from "../StreamerImageUnderSection1/StreamerIm
 import "./MainPage.css";
 
 export const MainPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <NavBar />
