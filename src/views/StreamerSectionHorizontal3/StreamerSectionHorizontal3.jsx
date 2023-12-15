@@ -1,4 +1,8 @@
 import "./StreamerSectionHorizontal3.css";
+import you from "../../assets/images/WEBIMAGES/you.jpg";
+import audience from "../../assets/images/WEBIMAGES/audience.jpg";
+import gente from "../../assets/images/WEBIMAGES/gente.jpg";
+import vigilante from "../../assets/images/WEBIMAGES/vigilante.jpg";
 
 const StreamerSectionHorizontal3 = () => {
   return (
@@ -12,10 +16,7 @@ const StreamerSectionHorizontal3 = () => {
         </p>
         <div className="cards-container-streamer3">
           <div className="card-streamer-section-3">
-            <img
-              className="img-section3"
-              src="../src/assets/images/WEBIMAGES/you.jpg"
-            ></img>
+            <img className="img-section3" src={you}></img>
             <h2 className="h2-section3">Definitivamente es para ti</h2>
             <p className="p-section3">
               Porque ya sean 5 o 5 millones de espectadores los que tengas,
@@ -23,30 +24,21 @@ const StreamerSectionHorizontal3 = () => {
             </p>
           </div>
           <div className="card-streamer-section-3">
-            <img
-              className="img-section3"
-              src="../src/assets/images/WEBIMAGES/audience.jpg"
-            ></img>
+            <img className="img-section3" src={audience}></img>
             <h2 className="h2-section3">A tu audiencia le encantará</h2>
             <p className="p-section3">
               Te ayudan a ganar dinero y a crecer tu canal.
             </p>
           </div>
           <div className="card-streamer-section-3">
-            <img
-              className="img-section3"
-              src="../src/assets/images/WEBIMAGES/gente.jpg"
-            ></img>
+            <img className="img-section3" src={gente}></img>
             <h2 className="h2-section3">Todos son bienvenidos</h2>
             <p className="p-section3">
               Aún mejor, puedes usar Streamcash en todas las más grandes.
             </p>
           </div>
           <div className="card-streamer-section-3">
-            <img
-              className="img-section3"
-              src="../src/assets/images/WEBIMAGES/vigilante.jpg"
-            ></img>
+            <img className="img-section3" src={vigilante}></img>
             <h2 className="h2-section3">100% bajo tu control</h2>
             <p className="p-section3">
               Tú decides con qué marcas trabajas y cuándo. De verdad.

@@ -1,5 +1,6 @@
 import "./StreamerSectionHorizontal1.css";
 import { useNavigate } from "react-router-dom";
+import drdisrespect from "../../assets/images/WEBIMAGES/drdisrespect.jpg";
 
 const StreamerSectionHorizontal1 = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const StreamerSectionHorizontal1 = () => {
             </div>
           </div>
           <img
-            src="../src/assets/images/WEBIMAGES/drdisrespect.jpg"
+            src={drdisrespect}
             className="streamer-section-img1"
           ></img>
           <div className="reclamo-streamer">

@@ -1,4 +1,5 @@
 import "./BrandSectionHorizontal1.css";
+import computer from "../../assets/images/BRANDS/Computer.png";
 
 const BrandSectionHorizontal1 = () => {
   return (
@@ -13,10 +14,7 @@ const BrandSectionHorizontal1 = () => {
             <div className="button-brand-crate-campaign">CREAR UNA CAMPAÑA</div>
           </div>
 
-          <img
-            className="image-brand-section"
-            src="../src/assets/images/BRANDS/Computer.png"
-          ></img>
+          <img className="image-brand-section" src={computer}></img>
           <p className="paragraf-section1">
             Diseña campañas geniales y conecta con las generaciones jóvenes a
             través de nuestros creadores de contenido en línea. La manera más

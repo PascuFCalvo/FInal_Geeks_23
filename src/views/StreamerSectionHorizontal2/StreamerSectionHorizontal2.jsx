@@ -1,4 +1,7 @@
 import "./StreamerSectionHorizontal2.css";
+import brandspanel1 from "../../assets/images/BRANDS/brandspanel.png";
+import eldenring from "../../assets/images/WEBIMAGES/eldenring.png";
+import charts from "../../assets/images/WEBIMAGES/charts.jpg";
 
 const StreamerSectionHorizontal2 = () => {
   return (
@@ -7,7 +10,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../src/assets/images/BRANDS/brandspanel.png"
+            src={brandspanel1}
             alt="Imagen de la sección 2"
           />
         </div>
@@ -26,7 +29,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../src/assets/images/WEBIMAGES/eldenring.png"
+            src={eldenring}
             alt="Imagen de la sección 2"
           />
         </div>
@@ -45,7 +48,7 @@ const StreamerSectionHorizontal2 = () => {
         <div className="streamer-section-horizontal2-content-left">
           <img
             className="Image-section-2"
-            src="../src/assets/images/WEBIMAGES/charts.jpg"
+            src={charts}
             alt="Imagen de la sección 2"
           />
         </div>
