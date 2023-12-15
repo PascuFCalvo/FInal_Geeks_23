@@ -1,0 +1,43 @@
+.users-table-resume-content-background {
+   width: 80vw;
+   height: auto;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #2b2b2b;
+}
+
+.users-resume-table {
+   width: 75vw;
+   border-collapse: collapse;
+   font-size: 18px;
+   text-align: center;
+   margin-top: 20px;
+   color: #2b2b2b;
+}
+
+.users-resume-table-title {
+   background-color: #2b2b2b;
+   color: #fff;
+   padding: 10px;
+   height: 3em;
+   margin-bottom: 2em;
+}
+
+.users-resume-table-rows {
+
+   color: #2b2b2b;
+   padding: 10px;
+   height: 3em;
+   border-bottom: 1px solid black
+}
+
+.first-column {
+   border-left: solid 1px black;
+}
+
+.last-column {
+   border-right: 1px solid black;
+}

@@ -78,6 +78,30 @@ export const getAllCampaigns = async (token) => {
   });
 };
 
+export const getAllUsers = async (token) => {
+  return await axios.get(`${url}/getAllUsers`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getAllBrands = async (token) => {
+  return await axios.get(`${url}/getAllBrands`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getAllStreamers = async (token) => {
+  return await axios.get(`${url}/getAllStreamers`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const reportAStream = async (body, token) => {
   return await axios.post(`${url}/createStream`, body, {
     headers: {
