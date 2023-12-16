@@ -92,24 +92,28 @@ const AdminUsersResumeView = () => {
                   <td className="users-resume-table-rows">
                     {format(new Date(user.created_at), "dd-MM-yyyy")}
                   </td>
-                  <td className="users-resume-table-rows">
-                    {user.is_active ? "SI" : "NO"}
-                    {user.is_active && (
-                      <button
-                        className="inactivate-user-button"
-                        onClick={() => handlerInactivateUser(user.id)}
-                      >
-                        Baja
-                      </button>
-                    )}
-                    {!user.is_active && (
-                      <button
-                        className="activate-user-button"
-                        onClick={() => handlerActivateUser(user.id)}
-                      >
-                        Alta
-                      </button>
-                    )}
+                  <td className="users-resume-table-rows user-active">
+                    <div className="flex-direction-user-active">
+                      <p className="text-user-active">
+                        {user.is_active ? "SI" : "NO"}
+                      </p>
+                      {user.is_active && (
+                        <button
+                          className="inactivate-user-button"
+                          onClick={() => handlerInactivateUser(user.id)}
+                        >
+                          Baja
+                        </button>
+                      )}
+                      {!user.is_active && (
+                        <button
+                          className="activate-user-button"
+                          onClick={() => handlerActivateUser(user.id)}
+                        >
+                          Alta
+                        </button>
+                      )}
+                    </div>
                   </td>
                   <td className="users-resume-table-rows last-column">
                     {format(new Date(user.updated_at), "dd-MM-yyyy")}

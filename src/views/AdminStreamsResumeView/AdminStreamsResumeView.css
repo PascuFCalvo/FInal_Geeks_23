@@ -70,3 +70,16 @@
 .check-picture:active {
    transform: scale(20);
 }
+
+.user-active {
+   color: white;
+}
+
+.text-user-active {
+   margin-top: 1.2em;
+   margin-left: 1em;
+}
+
+.flex-direction-user-active {
+   display: flex;
+}
