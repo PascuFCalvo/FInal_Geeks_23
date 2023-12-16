@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./AdminStreamsResumeView.css";
 import {
+  approveAStream,
   getAllCampaigns,
   getAllStreamers,
   getAllStreams,
@@ -16,6 +17,7 @@ const AdminStreamsResumeView = () => {
   const [countries, setCountries] = useState([]);
   const [streamers, setStreamers] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
+  const [someStreamApproved, setSomeStreamApproved] = useState(false); // Agregado el estado someStreamApproved
   const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const AdminStreamsResumeView = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, someStreamApproved]);
 
   const getCountryName = (countryId) => {
     const country = countries.find((country) => country.id === countryId);
@@ -60,6 +62,11 @@ const AdminStreamsResumeView = () => {
   const getCampaignName = (campaignId) => {
     const campaign = campaigns.find((campaign) => campaign.id === campaignId);
     return campaign ? campaign.campaign_name : "Unknown";
+  };
+
+  const handlerApproveAStream = (streamId) => {
+    approveAStream(streamId, token);
+    setSomeStreamApproved(!someStreamApproved);
   };
 
   return (
@@ -120,6 +127,7 @@ const AdminStreamsResumeView = () => {
                     </td>
                     <td className="streams-resume-table-rows">
                       <img
+                        className="check-picture"
                         src={stream.stream_check_picture_1}
                         alt="Check Picture 1"
                         width={50}
@@ -127,6 +135,7 @@ const AdminStreamsResumeView = () => {
                     </td>
                     <td className="streams-resume-table-rows">
                       <img
+                        className="check-picture"
                         src={stream.stream_check_picture_2}
                         alt="Check Picture 2"
                         width={50}
@@ -146,6 +155,14 @@ const AdminStreamsResumeView = () => {
                     </td>
                     <td className="streams-resume-table-rows">
                       {stream.is_stream_approved ? "SI" : "NO"}
+                      {!stream.is_stream_approved && (
+                        <button
+                          className="approve-button"
+                          onClick={() => handlerApproveAStream(stream.id)}
+                        >
+                          Aprobar
+                        </button>
+                      )}
                     </td>
                     <td className="streams-resume-table-rows">
                       {stream.stream_total_to_receive}

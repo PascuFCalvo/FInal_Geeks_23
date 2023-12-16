@@ -1,127 +1,99 @@
-@font-face {
-   font-family: "bauziet";
-   /* Usar el mismo nombre de fuente */
-   src: url("./font/BauzietNormRegular.ttf");
+.form-background-login-user {
+   width: 100vw;
+   height: 70vh;
+   background: rgb(247, 0, 159);
+   background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
 }
 
-body {
-   position: relative;
-   font-family: bauziet;
+.title-login-user {
+   color: black;
+   font-size: 2em;
+   text-align: center;
+   margin-bottom: 2em;
+}
+
+.logo-placing-register-streamer {
    display: flex;
-   flex-direction: column;
-   background-color: #ffffff;
-   justify-content: center;
-   margin-top: 200px;
-   margin-bottom: 200px;
-   padding: 0;
-   color: aliceblue;
-   background: rgb(53, 102, 255);
-   background: linear-gradient(90deg, rgba(53, 102, 255, 1) 30%, rgba(0, 140, 255, 1) 53%, rgba(158, 0, 255, 1) 99%);
+   width: auto;
+   margin-left: 10%;
+
 }
 
-
-#logo {
-   position: absolute;
-   width: 200px;
-   margin-left: 30px;
-   margin-top: -160px;
-   top: 0px
-}
-
-form {
+.form-login-user {
+   font-size: 1em;
+   margin-bottom: 2em;
+   margin-top: 2em;
    padding: 20px;
    display: flex;
    flex-direction: column;
-
-   color: aliceblue;
-   width: 500px;
+   width: 34em;
    margin: 0 auto;
    background-color: #ffffff;
-   padding: 20px;
-   border-radius: 36px;
-   box-shadow: 0 0 10px #2196F3;
+   padding: 1.5em;
+   border-radius: 2em;
+
 }
 
-#myform {
-   padding: 60px 140px 60px 140px;
-}
-
-label {
-   font-family: "bauziet";
-   /* Utilizar el mismo nombre de fuente */
-   font-weight: 500;
-   color: rgb(0, 0, 0);
-   display: block;
-   margin-bottom: 5px;
-   margin-top: 10px;
-}
-
-input {
+.input-login-user {
+   font-size: 1em;
+   background-color: white;
    width: 100%;
-   color: rgb(0, 0, 0);
+   color: #2b2b2b;
    padding: 16px 24px;
    margin-bottom: 2px;
    border: none;
    border-radius: 6px;
    border: 1px solid rgba(0, 0, 0, 0.164);
-
 }
 
-input[type="file"]::-webkit-file-upload-button {
-   font-size: medium;
-   padding: 10px;
-   font-weight: bold;
-   background-color: #2196F3;
-   color: #fff;
-   border: #2196F3;
-   border-radius: 12px;
-   cursor: pointer;
-   box-shadow: 0 0 2px #2196F3;
-   margin-left: -10px;
+label {
+   font-size: 1em;
+   font-weight: 500;
+   color: #2b2b2b;
+   display: block;
+   margin-bottom: 0.5em;
+   margin-top: 0.5em;
 }
 
-input[type="file"]::-webkit-file-upload-button:hover {
-   color: #2196F3;
-   background-color: white;
-   border: #2196F3;
-   box-shadow: 0 0 2px #2196F3;
 
+.buttons {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 20px;
 }
+
+.buttonBack {
+   font-size: 1.2em;
+   background-color: orange;
+   width: 8em;
+   margin-right: 2em;
+}
+
 
 button {
-   width: 100%;
+   font-size: 1.2em;
+   width: 60%;
    margin-top: 20px;
    margin-bottom: 20px;
-   background-color: #2196F3;
+   background-color: #2b2b2b;
    color: #fff;
    padding: 20px 20px;
    border: none;
-   border-radius: 12px;
+   border-radius: 3em;
    cursor: pointer;
    align-self: center;
-   box-shadow: 0 0 2px #2196F3;
+   box-shadow: 0 0 2px #2b2b2b;
 }
 
-#video,
-#overlay {
-   border: none;
-   padding: none;
-   margin-left: -10px;
-}
-
-#overlay button {
-   padding: 20px;
-   background-color: #2196F3;
-   box-shadow: 0 0 2px #2196F3;
-}
 
 button:hover {
 
    background-color: white;
-   color: #2196F3;
+   color: #2b2b2b;
 }
 
 button:active {
 
-   background-color: #2196F3;
+   background-color: #2b2b2b;
 }

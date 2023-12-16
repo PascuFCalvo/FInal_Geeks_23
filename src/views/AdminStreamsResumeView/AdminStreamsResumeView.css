@@ -50,3 +50,23 @@
 .last-column {
    border-right: 1px solid black;
 }
+
+.approve-button {
+   background-color: green;
+   color: #fff;
+   border: none;
+   border-radius: 2em;
+   padding: 0.5em;
+   margin: 0.5em;
+   cursor: pointer;
+}
+
+.check-picture:hover {
+   cursor: pointer;
+   transform: scale(5);
+
+}
+
+.check-picture:active {
+   transform: scale(20);
+}

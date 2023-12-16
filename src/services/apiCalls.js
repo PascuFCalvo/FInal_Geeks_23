@@ -189,3 +189,13 @@ export const inactivateACampaign = async (id, token) => {
     },
   });
 };
+
+export const approveAStream = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.put(`${url}/approveAStream/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
