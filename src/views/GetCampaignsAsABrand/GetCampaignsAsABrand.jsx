@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
+  activateACampaign,
   deleteACampaign,
   getCampaignsAsABrand,
   getProfile,
+  inactivateACampaign,
 } from "../../services/apiCalls";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import FooterSection from "../FooterSection/FooterSection";
@@ -18,6 +20,7 @@ const GetCampaignsAsABrand = () => {
   const [loading, setLoading] = useState(true);
   const [selectedCampaignId, setSelectedCampaignId] = useState(null);
   const [someCampaignDeleted, setSomeCampaignDeleted] = useState(false);
+  const [someCampaignActivated, setSomeCampaignActivated] = useState(false);
   const [deleteError, setDeleteError] = useState(null);
   const handleDeleteModal = (id) => {
     setSelectedCampaignId(id);
@@ -36,6 +39,24 @@ const GetCampaignsAsABrand = () => {
       setTimeout(() => {
         setDeleteError(null);
       }, 2000);
+    }
+  };
+
+  const handlerActivateCampaign = async (id) => {
+    try {
+      await activateACampaign(id, token);
+      setSomeCampaignActivated(!someCampaignActivated);
+    } catch (error) {
+      console.error("Error activando campaña", error);
+    }
+  };
+
+  const handlerInctivateCampaign = async (id) => {
+    try {
+      await inactivateACampaign(id, token);
+      setSomeCampaignActivated(!someCampaignActivated);
+    } catch (error) {
+      console.error("Error activando campaña", error);
     }
   };
 
@@ -67,7 +88,7 @@ const GetCampaignsAsABrand = () => {
     };
 
     fetchData();
-  }, [token, someCampaignDeleted, deleteError]);
+  }, [token, someCampaignDeleted, deleteError, someCampaignActivated]);
 
   return (
     <div>
@@ -83,69 +104,93 @@ const GetCampaignsAsABrand = () => {
             />
           </div>
         ) : (
-          <div className = "general-campaign-background"><ul className="campaing-list-background">
-            <div className="campaigns-list-style-header">
-              <p className="title-campaiogn-list-col">Nombre de la campaña</p>
-              <p className="title-campaiogn-list-col">Descripcion</p>
-              <p className="title-campaiogn-list-col">Fecha de inicio</p>
-              <p className="title-campaiogn-list-col">
-                Precio por visualizacion
-              </p>
-            </div>
-          
-            {campaigns.campaigns.map((campaign) => (
-              
-              <div key={campaign.id} className="complete-row">
-                <div className="campaigns-list-style">
-                  <div className="column-campagn-list-col-even">
-                    <p> {campaign.campaign_name}</p>
-                  </div>
-                  <div className="column-campagn-list-col-odd">
-                    <p> {campaign.campaign_description}</p>
-                  </div>
-                  <div className="column-campagn-list-col-even">
-                    <p> {campaign.campaign_start_date}</p>
-                  </div>
-                  <div className="column-campagn-list-col-odd">
-                    <p> {campaign.price_per_single_view}</p>
-                  </div>
-                </div>
-                <button
-                  className="delete-campaign-button"
-                  onClick={() => handleDeleteModal(campaign.id)}
-                >
-                  {" "}
-                  X
-                </button>
-                {selectedCampaignId === campaign.id ? (
-                  <div className="modal-delete-campaign">
-                    <p>
-                      {!deleteError
-                        ? "¿Estas seguro de que quieres eliminar esta campaña?"
-                        : "N0 se puede eliminar campañas activas. Espera a que finalice."}
-                    </p>
-                    <div className="buttons-modal-delete-campaign">
-                      <button
-                        className="delete-campaign-button-no"
-                        onClick={() => handleDeleteModal()}
-                      >
+          <div className="general-campaign-background">
+            <ul className="campaing-list-background">
+              <div className="campaigns-list-style-header">
+                <p className="title-campaiogn-list-col">Nombre de la campaña</p>
+                <p className="title-campaiogn-list-col">Descripcion</p>
+                <p className="title-campaiogn-list-col">Fecha de inicio</p>
+                <p className="title-campaiogn-list-col">Activa</p>
+                <p className="title-campaiogn-list-col">
+                  Precio por visualizacion
+                </p>
+              </div>
+
+              {campaigns.campaigns.map((campaign) => (
+                <div key={campaign.id} className="complete-row">
+                  <div className="campaigns-list-style">
+                    <div className="column-campagn-list-col-even">
+                      <p> {campaign.campaign_name}</p>
+                    </div>
+                    <div className="column-campagn-list-col-odd">
+                      <p> {campaign.campaign_description}</p>
+                    </div>
+                    <div className="column-campagn-list-col-even">
+                      <p> {campaign.campaign_start_date}</p>
+                    </div>
+                    <div className="column-campaign-list-col-even ">
+                      <div className="column-active">
+                        <p>{campaign.is_active ? "SI" : "NO"}</p>
+                        {!campaign.is_active && (
+                          <button
+                            className="activate-campaign-button"
+                            onClick={() => handlerActivateCampaign(campaign.id)}
+                          >
+                            Activar
+                          </button>
+                        )}
+                        {campaign.is_active && (
+                          <button
+                            className="pause-campaign-button"
+                            onClick={() => handlerInctivateCampaign(campaign.id)}
+                          >
+                            Pausar
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    <div className="column-campagn-list-col-even">
+                      <p className="price-view">
                         {" "}
-                        No
-                      </button>
-                      <button
-                        className="delete-campaign-button-yes"
-                        onClick={() => handleDeleteCampaign(campaign.id)}
-                      >
-                        {" "}
-                        Si
-                      </button>
+                        {campaign.price_per_single_view}
+                      </p>
                     </div>
                   </div>
-                ) : null}
-              </div>
-            ))}
-          </ul></div>
-          
+
+                  <button
+                    className="delete-campaign-button"
+                    onClick={() => handleDeleteModal(campaign.id)}
+                  >
+                    Eliminar
+                  </button>
+                  {selectedCampaignId === campaign.id ? (
+                    <div className="modal-delete-campaign">
+                      <p>
+                        {!deleteError
+                          ? "¿Estas seguro de que quieres eliminar esta campaña?"
+                          : "N0 se puede eliminar campañas activas. Espera a que finalice."}
+                      </p>
+                      <div className="buttons-modal-delete-campaign">
+                        <button
+                          className="delete-campaign-button-no"
+                          onClick={() => handleDeleteModal()}
+                        >
+                          No
+                        </button>
+                        <button
+                          className="delete-campaign-button-yes"
+                          onClick={() => handleDeleteCampaign(campaign.id)}
+                        >
+                          {" "}
+                          Si
+                        </button>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
 

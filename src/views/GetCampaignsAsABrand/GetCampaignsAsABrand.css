@@ -77,16 +77,63 @@
 
 }
 
+.column-active {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: ceneter;
+   width: 5em;
+}
+
+.column-active p {
+   margin-top: 0.8em;
+   margin-left: -2em;
+   margin-right: 1em;
+   font-size: 0.8em;
+}
+
 .delete-campaign-button {
    background-color: red;
    color: white;
    border: none;
-   border-radius: 50%;
+   border-radius: 2em;
    font-size: 0.8em;
    padding: 0.3em;
    position: absolute;
-   width: 2em;
+   width: 5em;
+   height: 2em;
    right: 1em;
+   margin-top: 0.5em;
+}
+
+.price-view {
+   margin-left: 8em;
+}
+
+.activate-campaign-button {
+   background-color: green;
+   color: white;
+   font-size: 0.8em;
+   width: 5em;
+   height: 2em;
+   border-radius: 2em;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 0.5em;
+}
+
+.pause-campaign-button {
+   background-color: orange;
+   color: white;
+   font-size: 0.8em;
+   width: 5em;
+   height: 2em;
+   border-radius: 2em;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 0.5em;
 }
 
 .delete-campaign-button:hover {

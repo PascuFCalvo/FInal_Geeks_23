@@ -170,3 +170,22 @@ export const deleteACampaign = async (id, token) => {
     },
   });
 };
+
+export const activateACampaign = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.put(`${url}/activateACampaign/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+export const inactivateACampaign = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.put(`${url}/inactivateACampaign/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
