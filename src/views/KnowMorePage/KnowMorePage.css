@@ -1,0 +1,92 @@
+.Know-section-horizontal4-background {
+   background-color: aliceblue;
+   height: auto;
+   width: 40em;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.Main-section-horizontal4-content {
+   max-width: 75em;
+   display: flex;
+
+
+}
+
+.Main-section-horizontal4-content-left {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-right: 3em;
+
+}
+
+.Main-section-horizontal4-content-right {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   margin-left: 3em;
+
+}
+
+.Title-section-4 {
+   color: black;
+}
+
+.Paragraf-section-4 {
+   color: black;
+   font-size: 1.5em;
+}
+
+.buttons-section-4 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   margin-bottom: 4em;
+}
+
+.button-saber-mas {
+   width: 10em;
+   height: 2em;
+   border-radius: 3em;
+
+   border: none;
+   color: #2b2b2b;
+   font-size: 1.5em;
+   font-weight: bolder;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 1em;
+   background-color: orange
+}
+
+.button-empezar-ahora {
+   width: 10em;
+   height: 2em;
+   border-radius: 3em;
+
+   border: none;
+   color: #2b2b2b;
+   font-size: 1.5em;
+   font-weight: bolder;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 1em;
+   background-color: orange;
+}
+
+.button-saber-mas:hover,
+.button-empezar-ahora:hover {
+   background-color: orangered;
+   color: white;
+   cursor: pointer;
+}

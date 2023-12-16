@@ -13,6 +13,7 @@ import { ReportAStream } from "../ReportAStream/ReportAStream";
 import GetCampaignsAsABrand from "../GetCampaignsAsABrand/GetCampaignsAsABrand";
 import CreateACampaign from "../CraeteACampaign/CreateACampaign";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
+import KnowMoreSection from "../KnowMorePage/KnowMorePage";
 
 const Body = () => {
   return (
@@ -40,7 +41,9 @@ const Body = () => {
         />
         <Route path="/createACampaign" element={<CreateACampaign />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
+        <Route path ="/knowMore" element = {<KnowMoreSection />}/>
       </Routes>
+
     </div>
   );
 };
