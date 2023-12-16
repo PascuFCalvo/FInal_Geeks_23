@@ -90,7 +90,7 @@ const CreateACampaign = () => {
             id="campaign_start_date"
             onChange={handleChange}
             value={formCampaign.campaign_start_date}
-            className="input-form-strem"
+            className="input-form-stream"
           />
           <label htmlFor="price_per_single_view">Price Per Single View</label>
           <input

@@ -108,3 +108,22 @@
    width: 90%;
    color: green;
 }
+
+.input-form-stream-date {
+   font-size: 1em;
+   background-color: rgb(255, 255, 255);
+   width: 100%;
+   color: #2b2b2b;
+   padding: 16px 24px;
+   margin-bottom: 2px;
+   border: none;
+   border-radius: 6px;
+   border: 1px solid rgba(0, 0, 0, 0.164);
+}
+
+::-webkit-calendar-picker-indicator {
+   filter: invert(1);
+   cursor: pointer;
+   transform: scale(1.5);
+
+}

@@ -33,6 +33,7 @@
    cursor: pointer;
    height: 3em;
    margin-bottom: 1em;
+   transition: 0.4s;
 }
 
 .admin-panel-aside-menu-item:hover {
@@ -41,5 +42,6 @@
    padding-left: 3em;
    border-radius: 2em;
    color: orange;
+   transition: 0.4s;
 
 }

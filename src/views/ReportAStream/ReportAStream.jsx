@@ -186,7 +186,7 @@ export const ReportAStream = () => {
               name="stream_date"
               value={formData.stream_date}
               onChange={handleChange}
-              className="input-form-strem"
+              className="input-form-stream-date"
             />
           </label>
           <label>
