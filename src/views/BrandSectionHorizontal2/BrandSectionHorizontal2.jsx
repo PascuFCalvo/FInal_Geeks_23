@@ -3,8 +3,16 @@ import YoutubeEmbed from "../../common/YoutubeEmbed/YoutubeEmbed";
 import trustpilot from "../../assets/images/knowmore/trustpilot.png";
 import stars from "../../assets/images/knowmore/stars.png";
 import FooterSection from "../../views/FooterSection/FooterSection";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const BrandSectionHorizontal2 = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="streamer-image-under-section1-background">
       <div className="streamer-image-under-section1-content">
@@ -24,8 +32,22 @@ const BrandSectionHorizontal2 = () => {
         </p>
       </div>
       <div className="image-placer-brands">
-        <img src={trustpilot}></img>
-        <img src={stars}></img>
+        <div>
+          <img src={trustpilot}></img>
+          <img src={stars}></img>
+        </div>
+
+        <div className="buttons-brand-section">
+          <div className="button-empezar-ahora" onClick={() => navigate("/")}>
+            VOLVER
+          </div>
+          <div
+            className="button-im-streamer-3"
+            onClick={() => navigate("/registerBrand")}
+          >
+            Registrar mi marca!
+          </div>
+        </div>
       </div>
       <FooterSection />
     </div>
