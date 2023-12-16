@@ -23,6 +23,7 @@ export const GetStreamsByStreamer = () => {
   const [selectedStreamId, setSelectedStreamId] = useState(null);
 
   const handlerPayStream = (streamId, token) => {
+    
     payStreamAPI(streamId, token);
     setSelectedStreamId(streamId);
     setTimeout(() => {
@@ -215,7 +216,8 @@ export const GetStreamsByStreamer = () => {
                       alt="Report 2"
                     />
                   </div>
-                  {!stream.is_stream_payed ? (
+                  
+                  {!stream.is_stream_payed && stream.is_stream_approved  ? (
                     <button
                       className="button-pay-stream"
                       onClick={() => handlerPayStream(stream.id, token)}
