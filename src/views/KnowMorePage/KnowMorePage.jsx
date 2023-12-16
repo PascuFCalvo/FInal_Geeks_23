@@ -1,10 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import "./KnowMorePage.css";
 import s1mple from "../../assets/images/WEBIMAGES/s1mple.jpg";
-import twitch from "../../assets/images/WEBICONS/twitch.png";
+
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const KnowMoreSection = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+   }, []);
 
   return (
     <div>
@@ -161,12 +167,17 @@ const KnowMoreSection = () => {
             />
           </div>
         </div>
+        <div className="buttons-know-more">
+          <div className="button-empezar-ahora" onClick={() => navigate("/")}>
+            VOLVER
+          </div>
 
-        <div
-          className="button-empezar-ahora"
-          onClick={() => navigate("/registerStreamer")}
-        >
-          EMPEZAR AHORA
+          <div
+            className="button-empezar-ahora"
+            onClick={() => navigate("/registerStreamer")}
+          >
+            EMPEZAR AHORA
+          </div>
         </div>
       </div>
     </div>

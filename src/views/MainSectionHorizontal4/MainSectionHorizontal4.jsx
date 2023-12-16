@@ -35,7 +35,9 @@ const MainSectionHorizontal4 = () => {
         </div>
       </div>
       <div className="buttons-section-4">
-        <div className="button-saber-mas">SABER MAS</div>
+        <div className="button-saber-mas" onClick={() => navigate("/knowMore")}>
+          SABER MAS
+        </div>
         <div
           className="button-empezar-ahora"
           onClick={() => navigate("/registerStreamer")}

@@ -90,3 +90,9 @@
    color: white;
    cursor: pointer;
 }
+
+.buttons-know-more {
+   margin-top: 5em;
+   display: flex;
+   margin-bottom: 5em;
+}
