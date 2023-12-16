@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   editStreamerProfile,
-  getAllCampaigns,
+  getAllActivatedCampaigns,
   getCountries,
   getProfile,
   reportAStream,
@@ -44,6 +44,7 @@ export const ReportAStream = () => {
     const fetchData = async () => {
       try {
         const profileResponse = await getProfile(token);
+        console.log(profileResponse.data.data);
         setFormData((prevData) => ({
           ...prevData,
           profileData: profileResponse.data.data,
@@ -55,8 +56,6 @@ export const ReportAStream = () => {
 
     fetchData();
   }, [token]);
-
-  console.log(formData.profileData.streamer.streamer_nick);
 
   useEffect(() => {
     getCountries()
@@ -72,8 +71,9 @@ export const ReportAStream = () => {
   }, []);
 
   useEffect(() => {
-    getAllCampaigns(token)
+    getAllActivatedCampaigns(token)
       .then((response) => {
+        console.log(response);
         setFormData((prevData) => ({
           ...prevData,
           campañas: response.data.campaigns,

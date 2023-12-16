@@ -79,6 +79,14 @@ export const getAllCampaigns = async (token) => {
   });
 };
 
+export const getAllActivatedCampaigns = async (token) => {
+  return await axios.get(`${url}/getAllActivatedCampaigns `, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const getAllUsers = async (token) => {
   return await axios.get(`${url}/getAllUsers`, {
     headers: {
