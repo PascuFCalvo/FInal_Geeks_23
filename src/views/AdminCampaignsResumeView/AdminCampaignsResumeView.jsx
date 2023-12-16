@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAllBrands, getAllCampaigns } from "../../services/apiCalls";
+import {
+  activateACampaign,
+  getAllBrands,
+  getAllCampaigns,
+  inactivateACampaign,
+} from "../../services/apiCalls";
 import "./AdminCampaignsResumeView.css";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
@@ -8,7 +13,8 @@ const AdminCampaignsResumeView = () => {
   const token = useSelector((state) => state.token.value);
   const [campaigns, setCampaigns] = useState([]);
   const [brand, setBrand] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
+  const [isLoading, setIsLoading] = useState(true);
+  const [someCampaignActivated, setSomeCampaignActivated] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,11 +37,29 @@ const AdminCampaignsResumeView = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, someCampaignActivated]);
 
   const getBrandName = (brandId) => {
     const brandName = brand.find((brand) => brand.id === brandId);
     return brandName ? brandName.brand_name : "Unknown";
+  };
+
+  const handlerActivateCampaign = async (id) => {
+    try {
+      await activateACampaign(id, token);
+      setSomeCampaignActivated(!someCampaignActivated);
+    } catch (error) {
+      console.error("Error activando campaña", error);
+    }
+  };
+
+  const handlerInctivateCampaign = async (id) => {
+    try {
+      await inactivateACampaign(id, token);
+      setSomeCampaignActivated(!someCampaignActivated);
+    } catch (error) {
+      console.error("Error activando campaña", error);
+    }
   };
 
   return (
@@ -62,7 +86,7 @@ const AdminCampaignsResumeView = () => {
                   <th>Description</th>
                   <th>Fecha inicio</th>
                   <th>Precio por visualizacion</th>
-                  <th>Active</th>
+                  <th>Campaña activa</th>
                   <th>Creacion</th>
                   <th>Ultima edición</th>
                 </tr>
@@ -88,8 +112,24 @@ const AdminCampaignsResumeView = () => {
                     <td className="campaigns-resume-table-rows">
                       {campaign.price_per_single_view}
                     </td>
-                    <td className="campaigns-resume-table-rows">
-                      {campaign.is_active ? "SI" : "N="}
+                    <td className="campaigns-resume-table-rows active-column">
+                      {<p className ="active-column-text">{campaign.is_active ? "SI" : "NO"}</p> }
+                      {!campaign.is_active && (
+                        <button
+                          className="activate-campaign-button-admin"
+                          onClick={() => handlerActivateCampaign(campaign.id)}
+                        >
+                          Activar
+                        </button>
+                      )}
+                      {campaign.is_active && (
+                        <button
+                          className="pause-campaign-button-admin"
+                          onClick={() => handlerInctivateCampaign(campaign.id)}
+                        >
+                          Pausar
+                        </button>
+                      )}
                     </td>
                     <td className="campaigns-resume-table-rows">
                       {format(new Date(campaign.created_at), "dd-MM-yyyy")}
