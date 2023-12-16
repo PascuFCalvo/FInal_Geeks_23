@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
+
 const AdminStreamsResumeView = () => {
   const token = useSelector((state) => state.token.value);
 
@@ -17,8 +18,8 @@ const AdminStreamsResumeView = () => {
   const [countries, setCountries] = useState([]);
   const [streamers, setStreamers] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
-  const [someStreamApproved, setSomeStreamApproved] = useState(false); // Agregado el estado someStreamApproved
-  const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
+  const [someStreamApproved, setSomeStreamApproved] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);

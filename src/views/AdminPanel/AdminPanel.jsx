@@ -78,60 +78,62 @@ export const AdminPanel = () => {
   }, []);
 
   return (
-    <div>
-      <NavBar />
-      <div className="admin-panel-container">
-        <div className="admin-panel-aside-menu">
-          <div className="admin-panel-aside-menu-item-containers">
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnDashboardHandler()}
-            >
-              Dashboard
-            </div>
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnUsersHandler()}
-            >
-              Users
-            </div>
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnBrandsHandler()}
-            >
-              Brands
-            </div>
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnStreamersHandler()}
-            >
-              Streamers
-            </div>
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnStreamsHandler()}
-            >
-              Streams
-            </div>
-            <div
-              className="admin-panel-aside-menu-item"
-              onClick={() => isOnCampaignsHandler()}
-            >
-              Campaigns
+    <>
+      <div>
+        <NavBar />
+        <div className="admin-panel-container">
+          <div className="admin-panel-aside-menu">
+            <div className="admin-panel-aside-menu-item-containers">
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnDashboardHandler()}
+              >
+                Dashboard
+              </div>
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnUsersHandler()}
+              >
+                Users
+              </div>
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnBrandsHandler()}
+              >
+                Brands
+              </div>
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnStreamersHandler()}
+              >
+                Streamers
+              </div>
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnStreamsHandler()}
+              >
+                Streams
+              </div>
+              <div
+                className="admin-panel-aside-menu-item"
+                onClick={() => isOnCampaignsHandler()}
+              >
+                Campaigns
+              </div>
             </div>
           </div>
+          <div className="admin-panel-main-content">
+            {isOnDashboard && <Dashboard />}
+            {isOnUsers && <AdminUsersResumeView />}
+            {isOnBrands && <AdminBrandsResumeView />}
+            {isOnStreamers && <AdminStreamersResumeView />}
+            {isOnStreams && <AdminStreamsResumeView />}
+            {isOnCampaigns && <AdminCampaignsResumeView />}
+          </div>
         </div>
-        <div className="admin-panel-main-content">
-          {isOnDashboard && <Dashboard />}
-          {isOnUsers && <AdminUsersResumeView />}
-          {isOnBrands && <AdminBrandsResumeView />}
-          {isOnStreamers && <AdminStreamersResumeView />}
-          {isOnStreams && <AdminStreamsResumeView />}
-          {isOnCampaigns && <AdminCampaignsResumeView />}
-        </div>
+        <BannerMarcas1 />
+        <FooterSection />
       </div>
-      <BannerMarcas1 />
-      <FooterSection />
-    </div>
+    </>
   );
 };

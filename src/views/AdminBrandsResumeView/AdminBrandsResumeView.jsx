@@ -1,16 +1,27 @@
 import { useSelector } from "react-redux";
 import "./AdminBrandsResumeView.css";
 import { useEffect, useState } from "react";
-import { getAllBrands } from "../../services/apiCalls";
+import { getAllBrands, getCountries } from "../../services/apiCalls";
 import { format } from "date-fns";
 
 const AdminBrandsResumeView = () => {
   const token = useSelector((state) => state.token.value);
   const [brands, setBrands] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
+  const [isLoading, setIsLoading] = useState(true);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getCountries().then((response) => {
+        setCountries(response.data.data);
+        console.log(countries);
+      });
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -28,6 +39,11 @@ const AdminBrandsResumeView = () => {
 
     fetchData();
   }, [token]);
+
+  const setCountryName = (countryId) => {
+    const country = countries.find((country) => country.id === countryId);
+    return country ? country.country_name : "No country";
+  };
 
   return (
     <div>
@@ -50,11 +66,11 @@ const AdminBrandsResumeView = () => {
                   <th>ID</th>
                   <th>User ID</th>
                   <th>CIF</th>
-                  <th>Brand Name</th>
-                  <th>Description</th>
+                  <th>Nombre marca</th>
+                  <th>Descripcion</th>
                   <th>Logo</th>
-                  <th>Country ID</th>
-                  <th>Active Campaigns</th>
+                  <th>Pais</th>
+
                   <th>Fecha alta</th>
                   <th className="last-column">Ultima edicion</th>
                 </tr>
@@ -81,11 +97,9 @@ const AdminBrandsResumeView = () => {
                       <img src={brand.brand_logo_link} alt="Logo" width={28} />
                     </td>
                     <td className="brands-resume-table-rows">
-                      {brand.country_id}
+                      {setCountryName(brand.country_id)}
                     </td>
-                    <td className="brands-resume-table-rows">
-                      {brand.has_active_campaigns}
-                    </td>
+
                     <td className="brands-resume-table-rows">
                       {format(new Date(brand.created_at), "dd-MM-yyyy")}
                     </td>

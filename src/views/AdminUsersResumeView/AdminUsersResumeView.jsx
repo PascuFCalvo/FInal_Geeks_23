@@ -61,9 +61,9 @@ const AdminUsersResumeView = () => {
             <thead className="users-resume-table-title">
               <tr>
                 <th>ID</th>
-                <th>User Name</th>
+                <th>Nombre usuario</th>
                 <th>Email</th>
-                <th>Phone</th>
+                <th>Telefono</th>
                 <th>Role</th>
                 <th>Avatar</th>
                 <th>Fecha alta</th>
