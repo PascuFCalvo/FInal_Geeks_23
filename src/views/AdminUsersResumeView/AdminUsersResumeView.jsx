@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import "./AdminUsersResumeView.css";
-import { getAllUsers } from "../../services/apiCalls";
+import {
+  activateAUser,
+  getAllUsers,
+  inactivateAUser,
+} from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
 const AdminUsersResumeView = () => {
   const token = useSelector((state) => state.token.value);
   const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [someUserActivatad, setSomeUserActivated] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,7 +31,17 @@ const AdminUsersResumeView = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, someUserActivatad]);
+
+  const handlerInactivateUser = async (userId) => {
+    inactivateAUser(userId, token);
+    setSomeUserActivated(!someUserActivatad);
+  };
+
+  const handlerActivateUser = async (userId) => {
+    activateAUser(userId, token);
+    setSomeUserActivated(!someUserActivatad);
+  };
 
   return (
     <div>
@@ -53,6 +67,7 @@ const AdminUsersResumeView = () => {
                 <th>Role</th>
                 <th>Avatar</th>
                 <th>Fecha alta</th>
+                <th>Usuario activo</th>
                 <th className="last-column">Ultima edicion</th>
               </tr>
             </thead>
@@ -67,10 +82,34 @@ const AdminUsersResumeView = () => {
                   <td className="users-resume-table-rows">{user.user_phone}</td>
                   <td className="users-resume-table-rows">{user.user_role}</td>
                   <td className="users-resume-table-rows">
-                    <img src={user.user_avatar_link} alt="Avatar" width={28} />
+                    <img
+                      className="check-picture"
+                      src={user.user_avatar_link}
+                      alt="Avatar"
+                      width={50}
+                    />
                   </td>
                   <td className="users-resume-table-rows">
                     {format(new Date(user.created_at), "dd-MM-yyyy")}
+                  </td>
+                  <td className="users-resume-table-rows">
+                    {user.is_active ? "SI" : "NO"}
+                    {user.is_active && (
+                      <button
+                        className="inactivate-user-button"
+                        onClick={() => handlerInactivateUser(user.id)}
+                      >
+                        Baja
+                      </button>
+                    )}
+                    {!user.is_active && (
+                      <button
+                        className="activate-user-button"
+                        onClick={() => handlerActivateUser(user.id)}
+                      >
+                        Alta
+                      </button>
+                    )}
                   </td>
                   <td className="users-resume-table-rows last-column">
                     {format(new Date(user.updated_at), "dd-MM-yyyy")}
