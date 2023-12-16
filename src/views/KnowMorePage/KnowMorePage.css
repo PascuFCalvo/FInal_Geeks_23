@@ -1,5 +1,13 @@
+.know-more-section-background {
+   background-color: white;
+   height: auto;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .Know-section-horizontal4-background {
-   background-color: aliceblue;
    height: auto;
    width: 40em;
    display: flex;
@@ -8,36 +16,124 @@
    flex-direction: column;
 }
 
-.Main-section-horizontal4-content {
-   max-width: 75em;
+.title-know-section {
+   background-color: orange;
+   width: 100vw;
+   height: 5em;
+
    display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 3em;
+
+}
+
+.subtitle-know-section {
+   width: 100vw;
+   height: auto;
+   background: rgb(247, 0, 159);
+   background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 10vw;
+   font-size: 2em;
+
+}
+
+.start-know-Section {
+   width: 100vw;
+   height: auto;
+   background-color: #2b2b2b;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 5vw;
+   font-size: 2em;
+   color: white;
+
+}
+
+.know-section-horizontal4-content {
+   width: 70vw;
+   display: flex;
+   ustify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: orange;
+
+}
+
+.know-section-horizontal4-content-orangered {
+   width: 70vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: orangered;
+
+
 
 
 }
 
-.Main-section-horizontal4-content-left {
-   width: 50%;
+.know-section-horizontal4-content-white {
+   width: 70vw;
+   display: flex;
+   ustify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: white
+}
+
+
+
+.know-section-horizontal4-content-orangered {
+   width: 70vw;
+   display: flex;
+   height: 100%;
+   background-color: orangered
+}
+
+.know-section-horizontal4-content-left {
+   width: 35vw;
    display: flex;
    flex-direction: column;
    justify-content: center;
-   margin-right: 3em;
+   background-color: white;
+
 
 }
 
-.Main-section-horizontal4-content-right {
-   width: 50%;
+.know-section-horizontal4-content-right {
+
+   height: 100%;
+   width: 35vw;
    display: flex;
    flex-direction: column;
-   justify-content: flex-start;
-   margin-left: 3em;
+   padding-left: 2em;
+   padding-right: 2em;
 
 }
 
-.Title-section-4 {
+
+
+
+
+.white {
+   background-color: white;
+
+}
+
+.know-title-section4 {
+   padding-top: 1em;
    color: black;
 }
 
-.Paragraf-section-4 {
+.text-know-section4 {
+   margin-top: 1em;
    color: black;
    font-size: 1.5em;
 }
@@ -95,4 +191,9 @@
    margin-top: 5em;
    display: flex;
    margin-bottom: 5em;
+}
+
+.know-image-section-4 {
+   width: 35vw;
+   background-color: white;
 }

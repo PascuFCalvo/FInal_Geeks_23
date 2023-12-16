@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import BrandSectionHorizontal1 from "../BrandSectionHorizontal1/BrandSectionHorizontal1";
 import NavBar from "../NavBar/NavBar";
 import "./BrandMainPage.css";
+import BrandSectionHorizontal2 from "../BrandSectionHorizontal2/BrandSectionHorizontal2";
 
 const BrandMainPage = () => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const BrandMainPage = () => {
     <div>
       <NavBar />
       <BrandSectionHorizontal1 />
+      <BrandSectionHorizontal2 />
     </div>
   );
 };
