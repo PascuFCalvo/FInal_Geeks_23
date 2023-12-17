@@ -89,3 +89,29 @@
    cursor: pointer;
    color: white;
 }
+
+@media only screen and (max-width: 430px) {
+
+   .brand-section-1 {
+      width: 100vw;
+      height: auto;
+
+   }
+
+   .image-brand-section {
+      padding-top: 2em;
+      width: 100vw;
+      margin-bottom: 5em;
+
+   }
+
+   .paragraf-section1-brands {
+      font-size: 1.5em;
+      padding-top: 2em;
+      width: 90vw;
+      padding-bottom: 2em;
+   }
+
+   
+
+}
