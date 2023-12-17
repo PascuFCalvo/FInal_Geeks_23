@@ -32,7 +32,7 @@ const BrandSectionHorizontal2 = () => {
         </p>
       </div>
       <div className="image-placer-brands">
-        <div className="image-placer-brands2">
+        <div>
           <img src={trustpilot}></img>
           <img src={stars}></img>
         </div>

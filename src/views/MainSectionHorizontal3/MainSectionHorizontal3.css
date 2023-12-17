@@ -46,7 +46,7 @@
    font-size: 1.5em;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 428px) {
 
    .Main-section-horizontal3-background {
       background-color: white;

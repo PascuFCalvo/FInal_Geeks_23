@@ -105,6 +105,7 @@ export const GetStreamsByStreamerChart = () => {
         try {
           const streamsResponse = await getAllmyStreams(token);
           setStreams(streamsResponse.data);
+          console.log(streams)
           setLoadingStreams(false);
         } catch (error) {
           console.error("Error fetching streams:", error);

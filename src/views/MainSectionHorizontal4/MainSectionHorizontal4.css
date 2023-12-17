@@ -90,7 +90,7 @@
    cursor: pointer;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 428px) {
 
    .Main-section-horizontal4-background {
       background-color: aliceblue;

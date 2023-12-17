@@ -20,6 +20,7 @@
    background-color: orange;
    width: 100vw;
    height: 5em;
+
    display: flex;
    justify-content: center;
    align-items: center;
@@ -119,6 +120,8 @@
 
 
 
+
+
 .white {
    background-color: white;
 
@@ -143,7 +146,7 @@
    margin-bottom: 4em;
 }
 
-.button-saber-mas-know {
+.button-saber-mas {
    width: 10em;
    height: 2em;
    border-radius: 3em;
@@ -193,88 +196,4 @@
 .know-image-section-4 {
    width: 35vw;
    background-color: white;
-}
-
-@media only screen and (max-width: 430px) {
-
-   .Know-section-horizontal4-background {
-      width: 100vw;
-   }
-
-   .title-know-section {
-      text-align: center;
-      font-size: 2em;
-      text-align: center;
-
-   }
-
-   .subtitle-know-section {
-      font-size: 1.2em;
-
-   }
-
-   .start-know-Section {
-      width: 100vw;
-      height: auto;
-      background-color: #2b2b2b;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 5vw;
-      font-size: 2em;
-      color: white;
-
-   }
-
-   .know-section-horizontal4-content {
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-
-   }
-
-   .know-section-horizontal4-content-orangered {
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-
-
-
-
-   }
-
-   .know-section-horizontal4-content-white {
-      width: 70vw;
-      display: flex;
-      flex-direction: column;
-   }
-
-   .know-section-horizontal4-content-left {
-      width: 100vw;
-   }
-
-   .know-section-horizontal4-content-right {
-
-      width: 100vw;
-   }
-
-   .know-image-section-4 {
-      width: 100vw;
-      background-color: white;
-   }
-
-   .buttons-know-more {
-      margin-top: 5em;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 5em;
-   }
-
-   .button-saber-mas-know {
-      margin-bottom: 1em;
-      margin-top: -1em;
-   }
-
-
 }

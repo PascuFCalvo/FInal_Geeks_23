@@ -49,7 +49,7 @@ const StreamerSectionHorizontal3 = () => {
           </div>
         </div>
 
-        <div className="buttons-streamer-section-3">
+        <div className="buttons">
         <div className="button-empezar-ahora" onClick={() => navigate("/")}>
               VOLVER
             </div>
