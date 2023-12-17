@@ -14,8 +14,8 @@ const BannerMarcas1 = () => {
         <img className="brandImage" src={glovo} width={250}></img>
         <img className="brandImage" src={lenovo} width={250}></img>
         <img className="brandImage" src={logitech} width={250}></img>
-        <img className="brandImage" src={mcdonalds} width={250}></img>
         <img className="brandImage" src={steam} width={250}></img>
+        <img className="brandImage" src={mcdonalds} width={250}></img>
       </div>
     </div>
   );

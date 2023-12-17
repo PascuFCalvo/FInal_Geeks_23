@@ -50,12 +50,12 @@
 
 }
 
-h1 {
+.h1-section5 {
    font-size: 2.5em;
    color: #2b2b2b;
 }
 
-.buttons {
+.buttons-section5 {
    margin-top: 5em;
    display: flex;
 }
@@ -104,4 +104,52 @@ h1 {
    background-color: #2b2b2b;
    cursor: pointer;
    color: white;
+}
+
+@media only screen and (max-width: 428px) {
+   .main-section-5 {
+      width: 100vw;
+      height: auto;
+   }
+
+   .cards-container-5 {
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.6);
+
+   }
+
+   .img-section5 {
+      margin-top: -8em;
+   }
+
+   .p-section5 {
+      margin-top: 0em;
+
+   }
+
+   .h1-section5 {
+      font-size: 1.5em;
+      margin-bottom: -8em;
+      margin-top: 2em;
+      text-align: center;
+   }
+
+   .buttons-section5 {
+      display: flex;
+      flex-direction: column;
+      margin-top: -15em;
+   }
+
+   .button-im-streamer-5 {
+      margin-left: 1em;
+      margin-bottom: 1em;
+   }
+
+   .button-im-brand-5 {
+      margin-left: 1em;
+      margin-bottom: 4em;
+   }
+
+
 }

@@ -41,3 +41,9 @@ li:hover {
    color: #ffffff;
    font-weight: 200;
 }
+
+@media only screen and (max-width: 428px) {
+   .footer-section-background {
+      display: none;
+   }
+}

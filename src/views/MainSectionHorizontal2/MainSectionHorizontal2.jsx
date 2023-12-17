@@ -7,7 +7,7 @@ const MainSectionHorizontal2 = () => {
       <div className="Main-section-horizontal2-content">
         <div className="Main-section-horizontal2-content-left">
           <img
-            className="Image-section-2"
+            className="Image-section-2-main"
             src={megafono}
             alt="Imagen de la sección 2"
           />

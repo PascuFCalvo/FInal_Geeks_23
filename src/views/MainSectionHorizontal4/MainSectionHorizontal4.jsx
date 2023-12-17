@@ -26,7 +26,7 @@ const MainSectionHorizontal4 = () => {
               stream, 100 % visualizacion, 100 % audiencia.
             </p>
             <img
-              className="Image-section-4"
+              className="Image-section-4 twitch"
               src={twitch}
               width={100}
               alt="Imagen de la sección 4"

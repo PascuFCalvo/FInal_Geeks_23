@@ -45,3 +45,32 @@
    color: black;
    font-size: 1.5em;
 }
+
+@media only screen and (max-width: 428px) {
+
+   .Main-section-horizontal3-background {
+      background-color: white;
+      height: auto;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .Main-section-horizontal3-content {
+      padding-top: 2em;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
+
+   }
+
+   .Image-section-3 {
+      width: 90vw;
+      margin-left: -2em;
+      padding-bottom: 3em;
+   }
+
+
+}

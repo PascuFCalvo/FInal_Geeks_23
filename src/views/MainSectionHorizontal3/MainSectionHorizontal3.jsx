@@ -14,7 +14,7 @@ const MainSectionHorizontal3 = () => {
             YA NO! Obtén patrocinadores independientemente de cuántas personas
             vean tu stream!
           </p>
-          <img src={livestream} />
+          <img className="Image-section-3" src={livestream} />
         </div>
         <div className="Main-section-horizontal3-content-right">
           <img

@@ -15,7 +15,9 @@ const MainSectionHorizontal5 = () => {
   return (
     <div>
       <section className="main-section-5">
-        <h1>STREAMERS Y MARCAS CONECTADOS PARA CRECER</h1>
+        <h1 className="h1-section5">
+          STREAMERS Y MARCAS CONECTADOS PARA CRECER
+        </h1>
         <div className="cards-container-5">
           <div className="card-section-5">
             <img className="img-section5" src={faster} width={150}></img>
@@ -48,7 +50,7 @@ const MainSectionHorizontal5 = () => {
           </div>
         </div>
 
-        <div className="buttons">
+        <div className="buttons-section5">
           <div
             className="button-im-streamer-5"
             onClick={() => navigate("/streamers")}

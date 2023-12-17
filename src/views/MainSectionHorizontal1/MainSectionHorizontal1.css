@@ -35,7 +35,7 @@
    text-align: center;
 }
 
-.buttons {
+.buttons-section-1 {
    margin-top: 10em;
    display: flex;
 }
@@ -83,4 +83,62 @@
    background-color: #2b2b2b;
    cursor: pointer;
    color: white;
+}
+
+@media only screen and (max-width: 428px) {
+   .main-section-1 {
+      width: 100vw;
+      height: auto;
+      background: rgb(247, 0, 159);
+      background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
+
+   }
+
+   .streamer-section-1 {
+      position: absolute;
+      right: 6em;
+      bottom: -0.1em;
+      display: none;
+   }
+
+
+   .title-section1 {
+      max-width: 90vw;
+      font-size: 1.5em;
+   }
+
+   .paragraf-section1 {
+      max-width: 490vw;
+      font-size: 0.8em
+   }
+
+   .buttons-section-1 {
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+   }
+
+
+   .button-im-streamer {
+      margin-left: 1em;
+      margin-bottom: 1em;
+
+   }
+
+   .button-im-streamer:hover {
+      background-color: #2b2b2b;
+      cursor: pointer;
+      color: white;
+   }
+
+   .button-im-brand {
+      margin-bottom: 1em;
+   }
+
+   .button-im-brand:hover {
+      background-color: #2b2b2b;
+      cursor: pointer;
+      color: white;
+   }
+
 }

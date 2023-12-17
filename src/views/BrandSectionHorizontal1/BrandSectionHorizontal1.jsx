@@ -22,7 +22,7 @@ const BrandSectionHorizontal1 = () => {
           </div>
 
           <img className="image-brand-section" src={computer}></img>
-          <p className="paragraf-section1">
+          <p className="paragraf-section1-brands">
             Diseña campañas geniales y conecta con las generaciones jóvenes a
             través de nuestros creadores de contenido en línea. La manera más
             efectiva de expandir la visibilidad de tu marca al asociarte con lo

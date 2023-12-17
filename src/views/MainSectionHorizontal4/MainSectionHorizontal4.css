@@ -89,3 +89,78 @@
    color: white;
    cursor: pointer;
 }
+
+@media only screen and (max-width: 428px) {
+
+   .Main-section-horizontal4-background {
+      background-color: aliceblue;
+
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .Main-section-horizontal4-content {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+   }
+
+   .Main-section-horizontal4-content-right {
+
+      width: 100vw;
+
+
+
+   }
+
+   .Main-section-horizontal4-content-left {
+      width: 100vw;
+
+
+
+   }
+
+   .Image-section-4 {
+      width: 100vw;
+      margin-bottom: 6em;
+   }
+
+   .Title-section-4 {
+      color: black;
+      width: 90vw;
+      margin-top: -5em;
+      margin-left: -0.5em;
+   }
+
+   .Paragraf-section-4 {
+      color: black;
+      width: 90vw;
+      font-size: 1.5em;
+      margin-left: -0.5em;
+   }
+
+   .twitch {
+      margin-top: 6em;
+      width: 20vw;
+      display: none;
+   }
+
+   .buttons-section-4 {
+      width: 100vw;
+      height: auto;
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+
+   }
+
+   .button-saber-mas {
+      margin-bottom: 1em;
+   }
+
+}

@@ -21,3 +21,30 @@
    justify-content: space-between;
    margin-top: 3em;
 }
+
+@media only screen and (max-width: 428px) {
+   .navbar-background {
+      overflow-x: hidden;
+      height: 20em;
+      width: 100vw;
+   }
+
+   .navbar-content {
+      overflow-x: hidden;
+      position: relative;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10vw
+   }
+
+   .buttons-navbar {
+      overflow-x: hidden;
+      position: absolute;
+      bottom: 8em;
+
+
+   }
+
+
+}
