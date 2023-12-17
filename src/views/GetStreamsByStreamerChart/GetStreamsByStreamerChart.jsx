@@ -42,7 +42,7 @@ export const GetStreamsByStreamerChart = () => {
     deleteAStreamById(streamId, token);
     setDeletedStreamId(streamId);
     setTimeout(() => {
-      setSelectedStreamId(null);
+      setDeletedStreamId(null);
     }, 2000);
   };
 
@@ -105,7 +105,6 @@ export const GetStreamsByStreamerChart = () => {
         try {
           const streamsResponse = await getAllmyStreams(token);
           setStreams(streamsResponse.data);
-          console.log(streams)
           setLoadingStreams(false);
         } catch (error) {
           console.error("Error fetching streams:", error);
@@ -118,7 +117,6 @@ export const GetStreamsByStreamerChart = () => {
   }, [loadingProfile, token, selectedStreamId, deletedStreamId]);
 
   useEffect(() => {
-   
     if (
       !loadingProfile &&
       !loadingCountries &&
@@ -128,6 +126,15 @@ export const GetStreamsByStreamerChart = () => {
       setLoading(false);
     }
   }, [loadingProfile, loadingCountries, loadingCampaigns, loadingStreams]);
+
+  const getCampaignName = (campaignId) => {
+    const campaign = campaigns.find((campaign) => campaign.id === campaignId);
+    return campaign ? campaign.campaign_name : "Unknown";
+  };
+  const getCampaignPricePerView = (campaignId) => {
+    const campaign = campaigns.find((campaign) => campaign.id === campaignId);
+    return campaign ? campaign.price_per_single_view : "Unknown";
+  };
 
   return (
     <div>
@@ -199,10 +206,7 @@ export const GetStreamsByStreamerChart = () => {
                       {stream.stream_date}
                     </td>
                     <td className="streams-resume-table-rows">
-                      {
-                        campaigns[parseInt(stream.campaign_id) - 1]
-                          .campaign_name
-                      }
+                      {getCampaignName(stream.campaign_id)}
                     </td>
                     <td className="streams-resume-table-rows">
                       <div className="images-report-streams">
@@ -221,10 +225,7 @@ export const GetStreamsByStreamerChart = () => {
                       </div>
                     </td>
                     <td className="streams-resume-table-rows">
-                      {
-                        campaigns[parseInt(stream.campaign_id) - 1]
-                          .price_per_single_view
-                      }
+                      {getCampaignPricePerView(stream.campaign_id)}
                     </td>
                     <td className="streams-resume-table-rows">
                       {country.country_bonus}
@@ -241,19 +242,20 @@ export const GetStreamsByStreamerChart = () => {
                     <td className="streams-resume-table-rows">
                       {!stream.is_stream_payed && stream.is_stream_approved ? (
                         <button
-                          className="approve1-button"
+                          className="button-pay-stream"
                           onClick={() => handlerPayStream(stream.id, token)}
                         >
-                          cobrar
+                          cobrar stream
                         </button>
-                      ) : (
+                      ) : null}
+                      {stream.is_stream_payed && stream.is_stream_approved ? (
                         <button
                           className="delete1-button"
                           onClick={() => handlerDeleteStream(stream.id, token)}
                         >
                           borrar
                         </button>
-                      )}
+                      ) : null}
                     </td>
                   </tr>
                 ))}

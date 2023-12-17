@@ -42,7 +42,7 @@ export const GetStreamsByStreamer = () => {
     deleteAStreamById(streamId, token);
     setDeletedStreamId(streamId);
     setTimeout(() => {
-      setSelectedStreamId(null);
+      setDeletedStreamId(null); 
     }, 2000);
   };
 
@@ -114,7 +114,7 @@ export const GetStreamsByStreamer = () => {
 
       fetchData();
     }
-  }, [loadingProfile, token, selectedStreamId]);
+  }, [loadingProfile, token, selectedStreamId, deletedStreamId]);
 
   useEffect(() => {
     if (
@@ -126,6 +126,15 @@ export const GetStreamsByStreamer = () => {
       setLoading(false);
     }
   }, [loadingProfile, loadingCountries, loadingCampaigns, loadingStreams]);
+
+  const getCampaignName = (campaignId) => {
+    const campaign = campaigns.find((campaign) => campaign.id === campaignId);
+    return campaign ? campaign.campaign_name : "Unknown";
+  };
+  const getCampaignPricePerView = (campaignId) => {
+    const campaign = campaigns.find((campaign) => campaign.id === campaignId);
+    return campaign ? campaign.price_per_single_view : "Unknown";
+  };
 
   return (
     <div>
@@ -198,19 +207,15 @@ export const GetStreamsByStreamer = () => {
                           <span className="bold-and-small">
                             Campaña activada:
                           </span>{" "}
-                          {
-                            campaigns[parseInt(stream.campaign_id) - 1]
-                              .campaign_name
-                          }
+                          {getCampaignName(stream.campaign_id)}
                         </p>
                         <p>
                           <span className="bold-and-small">
                             Pago por visualizacion:
                           </span>{" "}
-                          {
-                            campaigns[parseInt(stream.campaign_id) - 1]
-                              .price_per_single_view
-                          }
+                          {getCampaignPricePerView(
+                            stream.price_per_single_view
+                          )}
                         </p>
                         <p>
                           <span className="bold-and-small">
@@ -265,14 +270,15 @@ export const GetStreamsByStreamer = () => {
                     >
                       cobrar stream
                     </button>
-                  ) : (
+                  ) : null}
+                  {stream.is_stream_payed && stream.is_stream_approved ? (
                     <button
                       className="delete1-button"
                       onClick={() => handlerDeleteStream(stream.id, token)}
                     >
                       borrar
                     </button>
-                  )}
+                  ) : null}
                   {selectedStreamId === stream.id ? (
                     <div className="modal-stream-payed">
                       Se ha transferido el saldo a tu cartera de Stramer.
