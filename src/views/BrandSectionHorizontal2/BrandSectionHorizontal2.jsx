@@ -22,7 +22,7 @@ const BrandSectionHorizontal2 = () => {
         <div className="App">
           <YoutubeEmbed embedId="gBc4wnRVOYI" />
         </div>
-        <p className="paragraf-section1-brands">
+        <p className="paragraf-section2-brands">
           No se trata solo de estar presente, sino de estar presente en los
           lugares correctos. Identificamos y seleccionamos cuidadosamente los
           espacios más top para promocionar tus productos o servicios. Ya sea a
