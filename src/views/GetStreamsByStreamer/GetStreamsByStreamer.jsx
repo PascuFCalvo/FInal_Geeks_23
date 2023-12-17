@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  deleteAStreamById,
   getAllCampaigns,
   getAllmyStreams,
   getCountries,
@@ -11,19 +12,25 @@ import NavBar from "../NavBar/NavBar";
 import FooterSection from "../FooterSection/FooterSection";
 import { useSelector } from "react-redux";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
+import { useNavigate } from "react-router-dom";
 
 export const GetStreamsByStreamer = () => {
   const token = useSelector((state) => state.token.value);
   const [profileData, setProfileData] = useState(null);
   const [streams, setStreams] = useState({ streams: [] });
-  const [loading, setLoading] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [loadingStreams, setLoadingStreams] = useState(true);
+  const [loadingCountries, setLoadingCountries] = useState(true);
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState({});
+  const [loadingCampaigns, setLoadingCampaigns] = useState(true);
   const [campaigns, setCampaigns] = useState([]);
   const [selectedStreamId, setSelectedStreamId] = useState(null);
+  const [deletedStreamId, setDeletedStreamId] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const Navigate = useNavigate();
 
   const handlerPayStream = (streamId, token) => {
-    
     payStreamAPI(streamId, token);
     setSelectedStreamId(streamId);
     setTimeout(() => {
@@ -31,35 +38,23 @@ export const GetStreamsByStreamer = () => {
     }, 2000);
   };
 
-  useEffect(() => {
-    getAllCampaigns(token)
-      .then((response) => {
-        console.log(response.data.campaigns);
-        setCampaigns(response.data.campaigns);
-      })
-      .catch((error) => {
-        console.error("Error al obtener las campañas:", error);
-      });
-  }, [token]);
-
-  useEffect(() => {
-    getCountries()
-      .then((response) => {
-        setCountries(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error al obtener los países:", error);
-      });
-  }, []);
+  const handlerDeleteStream = (streamId, token) => {
+    deleteAStreamById(streamId, token);
+    setDeletedStreamId(streamId);
+    setTimeout(() => {
+      setSelectedStreamId(null);
+    }, 2000);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const profileResponse = await getProfile(token);
         setProfileData(profileResponse.data.data);
-        console.log(profileResponse.data.data);
+        setLoadingProfile(false);
       } catch (error) {
         console.error("Error fetching profile:", error);
+        setLoadingProfile(false);
       }
     };
 
@@ -67,30 +62,70 @@ export const GetStreamsByStreamer = () => {
   }, [token]);
 
   useEffect(() => {
-    if (profileData) {
+    if (!loadingProfile) {
+      getCountries()
+        .then((response) => {
+          setCountries(response.data.data);
+          setLoadingCountries(false);
+        })
+        .catch((error) => {
+          console.error("Error al obtener los países:", error);
+          setLoadingCountries(false);
+        });
+    }
+  }, [loadingProfile]);
+
+  useEffect(() => {
+    if (!loadingProfile) {
+      getAllCampaigns(token)
+        .then((response) => {
+          setCampaigns(response.data.campaigns);
+          setLoadingCampaigns(false);
+        })
+        .catch((error) => {
+          console.error("Error al obtener las campañas:", error);
+          setLoadingCampaigns(false);
+        });
+    }
+  }, [loadingProfile, token]);
+
+  useEffect(() => {
+    if (!loadingCountries && !loadingProfile) {
       setCountry(
         countries.find(
           (country) => country.id === profileData.streamer.country_id
         ) || {}
       );
     }
-  }, [countries, profileData]);
+  }, [countries, profileData, loadingCountries]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const streamsResponse = await getAllmyStreams(token);
-        setStreams(streamsResponse.data);
-        console.log(streamsResponse.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching streams:", error);
-        setLoading(false);
-      }
-    };
+    if (!loadingProfile) {
+      const fetchData = async () => {
+        try {
+          const streamsResponse = await getAllmyStreams(token);
+          setStreams(streamsResponse.data);
+          setLoadingStreams(false);
+        } catch (error) {
+          console.error("Error fetching streams:", error);
+          setLoadingStreams(false);
+        }
+      };
 
-    fetchData();
-  }, [token, selectedStreamId]);
+      fetchData();
+    }
+  }, [loadingProfile, token, selectedStreamId]);
+
+  useEffect(() => {
+    if (
+      !loadingProfile &&
+      !loadingCountries &&
+      !loadingCampaigns &&
+      !loadingStreams
+    ) {
+      setLoading(false);
+    }
+  }, [loadingProfile, loadingCountries, loadingCampaigns, loadingStreams]);
 
   return (
     <div>
@@ -106,6 +141,12 @@ export const GetStreamsByStreamer = () => {
         </div>
       ) : (
         <div className="container-streamcard-grid">
+          <button
+            className="button-navigate-streams-resumen"
+            onClick={() => Navigate("/getStreamsByStreamerChart")}
+          >
+            Ver resumen
+          </button>
           {streams.streams.length > 0 ? (
             <div className="stramcard-grid">
               {streams.streams.map((stream) => (
@@ -216,19 +257,29 @@ export const GetStreamsByStreamer = () => {
                       alt="Report 2"
                     />
                   </div>
-                  
-                  {!stream.is_stream_payed && stream.is_stream_approved  ? (
+
+                  {!stream.is_stream_payed && stream.is_stream_approved ? (
                     <button
                       className="button-pay-stream"
                       onClick={() => handlerPayStream(stream.id, token)}
                     >
                       cobrar stream
                     </button>
-                  ) : null}
+                  ) : (
+                    <button
+                      className="delete1-button"
+                      onClick={() => handlerDeleteStream(stream.id, token)}
+                    >
+                      borrar
+                    </button>
+                  )}
                   {selectedStreamId === stream.id ? (
                     <div className="modal-stream-payed">
                       Se ha transferido el saldo a tu cartera de Stramer.
                     </div>
+                  ) : null}
+                  {deletedStreamId === stream.id ? (
+                    <div className="modal-stream-payed">Stream eliminado.</div>
                   ) : null}
                 </div>
               ))}
@@ -236,6 +287,12 @@ export const GetStreamsByStreamer = () => {
           ) : (
             <p>No streams available.</p>
           )}
+          <button
+            className="button-navigate-streams-resumen"
+            onClick={() => Navigate("/profile")}
+          >
+            Volver
+          </button>
         </div>
       )}
       <BannerMarcas1 />

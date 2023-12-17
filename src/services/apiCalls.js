@@ -171,6 +171,16 @@ export const deleteACampaign = async (id, token) => {
   });
 };
 
+export const deleteAStreamById = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.delete(`${url}/deleteAStreamById/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const activateACampaign = async (id, token) => {
   console.log(id);
   console.log(token);

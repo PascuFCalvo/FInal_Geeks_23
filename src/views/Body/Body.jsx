@@ -14,6 +14,7 @@ import GetCampaignsAsABrand from "../GetCampaignsAsABrand/GetCampaignsAsABrand";
 import CreateACampaign from "../CraeteACampaign/CreateACampaign";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
 import KnowMoreSection from "../KnowMorePage/KnowMorePage";
+import { GetStreamsByStreamerChart } from "../GetStreamsByStreamerChart/GetStreamsByStreamerChart";
 
 const Body = () => {
   return (
@@ -42,6 +43,7 @@ const Body = () => {
         <Route path="/createACampaign" element={<CreateACampaign />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
         <Route path ="/knowMore" element = {<KnowMoreSection />}/>
+        <Route path = "/getStreamsByStreamerChart" element = {<GetStreamsByStreamerChart />}/>
       </Routes>
 
     </div>
