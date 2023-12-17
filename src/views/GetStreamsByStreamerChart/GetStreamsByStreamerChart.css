@@ -103,7 +103,14 @@
    margin-top: 2em;
 }
 
-.button-navigate-streams-resumen:hover {
+.button-navigate-streams-resumen-chart {
+   width: 10vw;
+   background-color: orange;
+
+}
+
+.button-navigate-streams-resumen:hover,
+.button-navigate-streams-resumen-chart:hover {
    cursor: pointer;
    background-color: orangered;
    color: white;

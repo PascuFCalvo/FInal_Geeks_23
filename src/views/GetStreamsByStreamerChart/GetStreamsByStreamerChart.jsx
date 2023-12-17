@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 export const GetStreamsByStreamerChart = () => {
   const token = useSelector((state) => state.token.value);
   const [profileData, setProfileData] = useState(null);
-  const [streams, setStreams] = useState({ streams: [] });
+  const [streams, setStreams] = useState([{ streams: [] }]);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [loadingStreams, setLoadingStreams] = useState(true);
   const [loadingCountries, setLoadingCountries] = useState(true);
@@ -97,7 +97,7 @@ export const GetStreamsByStreamerChart = () => {
         ) || {}
       );
     }
-  }, [countries, profileData, loadingCountries]);
+  }, [countries, profileData, loadingCountries, loadingProfile]);
 
   useEffect(() => {
     if (!loadingProfile) {
@@ -157,7 +157,7 @@ export const GetStreamsByStreamerChart = () => {
             Ver detalles
           </button>
           {streams.streams.length > 0 ? (
-            <table className="streams1-resume-table">
+           <><table className="streams1-resume-table">
               <thead className="streams1-resume-table-title">
                 <tr>
                   <th className="first-column ">Usuario</th>
@@ -260,18 +260,20 @@ export const GetStreamsByStreamerChart = () => {
                   </tr>
                 ))}
               </tbody>
-              <button
-                className="button-navigate-streams-resumen"
-                onClick={() => Navigate("/profile")}
-              >
-                Volver
-              </button>
             </table>
+           
+              </>
           ) : (
             <p>No streams available.</p>
           )}
         </div>
       )}
+      <button
+                className="button-navigate-streams-resumen-chart"
+                onClick={() => Navigate("/profile")}
+              >
+                Volver
+              </button>
       <BannerMarcas1 />
       <FooterSection />
     </div>

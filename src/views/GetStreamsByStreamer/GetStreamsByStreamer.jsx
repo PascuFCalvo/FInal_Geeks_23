@@ -97,7 +97,7 @@ export const GetStreamsByStreamer = () => {
         ) || {}
       );
     }
-  }, [countries, profileData, loadingCountries]);
+  }, [countries, profileData, loadingCountries, loadingProfile]);
 
   useEffect(() => {
     if (!loadingProfile) {

@@ -250,10 +250,15 @@ const Profile = () => {
                   </div>
                   <div className="streamer-stream-image">
                     <p>Tu último stream:</p>
-                    <img
-                      className="streamer-stream-image"
-                      src={laststream.stream_check_picture_2}
-                    ></img>
+                    {laststream && laststream.stream_check_picture_2 ? (
+                      <img
+                        className="streamer-stream-image"
+                        src={laststream.stream_check_picture_2}
+                        alt="Último stream"
+                      />
+                    ) : (
+                      <p></p>
+                    )}
                   </div>
                 </div>
 
