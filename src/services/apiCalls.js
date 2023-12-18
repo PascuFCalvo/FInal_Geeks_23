@@ -229,3 +229,13 @@ export const inactivateAUser = async (id, token) => {
     },
   });
 };
+
+export const definitiveDeleteUser = async (id, token) => {
+  console.log(id);
+  console.log(token);
+  return await axios.delete(`${url}/definitiveDeleteUser/${parseInt(id)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

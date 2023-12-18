@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./AdminUsersResumeView.css";
 import {
   activateAUser,
+  definitiveDeleteUser,
   getAllUsers,
   inactivateAUser,
 } from "../../services/apiCalls";
@@ -13,6 +14,8 @@ const AdminUsersResumeView = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [someUserActivatad, setSomeUserActivated] = useState(false);
+  const [someUserDeleted, setSomeUserDeleted] = useState(false);
+  const [showModalDelteUser, setShowModalDeleteUser] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -31,7 +34,12 @@ const AdminUsersResumeView = () => {
     };
 
     fetchData();
-  }, [token, someUserActivatad]);
+  }, [token, someUserActivatad, someUserDeleted]);
+
+  const handlerDefinitiveDeleteUser = async (userId) => {
+    definitiveDeleteUser(userId, token);
+    setSomeUserDeleted(!someUserDeleted);
+  };
 
   const handlerInactivateUser = async (userId) => {
     inactivateAUser(userId, token);
@@ -41,6 +49,10 @@ const AdminUsersResumeView = () => {
   const handlerActivateUser = async (userId) => {
     activateAUser(userId, token);
     setSomeUserActivated(!someUserActivatad);
+  };
+
+  const handlerShowModalDeleteUser = () => {
+    setShowModalDeleteUser(true);
   };
 
   return (
@@ -117,6 +129,39 @@ const AdminUsersResumeView = () => {
                   </td>
                   <td className="users-resume-table-rows last-column">
                     {format(new Date(user.updated_at), "dd-MM-yyyy")}
+                  </td>
+                  <td>
+                    <button
+                      className="delete-user-button"
+                      onClick={() => handlerShowModalDeleteUser()}
+                    >
+                      Borrar
+                    </button>
+                    {showModalDelteUser && (
+                      <div className="modal-delete-user">
+                        <div className="modal-delete-user-content">
+                          <p className="modal-delete-user-text">
+                            ¿Estas seguro que quieres borrar al usuario?
+                          </p>
+                          <div className="modal-delete-user-buttons">
+                            <button
+                              className="modal-delete-user-button delete-yes"
+                              onClick={() =>
+                                handlerDefinitiveDeleteUser(user.id)
+                              }
+                            >
+                              Si, ELIMINAR
+                            </button>
+                            <button
+                              className="modal-delete-user-button"
+                              onClick={() => setShowModalDeleteUser(false)}
+                            >
+                              No, volver atras
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))}
