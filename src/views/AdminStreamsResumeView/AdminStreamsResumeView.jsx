@@ -10,7 +10,6 @@ import {
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
-
 const AdminStreamsResumeView = () => {
   const token = useSelector((state) => state.token.value);
 
@@ -155,15 +154,17 @@ const AdminStreamsResumeView = () => {
                       {format(new Date(stream.updated_at), "dd-MM-yyyy")}
                     </td>
                     <td className="streams-resume-table-rows">
+                      <div className="streams-resume-table-flex">
                       {stream.is_stream_approved ? "SI" : "NO"}
                       {!stream.is_stream_approved && (
                         <button
-                          className="approve-button"
+                          className="approve-button-chart"
                           onClick={() => handlerApproveAStream(stream.id)}
                         >
                           Aprobar
                         </button>
                       )}
+                      </div>
                     </td>
                     <td className="streams-resume-table-rows">
                       {stream.stream_total_to_receive}

@@ -48,6 +48,7 @@ const RegisterStreamer = () => {
     getCountries()
       .then((response) => {
         setPaises(response.data.data);
+        console.log(response)
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);

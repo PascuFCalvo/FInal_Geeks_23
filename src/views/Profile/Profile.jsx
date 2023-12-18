@@ -218,7 +218,7 @@ const Profile = () => {
                         <div className="reset-profit-to-0">
                           <h2 className="streamer-revenue">
                             Ganancias acumuladas:{" "}
-                            {profileData.streamer.streamer_revenue}
+                            {profileData.streamer.streamer_revenue + "$"} 
                           </h2>
                           <button
                             className="reset-profit-to-0-button"
@@ -242,7 +242,7 @@ const Profile = () => {
 
                       <h2 className="streamer-campaigns">
                         Tienes campañas activas:
-                        {profileData.streamer.has_active_campaigns === 0
+                        {!laststream
                           ? " No"
                           : " Si"}
                       </h2>
