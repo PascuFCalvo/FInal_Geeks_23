@@ -10,7 +10,6 @@ import FooterSection from "../../views/FooterSection/FooterSection";
 
 const LoginUser = () => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const [credentials, setCredentials] = useState({
@@ -36,9 +35,6 @@ const LoginUser = () => {
       };
 
       const response = await login(body);
-
-      // localStorage.setItem("token", response.data.data.token);
-      // almacenar el token en redux
 
       const newToken = response.data.data.token;
       dispatch(setToken(newToken));
@@ -68,7 +64,6 @@ const LoginUser = () => {
               name="email"
               value={credentials.email}
               onChange={handleInputChange}
-              
             />
           </div>
           <div>
@@ -82,9 +77,9 @@ const LoginUser = () => {
             />
           </div>
           <div className="buttons">
-          <button className="buttonBack">Volver</button>
-            <button type="submit">Login</button></div>
-          
+            <button className="buttonBack">Volver</button>
+            <button type="submit">Login</button>
+          </div>
         </form>
       </div>
 
