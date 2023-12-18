@@ -10,8 +10,13 @@ import AdminBrandsResumeView from "../AdminBrandsResumeView/AdminBrandsResumeVie
 import AdminStreamersResumeView from "../AdminStreamersResumeView/AdminStreamersResumeView";
 import AdminStreamsResumeView from "../AdminStreamsResumeView/AdminStreamsResumeView";
 import AdminCampaignsResumeView from "../AdminCampaignsResumeView/AdminCampaignsResumeView";
+import { useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 
 export const AdminPanel = () => {
+  const token = useSelector((state) => state.token.value);
+  const navigate = useNavigate();
   const [isOnDashboard, setIsOnDashboard] = useState(true);
   const [isOnUsers, setIsOnUsers] = useState(false);
   const [isOnBrands, setIsOnBrands] = useState(false);
@@ -63,7 +68,7 @@ export const AdminPanel = () => {
     setIsOnStreamers(false);
     setIsOnCampaigns(false);
   };
-
+  
   const isOnCampaignsHandler = () => {
     setIsOnStreams(false);
     setIsOnBrands(false);
@@ -72,10 +77,14 @@ export const AdminPanel = () => {
     setIsOnStreamers(false);
     setIsOnCampaigns(true);
   };
-
+  if (!token) {
+    navigate("/login");
+  }
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
 
   return (
     <>

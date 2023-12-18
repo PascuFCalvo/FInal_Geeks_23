@@ -20,6 +20,12 @@ const CreateACampaign = () => {
   });
   const token = useSelector((state) => state.token.value);
 
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormCampaign((prevData) => ({ ...prevData, [name]: value }));

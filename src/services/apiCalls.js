@@ -210,21 +210,23 @@ export const approveAStream = async (id, token) => {
   });
 };
 
-export const activateAUser = async (id, token) => {
+export const activateUser = async (id, token) => {
   console.log(id);
   console.log(token);
-  return await axios.put(`${url}/activateAUserById/${parseInt(id)}`, {
+  return await axios.put(`${url}/activateUserById/${parseInt(id)}`, {
     headers: {
+      accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const inactivateAUser = async (id, token) => {
+export const inactivateUser = async (id, token) => {
   console.log(id);
   console.log(token);
-  return await axios.put(`${url}/inactivateAUserById/${parseInt(id)}`, {
+  return await axios.put(`${url}/inactivateUserById/${parseInt(id)}`, {
     headers: {
+      accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
@@ -238,4 +240,4 @@ export const definitiveDeleteUser = async (id, token) => {
       Authorization: `Bearer ${token}`,
     },
   });
-}
+};

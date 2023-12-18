@@ -37,6 +37,12 @@ export const ReportAStream = () => {
   });
 
   useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 

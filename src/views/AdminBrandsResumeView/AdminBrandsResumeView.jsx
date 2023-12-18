@@ -94,7 +94,7 @@ const AdminBrandsResumeView = () => {
                       {brand.brand_description}
                     </td>
                     <td className="brands-resume-table-rows">
-                      <img src={brand.brand_logo_link} alt="Logo" width={28} />
+                      <img src={brand.brand_logo_link} alt="Logo" width={50} />
                     </td>
                     <td className="brands-resume-table-rows">
                       {setCountryName(brand.country_id)}

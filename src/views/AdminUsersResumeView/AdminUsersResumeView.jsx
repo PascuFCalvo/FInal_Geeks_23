@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./AdminUsersResumeView.css";
 import {
-  activateAUser,
+  activateUser,
   definitiveDeleteUser,
   getAllUsers,
-  inactivateAUser,
+  inactivateUser,
 } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
@@ -13,9 +13,11 @@ const AdminUsersResumeView = () => {
   const token = useSelector((state) => state.token.value);
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [someUserActivatad, setSomeUserActivated] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [someUserActivated, setSomeUserActivated] = useState(false);
   const [someUserDeleted, setSomeUserDeleted] = useState(false);
-  const [showModalDelteUser, setShowModalDeleteUser] = useState(false);
+  const [showModalDeleteUser, setShowModalDeleteUser] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,24 +36,28 @@ const AdminUsersResumeView = () => {
     };
 
     fetchData();
-  }, [token, someUserActivatad, someUserDeleted]);
+  }, [token, someUserActivated, someUserDeleted]);
 
-  const handlerDefinitiveDeleteUser = async (userId) => {
-    definitiveDeleteUser(userId, token);
-    setSomeUserDeleted(!someUserDeleted);
+  const handlerDefinitiveDeleteUser = async () => {
+    if (selectedUserId) {
+      definitiveDeleteUser(selectedUserId, token);
+      setSomeUserDeleted(!someUserDeleted);
+      setShowModalDeleteUser(false);
+    }
   };
 
   const handlerInactivateUser = async (userId) => {
-    inactivateAUser(userId, token);
-    setSomeUserActivated(!someUserActivatad);
+    inactivateUser(userId, token);
+    setSomeUserActivated(!someUserActivated);
   };
 
   const handlerActivateUser = async (userId) => {
-    activateAUser(userId, token);
-    setSomeUserActivated(!someUserActivatad);
+    activateUser(userId, token);
+    setSomeUserActivated(!someUserActivated);
   };
 
-  const handlerShowModalDeleteUser = () => {
+  const handlerShowModalDeleteUser = (userId) => {
+    setSelectedUserId(userId);
     setShowModalDeleteUser(true);
   };
 
@@ -81,6 +87,7 @@ const AdminUsersResumeView = () => {
                 <th>Fecha alta</th>
                 <th>Usuario activo</th>
                 <th className="last-column">Ultima edicion</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -95,7 +102,7 @@ const AdminUsersResumeView = () => {
                   <td className="users-resume-table-rows">{user.user_role}</td>
                   <td className="users-resume-table-rows">
                     <img
-                      className="check-picture"
+                      className="avatar-pic"
                       src={user.user_avatar_link}
                       alt="Avatar"
                       width={50}
@@ -133,11 +140,11 @@ const AdminUsersResumeView = () => {
                   <td>
                     <button
                       className="delete-user-button"
-                      onClick={() => handlerShowModalDeleteUser()}
+                      onClick={() => handlerShowModalDeleteUser(user.id)}
                     >
                       Borrar
                     </button>
-                    {showModalDelteUser && (
+                    {showModalDeleteUser && (
                       <div className="modal-delete-user">
                         <div className="modal-delete-user-content">
                           <p className="modal-delete-user-text">
@@ -146,9 +153,7 @@ const AdminUsersResumeView = () => {
                           <div className="modal-delete-user-buttons">
                             <button
                               className="modal-delete-user-button delete-yes"
-                              onClick={() =>
-                                handlerDefinitiveDeleteUser(user.id)
-                              }
+                              onClick={handlerDefinitiveDeleteUser}
                             >
                               Si, ELIMINAR
                             </button>

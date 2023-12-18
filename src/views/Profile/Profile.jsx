@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PopupDeleteUser from "../../common/PopupDeleteUser/PopupDeleteUser";
 import { removeToken } from "../tokenSlice";
 
+
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,8 +33,16 @@ const Profile = () => {
   const [creditToZero, setCreditToZero] = useState(false);
 
   useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+ 
 
   useEffect(() => {
     getProfile(token).then((response) => {

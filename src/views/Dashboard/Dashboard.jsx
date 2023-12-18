@@ -6,6 +6,7 @@ import {
   getAllUsers,
 } from "../../services/apiCalls";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
@@ -16,6 +17,13 @@ const Dashboard = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
   const token = useSelector((state) => state.token.value);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
