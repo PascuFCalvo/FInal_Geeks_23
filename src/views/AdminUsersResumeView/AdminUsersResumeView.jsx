@@ -87,7 +87,6 @@ const AdminUsersResumeView = () => {
                 <th>Fecha alta</th>
                 <th>Usuario activo</th>
                 <th className="last-column">Ultima edicion</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>

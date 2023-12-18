@@ -167,7 +167,7 @@ const AdminStreamsResumeView = () => {
                       </div>
                     </td>
                     <td className="streams-resume-table-rows">
-                      {stream.stream_total_to_receive}
+                      {stream.stream_total_to_receive + " $"}
                     </td>
                     <td className="streams-resume-table-rows last-column">
                       {stream.is_stream_payed ? "SI" : "NO"}

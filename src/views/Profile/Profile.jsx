@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from "react-redux";
 import PopupDeleteUser from "../../common/PopupDeleteUser/PopupDeleteUser";
 import { removeToken } from "../tokenSlice";
 
-
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,8 +40,6 @@ const Profile = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
- 
 
   useEffect(() => {
     getProfile(token).then((response) => {
@@ -227,7 +224,7 @@ const Profile = () => {
                         <div className="reset-profit-to-0">
                           <h2 className="streamer-revenue">
                             Ganancias acumuladas:{" "}
-                            {profileData.streamer.streamer_revenue + "$"} 
+                            {profileData.streamer.streamer_revenue + "$"}
                           </h2>
                           <button
                             className="reset-profit-to-0-button"
@@ -251,9 +248,7 @@ const Profile = () => {
 
                       <h2 className="streamer-campaigns">
                         Tienes campañas activas:
-                        {!laststream
-                          ? " No"
-                          : " Si"}
+                        {!laststream ? " No" : " Si"}
                       </h2>
                     </div>
                   </div>
@@ -347,12 +342,6 @@ const Profile = () => {
                         {profileData.brand.brand_description}
                       </h2>
                       <br></br>
-                      <h2 className="brand-campaigns">
-                        Tienes campañas activas:
-                        {profileData.brand.has_active_campaigns === 0
-                          ? " No"
-                          : " SI "}
-                      </h2>
                     </div>
                   </div>
                   <div className="brand-stream-image">

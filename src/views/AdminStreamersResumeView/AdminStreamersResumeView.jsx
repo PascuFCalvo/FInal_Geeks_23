@@ -91,7 +91,7 @@ const AdminStreamersResumeView = () => {
                       {streamer.streamer_platform}
                     </td>
                     <td className="streamers-resume-table-rows">
-                      {streamer.streamer_revenue}
+                      {streamer.streamer_revenue + " $"}
                     </td>
                     <td className="streamers-resume-table-rows">
                       {format(new Date(streamer.created_at), "dd-MM-yyyy")}

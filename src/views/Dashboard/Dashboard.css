@@ -31,17 +31,19 @@
    height: 75%;
    overflow-y: scroll;
    overflow-x: hidden;
+   width: 15vw;
 
 }
 
 .dashboard-item-title {
-   background-color: orange;
+   background-color: orangered;
+   color: white;
    height: 4em;
-   width: 16em;
+   width: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 1.2em;
+   font-size: 1.5em;
    margin-bottom: 1em;
 }
 

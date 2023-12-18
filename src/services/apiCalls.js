@@ -203,7 +203,7 @@ export const inactivateACampaign = async (id, token) => {
 export const approveAStream = async (id, token) => {
   console.log(id);
   console.log(token);
-  return await axios.put(`${url}/approveAStream/${parseInt(id)}`, {
+  return await axios.put(`${url}/approveAStream/${parseInt(id)}`, null, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -213,7 +213,7 @@ export const approveAStream = async (id, token) => {
 export const activateUser = async (id, token) => {
   console.log(id);
   console.log(token);
-  return await axios.put(`${url}/activateUserById/${parseInt(id)}`,null, {
+  return await axios.put(`${url}/activateUserById/${parseInt(id)}`, null, {
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${token}`,

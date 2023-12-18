@@ -110,10 +110,14 @@ const AdminCampaignsResumeView = () => {
                       {campaign.campaign_start_date}
                     </td>
                     <td className="campaigns-resume-table-rows">
-                      {campaign.price_per_single_view}
+                      {campaign.price_per_single_view + " $"}
                     </td>
                     <td className="campaigns-resume-table-rows active-column">
-                      {<p className ="active-column-text">{campaign.is_active ? "SI" : "NO"}</p> }
+                      {
+                        <p className="active-column-text">
+                          {campaign.is_active ? "SI" : "NO"}
+                        </p>
+                      }
                       {!campaign.is_active && (
                         <button
                           className="activate-campaign-button-admin"

@@ -3,6 +3,7 @@ import {
   getAllBrands,
   getAllCampaigns,
   getAllStreamers,
+  getAllStreams,
   getAllUsers,
 } from "../../services/apiCalls";
 import "./Dashboard.css";
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [brands, setBrands] = useState([]);
   const [streamers, setStreamers] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
+  const [streams, setStreams] = useState([]); // Agregado el estado streams
   const [isLoading, setIsLoading] = useState(true); // Agregado el estado isLoading
   const token = useSelector((state) => state.token.value);
   const navigate = useNavigate();
@@ -28,6 +30,24 @@ const Dashboard = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await getAllStreams(token);
+        setStreams(response.data.streams);
+        console.log(response.data.streams);
+      } catch (error) {
+        console.error("Error fetching streams:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  } , [token]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -140,6 +160,14 @@ const Dashboard = () => {
                 {campaigns.map((campaign) => (
                   <p className="dashboard-item-text" key={campaign.id}>
                     {campaign.campaign_name}
+                  </p>
+                ))}
+              </div>
+              <div className="dashboard-item">
+                <div className="dashboard-item-title">STREAMS</div>
+                {streams.map((stream) => (
+                  <p className="dashboard-item-text" key={stream.id}>
+                    {stream.stream_title}
                   </p>
                 ))}
               </div>

@@ -122,7 +122,7 @@ const GetCampaignsAsABrand = () => {
                     <div className="column-campagn-list-col-even">
                       <p> {campaign.campaign_name}</p>
                     </div>
-                    <div className="column-campagn-list-col-odd">
+                    <div className="column-campagn-list-col-odd campaign-description">
                       <p> {campaign.campaign_description}</p>
                     </div>
                     <div className="column-campagn-list-col-even">
@@ -152,7 +152,7 @@ const GetCampaignsAsABrand = () => {
                     <div className="column-campagn-list-col-even">
                       <p className="price-view">
                         {" "}
-                        {campaign.price_per_single_view}
+                        {campaign.price_per_single_view + " $"} 
                       </p>
                     </div>
                   </div>

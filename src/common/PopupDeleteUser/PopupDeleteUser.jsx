@@ -13,7 +13,7 @@ const PopupDeleteUser = ({ onCancelDelete, onInactivateUser }) => {
   return (
     <div className="pop-up-delete-user-container">
       <div className="pop-up-delete-user-background">
-        <p>Quieres dar de baja tu cuenta?</p>
+        <p className="question-delete-account">Quieres dar de baja tu cuenta?</p>
         <div className="buttons-pop-up-delete-user">
           <button
             className="button-pop-up-delete-user-yes"
