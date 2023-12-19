@@ -72,6 +72,7 @@ Now you have the frontend UP with node and the backend running with artisan.
 <br></br>
 
 <img width="800" alt="ERD" src=./src/assets/readme/vista-2.png>
+<br></br>
 
 <img width="240" alt="ERD" src=/src/assets/readme/telefono.gif><img width="243" alt="ERD" src=/src/assets/readme/vista-5.png><img width="243" alt="ERD" src=/src/assets/readme/vista-6.png>
 <br></br>
@@ -79,15 +80,14 @@ Now you have the frontend UP with node and the backend running with artisan.
 #### Simply
 
 <img width="416" alt="ERD" src=./src/assets/readme/vista-3.png> <img width="370" alt="ERD" src=./src/assets/readme/vista-4.png>
-<img width="800" alt="ERD" src=https://i.gyazo.com/7d16e5dce3edb394280b6dd5abb01e9f.gif>
+<img width="800" alt="ERD" src=./src/assets/readme/main.gif>
 
 <br></br>
 
 #### Detailed data
 
 <img width="800" alt="ERD" src=https://i.gyazo.com/9c8fb0c8d72d688e70dc98eb6fc4adcb.gif>
-<img width="395" alt="ERD" src=./src/assets/readme/vista-7.png>
-<img width="395" alt="ERD" src=./src/assets/readme/vista-8.png>
+<img width="395" alt="ERD" src=./src/assets/readme/vista-7.png><img width="395" alt="ERD" src=./src/assets/readme/vista-8.png>
 <img width="800" alt="ERD" src=./src/assets/readme/vista-9.png>
 
 ## Database Design 📖
