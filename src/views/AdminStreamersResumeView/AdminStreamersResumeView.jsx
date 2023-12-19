@@ -3,6 +3,7 @@ import "./AdminStreamersResumeView.css";
 import { getAllStreamers, getCountries } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const AdminStreamersResumeView = () => {
   const token = useSelector((state) => state.token.value);
@@ -48,7 +49,7 @@ const AdminStreamersResumeView = () => {
             <div className="spinner-screen-dashboard">
               <p>Cargando streamers...</p>
               <img
-                src="../src/assets/images/GIFS/Spinner.gif"
+                src={spinner}
                 alt="loading"
                 className="loading-gif"
               />

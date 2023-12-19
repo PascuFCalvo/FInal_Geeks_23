@@ -6,6 +6,7 @@ import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import FooterSection from "../FooterSection/FooterSection";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const RegisterStreamer = () => {
   useEffect(() => {
@@ -13,6 +14,8 @@ const RegisterStreamer = () => {
   }, []);
 
   const [paises, setPaises] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [streamerError, setStreamerError] = useState({
@@ -48,7 +51,7 @@ const RegisterStreamer = () => {
     getCountries()
       .then((response) => {
         setPaises(response.data.data);
-        console.log(response)
+        console.log(response);
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -67,6 +70,24 @@ const RegisterStreamer = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const handleImageUpload = async () => {
+    try {
+      setLoading(true);
+
+      const imageUrl = await submitImage(image);
+      console.log(imageUrl);
+
+      setStreamer((prevStreamer) => ({
+        ...prevStreamer,
+        user_avatar_link: imageUrl,
+      }));
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const errorCheck = (e) => {
@@ -88,14 +109,6 @@ const RegisterStreamer = () => {
     e.preventDefault();
 
     try {
-      const imageUrl = await submitImage(image);
-      console.log(imageUrl);
-
-      setStreamer((prevStreamer) => ({
-        ...prevStreamer,
-        user_avatar_link: imageUrl,
-      }));
-
       await registerStreamer(streamer);
 
       alert("Streamer registrado correctamente");
@@ -156,6 +169,16 @@ const RegisterStreamer = () => {
               Buscar archivo
             </span>
           </label>
+
+          <button
+            className="button-upload-image"
+            type="button"
+            onClick={handleImageUpload}
+          >
+            Subir Imagen
+          </button>
+
+          {loading && <img src={spinner} alt="loading" />}
         </div>
 
         <label>

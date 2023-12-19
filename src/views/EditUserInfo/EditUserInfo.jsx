@@ -126,7 +126,7 @@ const EditUserInfo = () => {
       await editStreamerProfile(updatedProfileData.streamer, token);
       await editUserProfile(updatedProfileData.user, token);
 
-      alert("Usuario editado correctamente, vueulve a logearte por seguridad");
+      
       dispatch(removeToken());
       setTimeout(() => {
         navigate("/");

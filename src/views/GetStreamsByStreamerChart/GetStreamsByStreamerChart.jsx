@@ -13,6 +13,7 @@ import FooterSection from "../FooterSection/FooterSection";
 import { useSelector } from "react-redux";
 import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import { useNavigate } from "react-router-dom";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 export const GetStreamsByStreamerChart = () => {
   const token = useSelector((state) => state.token.value);
@@ -143,7 +144,7 @@ export const GetStreamsByStreamerChart = () => {
         <div className="spinner-screen">
           <p>Accediendo a tus Streams</p>
           <img
-            src="../src/assets/images/GIFS/Spinner.gif"
+            src={spinner}
             alt="loading"
             className="loading-gif"
           />

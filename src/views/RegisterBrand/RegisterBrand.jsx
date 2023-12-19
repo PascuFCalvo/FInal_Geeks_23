@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getCountries, registerBrand } from "../../services/apiCalls";
 import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const RegisterBrand = () => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const RegisterBrand = () => {
   }, []);
 
   let [paises, setPaises] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [logo, setLogo] = useState("");
@@ -96,9 +98,11 @@ const RegisterBrand = () => {
 
       await registerBrand(brand);
 
-      navigate("/");
+      alert("Marca registrada correctamente");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error) {
-      alert("El formulario contiene errores, imposible enviar.");
       console.error("Error al enviar el formulario:", error);
     }
   };
@@ -119,7 +123,6 @@ const RegisterBrand = () => {
       );
       const imageData = await res.json();
 
-      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);
@@ -143,11 +146,44 @@ const RegisterBrand = () => {
       );
       const imageData = await res.json();
 
-      alert("Imagen subida correctamente");
       return imageData.url;
     } catch (err) {
       console.log(err);
       throw err;
+    }
+  };
+
+  const handleImageUpload = async () => {
+    try {
+      setLoading(true);
+      const imageUrl = await submitImage();
+      console.log(imageUrl);
+
+      setBrand((prevBrand) => ({
+        ...prevBrand,
+        user_avatar_link: imageUrl,
+      }));
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
+    }
+  };
+
+  const handleLogoUpload = async () => {
+    try {
+      setLoading(true);
+      const logoUrl = await submitLogo();
+      console.log(logoUrl);
+
+      setBrand((prevBrand) => ({
+        ...prevBrand,
+        brand_logo_link: logoUrl,
+      }));
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Error al subir el logo:", error);
     }
   };
 
@@ -176,10 +212,16 @@ const RegisterBrand = () => {
                 Buscar archivo
               </span>
             </label>
+            <button
+              className="button-upload-image"
+              type="button"
+              onClick={handleImageUpload}
+            >
+              Subir Imagen
+            </button>
+            {loading && <img src={spinner} alt="loading" />}
           </div>
-          <div className="button-send-pic" onClick={submitImage}>
-            Upload
-          </div>
+
           <label>
             User Name:
             <input
@@ -274,6 +316,14 @@ const RegisterBrand = () => {
                 Buscar archivo
               </span>
             </label>
+            <button
+              className="button-upload-image"
+              type="button"
+              onClick={handleLogoUpload}
+            >
+              Subir Logo
+            </button>
+            {loading && <img src={spinner} alt="loading" />}
           </div>
           <div className="button-send-pic" onClick={submitLogo}>
             Upload

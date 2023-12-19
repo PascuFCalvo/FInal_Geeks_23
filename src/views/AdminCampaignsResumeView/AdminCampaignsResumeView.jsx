@@ -8,6 +8,7 @@ import {
 import "./AdminCampaignsResumeView.css";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const AdminCampaignsResumeView = () => {
   const token = useSelector((state) => state.token.value);
@@ -68,10 +69,10 @@ const AdminCampaignsResumeView = () => {
         <div className="campaigns-table-resume-content-background">
           <div className="dashboard-title">CAMPAÑAS ACTIVAS</div>
           {isLoading ? (
-            <div className="spinner-screen-dashboard">
+            <div className={"spinner-screen-dashboard"}>
               <p>Cagando campañas...</p>
               <img
-                src="../src/assets/images/GIFS/Spinner.gif"
+                src={spinner}
                 alt="loading"
                 className="loading-gif"
               />

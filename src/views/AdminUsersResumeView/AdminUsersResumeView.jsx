@@ -8,6 +8,7 @@ import {
 } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const AdminUsersResumeView = () => {
   const token = useSelector((state) => state.token.value);
@@ -69,7 +70,7 @@ const AdminUsersResumeView = () => {
           <div className="spinner-screen-dashboard">
             <p>Cargando usuarios...</p>
             <img
-              src="../src/assets/images/GIFS/Spinner.gif"
+              src={spinner}
               alt="loading"
               className="loading-gif"
             />

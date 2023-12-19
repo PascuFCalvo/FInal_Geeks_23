@@ -131,7 +131,7 @@ const EditBrandInfo = () => {
       editBrandProfile(updatedProfileData.brand, token);
       editUserProfile(updatedProfileData.user, token);
 
-      alert("Usuario editado correctamente");
+    
       dispatch(removeToken());
       setTimeout(() => {
         navigate("/");

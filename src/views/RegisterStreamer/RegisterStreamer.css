@@ -81,7 +81,7 @@
 
 
 
-.button-send-pic {
+.button-upload-image {
    background-color: orangered;
    width: 30%;
    padding: 0.5em;
@@ -89,17 +89,17 @@
    cursor: pointer;
    border-radius: 2em;
    margin-top: 0.5em;
-   margin-left: 21.8em;
+   margin-left: 0em;
 
 }
 
-.button-send-pic:hover {
+.button-upload-image:hover {
    background-color: white;
    color: orangered;
    border: 1px solid orangered;
 }
 
-.button-send-pic:active {
+.button-upload-image:active {
    background-color: orangered;
    color: white
 }

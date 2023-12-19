@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PopupDeleteUser from "../../common/PopupDeleteUser/PopupDeleteUser";
 import { removeToken } from "../tokenSlice";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -154,7 +155,7 @@ const Profile = () => {
         <div className="spinner-screen">
           <p>Accediendo a tu pefil</p>
           <img
-            src="../src/assets/images/GIFS/Spinner.gif"
+            src={spinner}
             alt="loading"
             className="loading-gif"
           />
@@ -236,7 +237,7 @@ const Profile = () => {
                             <div className="modal-container-credit-out">
                               <p>Realizando el pago...</p>
                               <img
-                                src="../src/assets/images/GIFS/Spinner.gif"
+                                src={spinner}
                                 alt="loading"
                                 className="loading-gif-credit-out"
                               />

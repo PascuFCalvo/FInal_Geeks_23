@@ -3,6 +3,7 @@ import "./AdminBrandsResumeView.css";
 import { useEffect, useState } from "react";
 import { getAllBrands, getCountries } from "../../services/apiCalls";
 import { format } from "date-fns";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const AdminBrandsResumeView = () => {
   const token = useSelector((state) => state.token.value);
@@ -54,7 +55,7 @@ const AdminBrandsResumeView = () => {
             <div className="spinner-screen-dashboard">
               <p>Cargando marcas</p>
               <img
-                src="../src/assets/images/GIFS/Spinner.gif"
+                src={spinner}
                 alt="loading"
                 className="loading-gif"
               />

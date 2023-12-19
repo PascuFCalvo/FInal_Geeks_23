@@ -12,8 +12,10 @@ import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 import FooterSection from "../FooterSection/FooterSection";
 import NavBar from "../NavBar/NavBar";
 import "./GetCampaignsAsABrand.css";
+import spinner from "../../assets/images/GIFS/spinner.gif";
 
 const GetCampaignsAsABrand = () => {
+  
   const token = useSelector((state) => state.token.value);
   const [profileData, setProfileData] = useState(null);
   const [campaigns, setCampaigns] = useState({ campaigns: [] });
@@ -98,7 +100,7 @@ const GetCampaignsAsABrand = () => {
           <div className="spinner-screen">
             <p>Accediendo a tus campañas</p>
             <img
-              src="../src/assets/images/GIFS/Spinner.gif"
+              src={spinner}
               alt="loading"
               className="loading-gif"
             />
