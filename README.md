@@ -2,6 +2,9 @@
 
 Welcome to StreamCash! This comprehensive REST API has been developed as the final project for the GeeksHubs Academy bootcamp. This application allows you to manage your streaming advertising effortlessly, whether you are a brand looking to increase visibility or a streamer aiming to enhance your live broadcasts and generate revenue.
 
+### Link to backend-repository
+https://github.com/PascuFCalvo/Final_Geeks_23_Backend
+
 ## Table of Contents 🗂️
 
 - [Features ✨](#features-)
