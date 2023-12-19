@@ -15,7 +15,6 @@ const RegisterStreamer = () => {
 
   const [paises, setPaises] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [streamerError, setStreamerError] = useState({
@@ -51,7 +50,6 @@ const RegisterStreamer = () => {
     getCountries()
       .then((response) => {
         setPaises(response.data.data);
-        console.log(response);
       })
       .catch((error) => {
         console.error("Error al obtener los países:", error);
@@ -189,12 +187,15 @@ const RegisterStreamer = () => {
             }`}
             type="text"
             name="user_name"
+            placeholder="Nombre de Usuario"
             value={streamer.user_name}
             onChange={handleChange}
             onBlur={errorCheck}
           />
           {streamerError.user_name && (
-            <span className="error-message">{streamerError.user_name}</span>
+            <span className="error-message-streamer">
+              {streamerError.user_name}
+            </span>
           )}
         </label>
         <br />
@@ -206,12 +207,15 @@ const RegisterStreamer = () => {
             }`}
             type="email"
             name="user_email"
+            placeholder="Email"
             value={streamer.user_email}
             onChange={handleChange}
             onBlur={errorCheck}
           />
           {streamerError.user_email && (
-            <span className="error-message">{streamerError.user_email}</span>
+            <span className="error-message-streamer">
+              {streamerError.user_email}
+            </span>
           )}
         </label>
         <br />
@@ -223,12 +227,15 @@ const RegisterStreamer = () => {
             }`}
             type="password"
             name="password"
+            placeholder="********"
             value={streamer.password}
             onChange={handleChange}
             onBlur={errorCheck}
           />
           {streamerError.password && (
-            <span className="error-message">{streamerError.password}</span>
+            <span className="error-message-streamer">
+              {streamerError.password}
+            </span>
           )}
         </label>
         <br />
@@ -241,11 +248,14 @@ const RegisterStreamer = () => {
             type="text"
             name="user_phone"
             value={streamer.user_phone}
+            placeholder="Teléfono"
             onChange={handleChange}
             onBlur={errorCheck}
           />
           {streamerError.user_phone && (
-            <span className="error-message">{streamerError.user_phone}</span>
+            <span className="error-message-streamer">
+              {streamerError.user_phone}
+            </span>
           )}
         </label>
         <br />
@@ -259,11 +269,14 @@ const RegisterStreamer = () => {
             }`}
             type="text"
             name="streamer_nick"
+            placeholder="Nickname"
             value={streamer.streamer_nick}
             onChange={handleChange}
           />
           {streamerError.streamer_nick && (
-            <span className="error-message">{streamerError.streamer_nick}</span>
+            <span className="error-message-streamer">
+              {streamerError.streamer_nick}
+            </span>
           )}
         </label>
         <br />
@@ -275,11 +288,14 @@ const RegisterStreamer = () => {
             }`}
             type="text"
             name="streamer_nif"
+            placeholder="NIF/NIE/DNI"
             value={streamer.streamer_nif}
             onChange={handleChange}
           />
           {streamerError.streamer_nif && (
-            <span className="error-message">{streamerError.streamer_nif}</span>
+            <span className="error-message-streamer">
+              {streamerError.streamer_nif}
+            </span>
           )}
         </label>
         <br />
@@ -291,11 +307,12 @@ const RegisterStreamer = () => {
             }`}
             type="text"
             name="streamer_platform"
+            placeholder="Plataforma"
             value={streamer.streamer_platform}
             onChange={handleChange}
           />
           {streamerError.streamer_platform && (
-            <span className="error-message">
+            <span className="error-message-streamer">
               {streamerError.streamer_platform}
             </span>
           )}
@@ -319,7 +336,9 @@ const RegisterStreamer = () => {
           ))}
         </select>
         {streamerError.country_id && (
-          <span className="error-message">{streamerError.country_id}</span>
+          <span className="error-message-streamer">
+            {streamerError.country_id}
+          </span>
         )}
         <br />
 

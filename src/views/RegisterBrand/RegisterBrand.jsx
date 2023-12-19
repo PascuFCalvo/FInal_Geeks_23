@@ -22,12 +22,11 @@ const RegisterBrand = () => {
     password: "",
     user_phone: "",
     user_avatar_link: "",
-    streamer_nick: "",
-    streamer_nif: "",
-    streamer_platform: "",
-    streamer_revenue: 0,
+    brand_name: "",
+    brand_cif: "",
+    brand_description: "",
+    brand_logo_link: "",
     country_id: "",
-    has_active_campaigns: false,
   });
 
   const [brand, setBrand] = useState({
@@ -223,7 +222,7 @@ const RegisterBrand = () => {
           </div>
 
           <label>
-            User Name:
+            Nombre de Usuario:
             <input
               className={`input-form-brand ${
                 brandError.user_name ? "error" : "normal"
@@ -235,10 +234,15 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.user_name && (
+              <span className="error-message-brand">
+                {brandError.user_name}
+              </span>
+            )}
           </label>
           <br />
           <label>
-            User Email:
+            Email:
             <input
               className={`input-form-brand ${
                 brandError.user_email ? "error" : "normal"
@@ -250,6 +254,11 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.user_email && (
+              <span className="error-message-brand">
+                {brandError.user_email}
+              </span>
+            )}
           </label>
           <br />
           <label>
@@ -265,10 +274,13 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.password && (
+              <span className="error-message-brand">{brandError.password}</span>
+            )}
           </label>
           <br />
           <label>
-            User Phone:
+            Telefono:
             <input
               className={`input-form-brand ${
                 brandError.user_phone ? "error" : "normal"
@@ -280,13 +292,18 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.user_phone && (
+              <span className="error-message-brand">
+                {brandError.user_phone}
+              </span>
+            )}
           </label>
           <br />
 
           <br />
 
           <label>
-            Brand Name:
+            Nombre de la marca:
             <input
               className={`input-form-brand ${
                 brandError.brand_name ? "error" : "normal"
@@ -298,6 +315,11 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.brand_name && (
+              <span className="error-message-brand">
+                {brandError.brand_name}
+              </span>
+            )}
           </label>
           <div>
             <label>Selecciona el logo de tu marca</label>
@@ -330,7 +352,7 @@ const RegisterBrand = () => {
           </div>
           <br />
           <label>
-            Brand CIF:
+            CIF de la marca:
             <input
               className={`input-form-brand ${
                 brandError.brand_CIF ? "error" : "normal"
@@ -345,7 +367,7 @@ const RegisterBrand = () => {
           </label>
           <br />
           <label>
-            Brand Description:
+            Descripcion de la marca:
             <input
               className={`input-form-brand ${
                 brandError.brand_description ? "error" : "normal"
@@ -357,6 +379,11 @@ const RegisterBrand = () => {
               onChange={handleChange}
               onBlur={errorCheck}
             />
+            {brandError.brand_description && (
+              <span className="error-message-brand">
+                {brandError.brand_description}
+              </span>
+            )}
           </label>
           <br />
 

@@ -77,6 +77,13 @@ label {
 
 }
 
+.error-message-brand {
+
+   margin-bottom: 2;
+   color: red;
+
+}
+
 .buttons {
    display: flex;
    flex-direction: row;

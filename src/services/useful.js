@@ -9,7 +9,7 @@ export const validator = (type, value) => {
           value
         )
       ) {
-        return "Formato de email no valido, email@dominio.xyz";
+        return "Formato de email no valido, 'email@dominio.xyz' ";
       } else {
         return "";
       }
@@ -28,7 +28,7 @@ export const validator = (type, value) => {
     case "user_phone":
     case "telefono":
       if (!/(?=.*?[0-9])/.test(value)) {
-        return "Incorrect phone number";
+        return "Formato de telefono no valido";
       } else {
         return "";
       }
@@ -37,7 +37,7 @@ export const validator = (type, value) => {
     case "password2":
     case "contraseña":
       if (value.length < 6) {
-        return "Write 8 characters at least";
+        return "La contraseña debe tener al menos 6 caracteres";
       } else {
         if (!/^(?=.*[a-zA-Z])(?=.*\d).+/.test(value)) {
           return "Invalid password format";
@@ -48,7 +48,29 @@ export const validator = (type, value) => {
 
     case "streamer_nif":
       if (!/^(?=.*[0-9]).+$/.test(value)) {
-        return "Invalid NIF/NIE/CIF format";
+        return "Formato de NIF/NIE/CIF no valido";
+      } else {
+        return "";
+      }
+
+    case "brand_name":
+      if (value.length > 50 || value.length < 3) {
+        return "Escribe un nombre correcto[3-50 caracteres]";
+      } else {
+        return "";
+      }
+
+    case "brand_cif":
+    case "brand_CIF":
+      if (!/^(?=.*[0-9]).+$/.test(value)) {
+        return "Formato de NIF/NIE/CIF no valido";
+      } else {
+        return "";
+      }
+
+    case "brand_description":
+      if (value.length > 200 || value.length < 3) {
+        return "Escribe un nombre correcto[3-50 caracteres]";
       } else {
         return "";
       }

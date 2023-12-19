@@ -89,7 +89,7 @@
    cursor: pointer;
    border-radius: 2em;
    margin-top: 0.5em;
-   margin-left: 0em;
+   margin-left: em;
 
 }
 
@@ -154,11 +154,11 @@ label {
 
 }
 
-.error-message {
-   font-size: 0.8em;
+.error-message-streamer {
+
+   margin-bottom: 2;
    color: red;
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
+
 }
 
 .buttons {
