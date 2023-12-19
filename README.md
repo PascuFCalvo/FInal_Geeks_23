@@ -75,7 +75,6 @@ Now you have the frontend UP with node and the backend running with artisan.
 <br></br>
 <br></br>
 <img width="250" alt="ERD" src=https://i.gyazo.com/ca444539184749d7df3c21cf4934aea3.gif>
-
 <img width="250" alt="ERD" src=/src/assets/readme/vista-5.png> 
 <img width="250" alt="ERD" src=/src/assets/readme/vista-6.png>
 <br></br>
