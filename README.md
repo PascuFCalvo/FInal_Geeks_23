@@ -62,43 +62,43 @@ Now you have the frontend UP with node and the backend running with artisan.
 <br></br>
 <br></br>
 
-<img width="853" alt="ERD" src=./src/assets/images/logo-largo.png>
+<img width="800" alt="ERD" src=./src/assets/images/logo-largo.png>
 
 ## Frontend Design 📖
 
 #### Responsive design
 
-<img width="853" alt="ERD" src=./src/assets/readme/vista-principal.png>
+<img width="800" alt="ERD" src=./src/assets/readme/vista-principal.png>
 <br></br>
 <br></br>
-<img width="853" alt="ERD" src=./src/assets/readme/vista-2.png>
+<img width="800" alt="ERD" src=./src/assets/readme/vista-2.png>
 <br></br>
 <br></br>
-<img width="200" alt="ERD" src=https://i.gyazo.com/ca444539184749d7df3c21cf4934aea3.gif>
+<img width="250" alt="ERD" src=https://i.gyazo.com/ca444539184749d7df3c21cf4934aea3.gif>
 
-<img width="203" alt="ERD" src=/src/assets/readme/vista-5.png> 
-<img width="203" alt="ERD" src=/src/assets/readme/vista-6.png>
+<img width="250" alt="ERD" src=/src/assets/readme/vista-5.png> 
+<img width="250" alt="ERD" src=/src/assets/readme/vista-6.png>
 <br></br>
 
 #### Simply
 
-<img width="449" alt="ERD" src=./src/assets/readme/vista-3.png> <img width="400" alt="ERD" src=./src/assets/readme/vista-4.png>
+<img width="416" alt="ERD" src=./src/assets/readme/vista-3.png> <img width="370" alt="ERD" src=./src/assets/readme/vista-4.png>
 
-<img width="853" alt="ERD" src=https://i.gyazo.com/7d16e5dce3edb394280b6dd5abb01e9f.gif>
+<img width="800" alt="ERD" src=https://i.gyazo.com/7d16e5dce3edb394280b6dd5abb01e9f.gif>
 
 <br></br>
 
 #### Detailed data
 
-<img width="853" alt="ERD" src=https://i.gyazo.com/9c8fb0c8d72d688e70dc98eb6fc4adcb.gif>
+<img width="800" alt="ERD" src=https://i.gyazo.com/9c8fb0c8d72d688e70dc98eb6fc4adcb.gif>
 
-<img width="424" alt="ERD" src=./src/assets/readme/vista-7.png>
-<img width="424" alt="ERD" src=./src/assets/readme/vista-8.png>
-<img width="853" alt="ERD" src=./src/assets/readme/vista-9.png>
+<img width="400" alt="ERD" src=./src/assets/readme/vista-7.png>
+<img width="400" alt="ERD" src=./src/assets/readme/vista-8.png>
+<img width="800" alt="ERD" src=./src/assets/readme/vista-9.png>
 
 ## Database Design 📖
 
-<img width="853" alt="ERD" src=./src/assets/readme/vista-10.png>
+<img width="800" alt="ERD" src=./src/assets/readme/vista-10.png>
 
 <details>
   <summary style="font-weight: bold; font-size: 1.3em;">Endpoints</summary>
