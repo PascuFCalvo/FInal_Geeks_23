@@ -66,3 +66,44 @@
    width: 40em;
    font-size: 2em;
 }
+
+@media only screen and (max-width: 430px) {
+
+   .streamer-section-1-background {
+      width: 100vw;
+      height: auto;
+
+
+   }
+
+   .streamer-title-section1-h1 {
+      width: 100vw;
+      font-size: 2em;
+      margin-top: -2em;
+   }
+
+   .streamer-section-content-1 {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+   }
+
+   .quiero-ser-streamer {
+      margin-right: 0em;
+      margin-top: 2em;
+   }
+
+   .streamer-section-img1 {
+      width: 90vw;
+   }
+
+   .reclamo-streamer {
+      width: 90vw;
+      font-size: 1.5em;
+      padding-bottom: 5em;
+   }
+
+
+}

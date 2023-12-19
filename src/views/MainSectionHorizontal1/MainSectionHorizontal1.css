@@ -1,6 +1,6 @@
 .main-section-1 {
    width: 100vw;
-   height: 50em;
+   height: 45em;
    background: rgb(247, 0, 159);
    background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
    display: flex;
@@ -18,7 +18,7 @@
 
 .title-section1 {
    max-width: 18em;
-   font-size: 4em;
+   font-size: 4m;
    color: white;
    font-weight: 800;
    margin-bottom: 0.5em;
@@ -38,7 +38,6 @@
 .buttons-section-1 {
    margin-top: 10em;
    display: flex;
-
 }
 
 
@@ -86,7 +85,7 @@
    color: white;
 }
 
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 430px) {
    .main-section-1 {
       width: 100vw;
       height: auto;

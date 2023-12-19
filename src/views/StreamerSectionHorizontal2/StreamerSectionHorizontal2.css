@@ -47,3 +47,38 @@
    color: black;
    font-size: 1.5em
 }
+
+@media only screen and (max-width: 430px) {
+
+   .streamer-section-horizontal2-background {
+
+      height: auto;
+
+   }
+
+   .streamer-section-horizontal2-content {
+      height: auto;
+      width: 100vw;
+      flex-direction: column;
+
+   }
+
+   .Image-section-2 {
+      width: 95vw;
+      margin-left: -2.5em;
+      margin-bottom: -4em;
+   }
+
+   .Title-section-2 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+   }
+
+   .streamer-paragraf-section-2 {
+      margin-left: -1em;
+      width: 90vw;
+      font-size: 1.2em;
+      padding-bottom: 4em;
+   }
+
+}

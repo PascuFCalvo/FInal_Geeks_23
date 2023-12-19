@@ -49,10 +49,10 @@ const StreamerSectionHorizontal3 = () => {
           </div>
         </div>
 
-        <div className="buttons">
-        <div className="button-empezar-ahora" onClick={() => navigate("/")}>
-              VOLVER
-            </div>
+        <div className="buttons-streamer-section-3">
+          <div className="button-empezar-ahora" onClick={() => navigate("/")}>
+            VOLVER
+          </div>
           <div
             className="button-im-streamer-3"
             onClick={() => navigate("/registerStreamer")}

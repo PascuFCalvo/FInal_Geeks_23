@@ -22,7 +22,7 @@ const BrandSectionHorizontal2 = () => {
         <div className="App">
           <YoutubeEmbed embedId="gBc4wnRVOYI" />
         </div>
-        <p className="paragraf-section2-brands">
+        <p className="paragraf-section1-brands">
           No se trata solo de estar presente, sino de estar presente en los
           lugares correctos. Identificamos y seleccionamos cuidadosamente los
           espacios más top para promocionar tus productos o servicios. Ya sea a
@@ -32,7 +32,7 @@ const BrandSectionHorizontal2 = () => {
         </p>
       </div>
       <div className="image-placer-brands">
-        <div>
+        <div className="image-placer-brands2">
           <img src={trustpilot}></img>
           <img src={stars}></img>
         </div>
