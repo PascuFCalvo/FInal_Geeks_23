@@ -8,6 +8,7 @@ export const registerStreamer = async (body) => {
 };
 
 export const registerBrand = async (body) => {
+  console.log(body);
   return await axios.post(`${url}/registerBrand`, body);
 };
 
