@@ -34,6 +34,12 @@ Welcome to StreamCash! This comprehensive REST API has been developed as the fin
 <br></br>
 <br></br>
 <img width="803" alt="ERD" src=./src/assets/readme/vista-2.png>
+<br></br>
+<br></br>
+
+<img width="449" alt="ERD" src=./src/assets/readme/vista-3.png>   <img width="400" alt="ERD" src=./src/assets/readme/vista-4.png>
+
+
 
 
 ## Database Design 📖

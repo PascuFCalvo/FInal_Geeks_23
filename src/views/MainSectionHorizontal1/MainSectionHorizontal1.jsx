@@ -9,7 +9,7 @@ const MainSectionHorizontal1 = () => {
     <div>
       <div className="main-section-1-background">
         <section className="main-section-1">
-          <h1 className="title-section1">
+          <h1 className="title-section1-main">
             STREAMERS Y MARCAS CONECTADOS PARA CRECER
           </h1>
           <p className="paragraf-section1">
