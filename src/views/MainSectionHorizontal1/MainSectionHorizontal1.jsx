@@ -17,7 +17,7 @@ const MainSectionHorizontal1 = () => {
             influyentes para captar nuevas audiencias y potenciar tu stream
             mediante breves anuncios integrados en tus transmisiones en vivo
           </p>
-          <div className="buttons-section-1">
+          <div className="buttons-section-1-main">
             <div
               className="button-im-streamer"
               onClick={() => navigate("/streamers")}

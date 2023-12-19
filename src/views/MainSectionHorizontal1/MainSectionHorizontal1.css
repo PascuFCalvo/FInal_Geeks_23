@@ -1,6 +1,6 @@
 .main-section-1 {
    width: 100vw;
-   height: 45em;
+   height: 55em;
    background: rgb(247, 0, 159);
    background: linear-gradient(0deg, rgba(247, 0, 159, 1) 0%, rgba(251, 35, 0, 1) 51%, rgba(255, 166, 0, 1) 100%);
    display: flex;
@@ -35,9 +35,11 @@
    text-align: center;
 }
 
-.buttons-section-1 {
+.buttons-section-1-main {
    margin-top: 10em;
    display: flex;
+   margin-bottom: 5em;
+
 }
 
 
@@ -102,17 +104,17 @@
    }
 
 
-   .title-section1 {
+   .title-section1-main {
       max-width: 90vw;
       font-size: 1.5em;
    }
 
    .paragraf-section1 {
-      max-width: 490vw;
-      font-size: 0.8em
+      max-width: 90vw;
+      font-size: 1em
    }
 
-   .buttons-section-1 {
+   .buttons-section-1-main {
       margin-top: 2em;
       display: flex;
       flex-direction: column;
