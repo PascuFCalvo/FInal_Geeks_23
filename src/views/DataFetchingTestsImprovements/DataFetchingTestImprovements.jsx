@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import "./profileResponsive.css";
+
 import { useEffect } from "react";
 import {
   getAllBrands,
@@ -54,5 +54,10 @@ export const DatafetchingTestImprovements = () => {
   }, []);
 
   console.log(userInfo);
-  return <div></div>;
+  console.log(info);
+  return (
+    <div>
+      <p>hola</p>
+    </div>
+  );
 };
