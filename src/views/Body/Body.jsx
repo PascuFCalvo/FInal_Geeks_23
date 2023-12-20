@@ -15,6 +15,8 @@ import CreateACampaign from "../CraeteACampaign/CreateACampaign";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
 import KnowMoreSection from "../KnowMorePage/KnowMorePage";
 import { GetStreamsByStreamerChart } from "../GetStreamsByStreamerChart/GetStreamsByStreamerChart";
+import { ProfileResponsive } from "../ProfileResponsive/profileResponsive";
+
 
 const Body = () => {
   return (
@@ -42,10 +44,14 @@ const Body = () => {
         />
         <Route path="/createACampaign" element={<CreateACampaign />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
-        <Route path ="/knowMore" element = {<KnowMoreSection />}/>
-        <Route path = "/getStreamsByStreamerChart" element = {<GetStreamsByStreamerChart />}/>
+        <Route path="/knowMore" element={<KnowMoreSection />} />
+        <Route
+          path="/getStreamsByStreamerChart"
+          element={<GetStreamsByStreamerChart />}
+        />
+        {/* this is a test route, is not in the main branch nor in the final code */}
+        <Route path = "/testing" element = {<ProfileResponsive/>} />
       </Routes>
-
     </div>
   );
 };
