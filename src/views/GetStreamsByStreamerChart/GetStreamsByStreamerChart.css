@@ -25,6 +25,8 @@
 
 }
 
+
+
 .streams1-resume-table-title {
    background-color: #2b2b2b;
    color: #fff;
@@ -106,6 +108,7 @@
 .button-navigate-streams-resumen-chart {
    width: 10vw;
    background-color: orange;
+   margin-left: 2em;
 
 }
 
@@ -114,4 +117,8 @@
    cursor: pointer;
    background-color: orangered;
    color: white;
+}
+
+.check1-picture {
+   margin-right: 0.5em;
 }
