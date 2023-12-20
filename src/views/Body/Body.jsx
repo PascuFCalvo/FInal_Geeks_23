@@ -16,7 +16,7 @@ import { AdminPanel } from "../AdminPanel/AdminPanel";
 import KnowMoreSection from "../KnowMorePage/KnowMorePage";
 import { GetStreamsByStreamerChart } from "../GetStreamsByStreamerChart/GetStreamsByStreamerChart";
 import { ProfileResponsive } from "../ProfileResponsive/profileResponsive";
-
+import { ResponsiveUserProfile } from "../ResponsiveUserProfile/ResponsiveUserProfile";
 
 const Body = () => {
   return (
@@ -50,7 +50,7 @@ const Body = () => {
           element={<GetStreamsByStreamerChart />}
         />
         {/* this is a test route, is not in the main branch nor in the final code */}
-        <Route path = "/testing" element = {<ProfileResponsive/>} />
+        <Route path="/testing" element={<ResponsiveUserProfile />} />
       </Routes>
     </div>
   );
