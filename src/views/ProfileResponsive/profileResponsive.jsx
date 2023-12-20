@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./profileResponsive.css";
 import { useEffect } from "react";
-import { getAllBrands, getAllStreamers, getAllStreams } from "../../services/apiCalls";
+import {
+  getAllBrands,
+  getAllStreamers,
+  getAllStreams,
+} from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 
 export const ProfileResponsive = () => {
@@ -20,34 +24,42 @@ export const ProfileResponsive = () => {
       });
     };
     getInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //recuperando streamers con todos sus datos asociados
 
-  useEffect(( ) => {
-   const getUsers = async () => {
+  useEffect(() => {
+    const getUsers = async () => {
       getAllStreamers(token).then((res) => {
-         setUserInfo(res.data);
-         });
-      }
-      getUsers();
-   }, []);
+        setUserInfo(res.data);
+      });
+    };
+    getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-   //recuperando marcas con todos sus datos asociados
+  //recuperando marcas con todos sus datos asociados
 
-   useEffect(() => {
-      const getBrands = async () => {
-         getAllBrands(token).then((res) => {
-            setBrandInfo(res.data);
-         });
-      };
-      getBrands();
-   }, []);
+  useEffect(() => {
+    const getBrands = async () => {
+      getAllBrands(token).then((res) => {
+        setBrandInfo(res.data);
+      });
+    };
+    getBrands();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-   console.log(brandInfo)
+  console.log(userInfo);
   return (
     <div>
-      <p>hola</p>
+      <div className="profileResponsive-background">
+        <div className="profileResponsive-user-card">
+         <div className="profileResponsive-user-card-profile-pic"></div>
+        </div>
+        <div className="profileResponsive-streamer-card"></div>
+      </div>
     </div>
   );
 };
