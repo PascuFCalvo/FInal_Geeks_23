@@ -1,8 +1,11 @@
 import Logo from "../../common/Logo/logo";
 import Register from "../../common/Register/Register";
 import "./FooterSection.css";
+import { useNavigate } from "react-router-dom";
 
 const FooterSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="footer-section-background">
@@ -10,10 +13,12 @@ const FooterSection = () => {
           <Logo />
           <div className="footer-section-sections">
             <ul>
-              <li>Inicio</li>
-              <li>Streamers</li>
-              <li>Patrocinadores</li>
-              <li>Preguntas frecuentes</li>
+              <li onClick={() => navigate("/")}>Inicio</li>
+              <li onClick={() => navigate("/streamers")}>Streamers</li>
+              <li onClick={() => navigate("/brands")}>Patrocinadores</li>
+              <li onClick={() => navigate("/knowMore")}>
+                Preguntas frecuentes
+              </li>
             </ul>
           </div>
           <div className="footer-section-contact">
