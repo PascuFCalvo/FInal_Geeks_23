@@ -108,3 +108,8 @@
    color: #2b2b2b;
    border: 1px solid #2b2b2b;
 }
+
+.edit-profile-avatar-profile {
+   width: 10em;
+   height: 10em;
+}

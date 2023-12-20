@@ -8,21 +8,18 @@ export const ResponsiveUserProfile = () => {
   const [streams, setStreams] = useState(false);
   const token = useSelector((state) => state.token.value);
 
-  useEffect( () => {
-      const fetchData = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       getProfile(token).then((res) => {
-      setProfile(res.data.data);
-    });
-   };
-   fetchData();
+        setProfile(res.data.data);
+      });
+    };
+    fetchData();
 
-   if (profile && profile.streamer.streams.length > 0) {
-     setStreams(true);
-   }
-   }, [profile, token]);
-
-
-   //comentando para probar un commit 
+    if (profile && profile.streamer.streams.length > 0) {
+      setStreams(true);
+    }
+  }, [profile, token]);
 
   return (
     <div>

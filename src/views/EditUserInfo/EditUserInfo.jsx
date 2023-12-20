@@ -20,7 +20,7 @@ const EditUserInfo = () => {
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
   // eslint-disable-next-line no-unused-vars
-  const [imageUrl, setImageUrl] = useState("");
+
   const [profileData, setProfileData] = useState({
     user: {
       user_name: "",
@@ -111,10 +111,10 @@ const EditUserInfo = () => {
       const updatedProfileData = {
         user: {
           ...profileData.user,
-          user_avatar_link: imageUrl1,
+          user_avatar_link: imageUrl1 || profileData.user.user_avatar_link,
           user_name: user_name || "",
-          user_email,
-          user_phone,
+          user_email: user_email || "",
+          user_phone: user_phone || "",
         },
         streamer: {
           ...profileData.streamer,
@@ -126,7 +126,8 @@ const EditUserInfo = () => {
       await editStreamerProfile(updatedProfileData.streamer, token);
       await editUserProfile(updatedProfileData.user, token);
 
-      
+      alert("Perfil actualizado correctamente");
+
       dispatch(removeToken());
       setTimeout(() => {
         navigate("/");
@@ -135,12 +136,14 @@ const EditUserInfo = () => {
       console.error("Error al editar el usuario:", error);
     }
   };
-
+  
+  console.log(profileData);
   return (
     <>
       <NavBar />
       <div className="edit-profile-panel-background">
         <div className="edit-profile-panel-design">
+          <img className = "edit-profile-avatar-profile" src={profileData.user.user_avatar_link}></img>
           <div>
             <label>Selecciona una foto de perfil</label>
             <input

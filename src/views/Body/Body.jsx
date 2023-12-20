@@ -15,7 +15,7 @@ import CreateACampaign from "../CraeteACampaign/CreateACampaign";
 import { AdminPanel } from "../AdminPanel/AdminPanel";
 import KnowMoreSection from "../KnowMorePage/KnowMorePage";
 import { GetStreamsByStreamerChart } from "../GetStreamsByStreamerChart/GetStreamsByStreamerChart";
-import { ProfileResponsive } from "../ProfileResponsive/profileResponsive";
+
 import { ResponsiveUserProfile } from "../ResponsiveUserProfile/ResponsiveUserProfile";
 
 const Body = () => {
