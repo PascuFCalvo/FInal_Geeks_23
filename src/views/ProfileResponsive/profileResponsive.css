@@ -12,7 +12,7 @@
    margin-top: 2vw;
    background-color: grey;
    width: 95vw;
-   height: 33vh;
+   height: 25vh;
    position: relative;
 }
 
@@ -20,15 +20,61 @@
    margin-top: 4vw;
    background-color: grey;
    width: 95vw;
-   height: 62vh;
+   height: 70vh;
 }
 
 .profileResponsive-user-card-profile-pic {
    position: absolute;
-   width: 50vw;
-   height: 50vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 14em;
+   width: 14em;
+   border-radius: 50%;
+   background-color: #2f2f2f;
+   top: 10vh;
+   left: 20vw;
+}
+
+.profileResponsive-user-card-profile-pic img {
+   height: 13em;
    border-radius: 50%;
    background-color: orange;
    top: 22vh;
    left: 23vw;
+}
+
+.profileResponsive-user-card-profile-data-text {
+   color: white;
+   font-size: 1.5em;
+   margin-top: 0.2em;
+   margin-left: 0.5em;
+}
+
+.profileResponsive-user-card-profile-data-text-email {
+
+   font-size: 1em;
+   margin-top: 0.1em;
+   margin-left: 0.5em;
+}
+
+.profileResponsive-user-card-profile-data-text-role {
+   color: orange;
+   margin-top: 4em;
+   margin-left: 0.5em;
+}
+
+.profileResponsive-button-close {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: -0.7em;
+   right: 0.2em;
+   width: 0.6em;
+   height: 0.6em;
+   font-size: 1em;
+   background-color: orangered;
+   border: solid 1px #2f2f2f;
+   color: #2f2f2f;
 }
