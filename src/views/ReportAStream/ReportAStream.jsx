@@ -20,6 +20,7 @@ export const ReportAStream = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState("");
   const [image2, setImage2] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [is430px, setIs430px] = useState(false);
   const [destintation, setDestination] = useState("/profile");
   const [formData, setFormData] = useState({
