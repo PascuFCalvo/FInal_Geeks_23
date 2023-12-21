@@ -57,7 +57,7 @@ export const DatafetchingTestImprovements = () => {
   console.log(info);
   return (
     <div>
-      <p>hola</p>
+      
     </div>
   );
 };
