@@ -163,7 +163,7 @@ export const ReportAStream = () => {
     <div>
       <NavBar />
       <div className="body-report-stream">
-        <form onSubmit={handleSubmit} className="form-body-streamer">
+        <form onSubmit={handleSubmit} className="form-body-streamer-report">
           <label>
             Titulo del Stream:
             <input

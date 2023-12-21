@@ -70,7 +70,7 @@ const CreateACampaign = () => {
     <div>
       <NavBar />
       <div className="body-report-stream">
-        <form onSubmit={handleSubmit} className="form-body-streamer">
+        <form onSubmit={handleSubmit} className="form-body-create-campaign">
           <label htmlFor="campaign_name">Campaign Name</label>
           <input
             type="text"
