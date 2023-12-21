@@ -89,10 +89,19 @@ const Register = () => {
   }
 
   return (
+
+    //comportamiento condicional para movil
     <div className="body-register">
-      <div onMouseEnter={() => setShow(!show)} className="register">
-        Regístrate
-      </div>
+      {is430px && (
+        <div onClick={() => setShow(!show)} className="register">
+          Regístrate
+        </div>
+      )}
+      {!is430px && (
+        <div onMouseEnter={() => setShow(!show)} className="register">
+          Regístrate
+        </div>
+      )}
 
       {show && (
         <div className="body-register-hover">
