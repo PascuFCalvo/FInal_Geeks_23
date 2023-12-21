@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import "./profileResponsive.css";
+
 import { useEffect } from "react";
 import {
   getAllBrands,
@@ -53,8 +53,7 @@ export const DatafetchingTestImprovements = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(userInfo);
-  console.log(brandInfo);
+  console.log(info.streams);
   return (
     <div>
       <p>hola</p>

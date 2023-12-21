@@ -143,11 +143,7 @@ export const GetStreamsByStreamerChart = () => {
       {loading ? (
         <div className="spinner-screen">
           <p>Accediendo a tus Streams</p>
-          <img
-            src={spinner}
-            alt="loading"
-            className="loading-gif"
-          />
+          <img src={spinner} alt="loading" className="loading-gif" />
         </div>
       ) : (
         <div className="streams1-table-resume-content-background">
@@ -158,123 +154,127 @@ export const GetStreamsByStreamerChart = () => {
             Ver detalles
           </button>
           {streams.streams.length > 0 ? (
-           <><table className="streams1-resume-table">
-              <thead className="streams1-resume-table-title">
-                <tr>
-                  <th className="first-column ">Usuario</th>
-                  <th>Nickname</th>
-                  <th>Total de visualizaciones</th>
-                  <th>País</th>
-                  <th>Título del Stream</th>
-                  <th>Descripción</th>
-                  <th>Plataforma</th>
-                  <th>Fecha emisión</th>
-                  <th>Campaña activada</th>
-                  <th>Reportes</th>
-                  <th>Pago por visualización</th>
-                  <th>Bono país emisión</th>
-                  <th>Total a cobrar</th>
-                  <th>Stream aprobado</th>
-                  <th>Stream cobrado</th>
-                  <th className="last-column">Cobrar Stream</th>
-                </tr>
-              </thead>
-              <tbody>
-                {streams.streams.map((stream) => (
-                  <tr key={stream.id}>
-                    <td className="streams-resume-table-rows first-column ">
-                      {profileData.user.user_name}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {profileData.streamer.streamer_nick}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.stream_ammount_of_viewers}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {country.country_name}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.stream_title}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.stream_description}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {profileData.streamer.streamer_platform}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.stream_date}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {getCampaignName(stream.campaign_id)}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      <div className="images-report-streams">
-                        <img
-                          className="check1-picture"
-                          src={stream.stream_check_picture_1}
-                          alt="Report 1"
-                          height={50}
-                        />
-                        <img
-                          className="check1-picture"
-                          src={stream.stream_check_picture_2}
-                          alt="Report 2"
-                          height={50}
-                        />
-                      </div>
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {getCampaignPricePerView(stream.campaign_id)}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {country.country_bonus}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.stream_total_to_receive}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.is_stream_approved ? "SI" : "NO"}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {stream.is_stream_payed ? "SI" : "NO"}
-                    </td>
-                    <td className="streams-resume-table-rows">
-                      {!stream.is_stream_payed && stream.is_stream_approved ? (
-                        <button
-                          className="button-pay-stream"
-                          onClick={() => handlerPayStream(stream.id, token)}
-                        >
-                          cobrar stream
-                        </button>
-                      ) : null}
-                      {stream.is_stream_payed && stream.is_stream_approved ? (
-                        <button
-                          className="delete1-button"
-                          onClick={() => handlerDeleteStream(stream.id, token)}
-                        >
-                          borrar
-                        </button>
-                      ) : null}
-                    </td>
+            <>
+              <table className="streams1-resume-table">
+                <thead className="streams1-resume-table-title">
+                  <tr>
+                    <th className="first-column ">Usuario</th>
+                    <th>Nickname</th>
+                    <th>Total de visualizaciones</th>
+                    <th>País</th>
+                    <th>Título del Stream</th>
+                    <th>Descripción</th>
+                    <th>Plataforma</th>
+                    <th>Fecha emisión</th>
+                    <th>Campaña activada</th>
+                    <th className="reportes">Reportes</th>
+                    <th>Pago por visualización</th>
+                    <th>Bono país emisión</th>
+                    <th>Total a cobrar</th>
+                    <th>Stream aprobado</th>
+                    <th>Stream cobrado</th>
+                    <th className="last-column">Cobrar Stream</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-           
-              </>
+                </thead>
+                <tbody>
+                  {streams.streams.map((stream) => (
+                    <tr key={stream.id}>
+                      <td className="streams-resume-table-rows first-column ">
+                        {profileData.user.user_name}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {profileData.streamer.streamer_nick}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.stream_ammount_of_viewers}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {country.country_name}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.stream_title}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.stream_description}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {profileData.streamer.streamer_platform}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.stream_date}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {getCampaignName(stream.campaign_id)}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        <div className="images-report-streams">
+                          <img
+                            className="check1-picture"
+                            src={stream.stream_check_picture_1}
+                            alt="Report 1"
+                            height={50}
+                           
+                          />
+                          <img
+                            className="check1-picture"
+                            src={stream.stream_check_picture_2}
+                            alt="Report 2"
+                            height={50}
+                          />
+                        </div>
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {getCampaignPricePerView(stream.campaign_id)}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {country.country_bonus}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.stream_total_to_receive}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.is_stream_approved ? "SI" : "NO"}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {stream.is_stream_payed ? "SI" : "NO"}
+                      </td>
+                      <td className="streams-resume-table-rows">
+                        {!stream.is_stream_payed &&
+                        stream.is_stream_approved ? (
+                          <button
+                            className="button-pay-stream"
+                            onClick={() => handlerPayStream(stream.id, token)}
+                          >
+                            cobrar stream
+                          </button>
+                        ) : null}
+                        {stream.is_stream_payed && stream.is_stream_approved ? (
+                          <button
+                            className="delete1-button"
+                            onClick={() =>
+                              handlerDeleteStream(stream.id, token)
+                            }
+                          >
+                            borrar
+                          </button>
+                        ) : null}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
           ) : (
             <p>No streams available.</p>
           )}
         </div>
       )}
       <button
-                className="button-navigate-streams-resumen-chart"
-                onClick={() => Navigate("/profile")}
-              >
-                Volver
-              </button>
+        className="button-navigate-streams-resumen-chart"
+        onClick={() => Navigate("/profile")}
+      >
+        Volver
+      </button>
       <BannerMarcas1 />
       <FooterSection />
     </div>

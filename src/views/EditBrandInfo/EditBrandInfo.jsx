@@ -30,6 +30,7 @@ const EditBrandInfo = () => {
     brand: {
       brand_name: "",
       brand_description: "",
+      brand_logo_link: "",
     },
   });
   const [isEnabled, setIsEnabled] = useState(true);
@@ -115,14 +116,14 @@ const EditBrandInfo = () => {
       const updatedProfileData = {
         user: {
           ...profileData.user,
-          user_avatar_link: imageUrl,
+          user_avatar_link: imageUrl || profileData.user.user_avatar_link,
           user_name: user_name || "",
-          user_email,
-          user_phone,
+          user_email: user_email || "",
+          user_phone: user_phone || "",
         },
         brand: {
           ...profileData.brand,
-          brand_logo_link: logoUrl,
+          brand_logo_link: logoUrl || profileData.brand.brand_logo_link,
           brand_name: profileData.brand.brand_name || "",
           brand_description: profileData.brand.brand_description || "",
         },
@@ -131,7 +132,8 @@ const EditBrandInfo = () => {
       editBrandProfile(updatedProfileData.brand, token);
       editUserProfile(updatedProfileData.user, token);
 
-    
+      alert("Perfil actualizado correctamente");
+
       dispatch(removeToken());
       setTimeout(() => {
         navigate("/");
@@ -147,6 +149,10 @@ const EditBrandInfo = () => {
       <div className="edit-profile-panel-background">
         <div className="edit-profile-panel-design">
           <div>
+            <img
+              className="edit-profile-avatar-profile"
+              src={profileData.user.user_avatar_link}
+            ></img>
             <label>Selecciona una foto de perfil</label>
             <input
               className="image-input-form"
@@ -165,6 +171,10 @@ const EditBrandInfo = () => {
             </label>
           </div>
           <div>
+            <img
+              className="edit-profile-avatar-profile"
+              src={profileData.brand.brand_logo_link}
+            ></img>
             <label>Selecciona un logo para tu marca</label>
             <input
               className="image-input-form"

@@ -10,6 +10,17 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const token = useSelector((state) => state.token.value);
   const [profile, setProfile] = useState({});
+  // eslint-disable-next-line no-unused-vars
+  const [is430px, setIs430px] = useState(false);
+  const [destintation, setDestination] = useState("/profile");
+
+  //testing conditional rendering in movile
+  useEffect(() => {
+    if (window.innerWidth < 430) {
+      setIs430px(true);
+      setDestination("/testing");
+    }
+  }, []);
 
   useEffect(() => {
     getProfile(token).then((response) => {
@@ -26,7 +37,7 @@ const Register = () => {
       : {
           "/": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destintation,
           },
           "/profile": { textButton: "Volver al inicio", navigation: "/" },
           "/getStreamsByStreamer": {

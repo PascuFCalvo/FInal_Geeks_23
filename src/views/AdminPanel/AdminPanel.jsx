@@ -5,14 +5,15 @@ import FooterSection from "../FooterSection/FooterSection";
 import NavBar from "../NavBar/NavBar";
 import "./AdminPanel.css";
 import AdminUsersResumeView from "../AdminUsersResumeView/AdminUsersResumeView";
-
 import AdminBrandsResumeView from "../AdminBrandsResumeView/AdminBrandsResumeView";
 import AdminStreamersResumeView from "../AdminStreamersResumeView/AdminStreamersResumeView";
-import AdminStreamsResumeView from "../AdminStreamsResumeView/AdminStreamsResumeView";
 import AdminCampaignsResumeView from "../AdminCampaignsResumeView/AdminCampaignsResumeView";
 import { useSelector } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
+import { NewAdminStreamResumeView } from "../_NEW_AdminStreamResumeView/NewAdminStreamResumeView";
+
+//dejo comentados las vistas de admin antiguas por si acaso las necesito ya que estoy testeando las nuevas
+//import AdminStreamsResumeView from "../AdminStreamsResumeView/AdminStreamsResumeView";
 
 export const AdminPanel = () => {
   const token = useSelector((state) => state.token.value);
@@ -68,7 +69,7 @@ export const AdminPanel = () => {
     setIsOnStreamers(false);
     setIsOnCampaigns(false);
   };
-  
+
   const isOnCampaignsHandler = () => {
     setIsOnStreams(false);
     setIsOnBrands(false);
@@ -80,11 +81,10 @@ export const AdminPanel = () => {
   if (!token) {
     navigate("/login");
   }
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   return (
     <>
@@ -136,7 +136,7 @@ export const AdminPanel = () => {
             {isOnUsers && <AdminUsersResumeView />}
             {isOnBrands && <AdminBrandsResumeView />}
             {isOnStreamers && <AdminStreamersResumeView />}
-            {isOnStreams && <AdminStreamsResumeView />}
+            {isOnStreams && <NewAdminStreamResumeView />}
             {isOnCampaigns && <AdminCampaignsResumeView />}
           </div>
         </div>

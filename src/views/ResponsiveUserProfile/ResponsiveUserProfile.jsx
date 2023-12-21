@@ -12,6 +12,7 @@ export const ResponsiveUserProfile = () => {
     const fetchData = async () => {
       getProfile(token).then((res) => {
         setProfile(res.data.data);
+        console.log(profile);
       });
     };
     fetchData();
@@ -19,7 +20,7 @@ export const ResponsiveUserProfile = () => {
     if (profile && profile.streamer.streams.length > 0) {
       setStreams(true);
     }
-  }, [profile, token]);
+  }, []);
 
   return (
     <div>
@@ -39,7 +40,7 @@ export const ResponsiveUserProfile = () => {
               </p>
             </div>
             <div className="profileResponsive-user-card-profile-pic">
-              <img src="https://res.cloudinary.com/dlcgfuujm/image/upload/v1702141881/samples/upscale-face-1.jpg"></img>
+              <img src={profile.user.user_avatar_link}></img>
             </div>
           </div>
           <div className="profileResponsive-streamer-card">

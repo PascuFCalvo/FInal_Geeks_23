@@ -17,14 +17,14 @@
 
 ul {
    margin-top: 2em;
-   font-size: 1.5em;
+   font-size: 1em;
    font-weight: 400;
    color: white;
    list-style: none;
 }
 
 li:hover {
-   color: white;
+   color: rgba(255, 255, 255, 0.5);
    cursor: pointer;
    text-decoration: none;
 }

@@ -101,6 +101,9 @@ Now you have the frontend UP with node and the backend running with artisan.
 
 <img width="800" alt="ERD" src=./src/assets/readme/vista-10.png>
 
+#### Strong JSON data recovery to make easy the frontend
+<img width="800" alt="ERD" src=./src/assets/readme/vista-11.png>
+
 <details>
   <summary style="font-weight: bold; font-size: 1.3em;">Endpoints</summary>
 

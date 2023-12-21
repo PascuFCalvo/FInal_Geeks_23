@@ -17,6 +17,7 @@ import KnowMoreSection from "../KnowMorePage/KnowMorePage";
 import { GetStreamsByStreamerChart } from "../GetStreamsByStreamerChart/GetStreamsByStreamerChart";
 
 import { ResponsiveUserProfile } from "../ResponsiveUserProfile/ResponsiveUserProfile";
+import { DatafetchingTestImprovements } from "../DataFetchingTestsImprovements/DataFetchingTestImprovements";
 
 const Body = () => {
   return (
@@ -51,6 +52,7 @@ const Body = () => {
         />
         {/* this is a test route, is not in the main branch nor in the final code */}
         <Route path="/testing" element={<ResponsiveUserProfile />} />
+        <Route path="/fetching" element={<DatafetchingTestImprovements />} />
       </Routes>
     </div>
   );

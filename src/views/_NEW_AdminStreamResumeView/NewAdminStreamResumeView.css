@@ -1,5 +1,5 @@
-.streams1-table-resume-content-background {
-   width: 100vw;
+.streams-table-resume-content-background {
+   width: 80vw;
    height: 100vh;
    overflow-y: scroll;
    display: flex;
@@ -7,11 +7,10 @@
    align-items: center;
    color: #2b2b2b;
    position: relative;
-
 }
 
-.streams1-resume-table {
-   min-width: 120em;
+.streams-resume-table {
+   min-width: 140em;
    border-collapse: collapse;
    font-size: 1em;
    text-align: center;
@@ -25,9 +24,7 @@
 
 }
 
-
-
-.streams1-resume-table-title {
+.streams-resume-table-title {
    background-color: #2b2b2b;
    color: #fff;
 
@@ -44,6 +41,7 @@
    word-wrap: break-word;
    padding-left: 1em;
    padding-right: 1em;
+
 }
 
 .first-column {
@@ -54,7 +52,13 @@
    border-right: 1px solid black;
 }
 
-.approve1-button {
+.streams-resume-table-flex {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.approve-button-chart {
    background-color: green;
    color: #fff;
    border: none;
@@ -65,25 +69,14 @@
    width: 5em;
 }
 
-.delete1-button {
-   background-color: rgb(255, 0, 0);
-   color: #fff;
-   border: none;
-   border-radius: 2em;
-   padding: 0.5em;
-   margin: 0.5em;
-   cursor: pointer;
-   width: 5em;
-}
-
-.check1-picture:hover {
+.check-picture:hover {
    cursor: pointer;
    transform: scale(5);
 
 }
 
-.check1-picture:active {
-   transform: scale(10);
+.check-picture:active {
+   transform: scale(20);
 }
 
 .user-active {
@@ -97,28 +90,4 @@
 
 .flex-direction-user-active {
    display: flex;
-}
-
-.button-navigate-streams-resumen {
-   width: 10vw;
-   background-color: orange;
-   margin-top: 2em;
-}
-
-.button-navigate-streams-resumen-chart {
-   width: 10vw;
-   background-color: orange;
-   margin-left: 2em;
-
-}
-
-.button-navigate-streams-resumen:hover,
-.button-navigate-streams-resumen-chart:hover {
-   cursor: pointer;
-   background-color: orangered;
-   color: white;
-}
-
-.check1-picture {
-   margin-right: 0.5em;
 }
