@@ -1,11 +1,11 @@
 .profileResponsive-background {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+
    align-items: center;
    background-color: #2f2f2f;
    width: 100vw;
-   height: 100vh;
+   height: 110vh;
 }
 
 .profileResponsive-user-card {
