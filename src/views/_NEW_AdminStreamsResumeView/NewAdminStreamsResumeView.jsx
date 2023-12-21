@@ -2,35 +2,37 @@ import { useSelector } from "react-redux";
 import spinner from "../../assets/images/GIFS/spinner.gif";
 import { useEffect, useState } from "react";
 import { approveAStream, getAllStreams } from "../../services/apiCalls";
-import { format, } from "date-fns";
+import { format } from "date-fns";
+import "./NewAdminStreamsResumeView.css";
 
-export const NewAdminStreamResumeView = () => {
+export const NewAdminStreamsResumeView = () => {
   const token = useSelector((state) => state.token.value);
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [someStreamApproved, setSomeStreamApproved] = useState(false);
 
-  useEffect(() => {
-   const getInfo = async () => {
-      setIsLoading(true);
-     getAllStreams(token).then((res) => {
-       setInfo(res.data);
-         setIsLoading(false);
-     });
-   };
-   getInfo();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [setSomeStreamApproved]);
-
- const handlerApproveAStream = (streamId) => {
-   approveAStream(streamId, token);
-   setSomeStreamApproved(!someStreamApproved);
- };
-
+  //vista en testeo
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const getInfo = async () => {
+      setIsLoading(true);
+      getAllStreams(token).then((res) => {
+        setInfo(res.data.streams);
+        setIsLoading(false);
+      });
+    };
+    getInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setSomeStreamApproved]);
+
+  const handlerApproveAStream = (streamId) => {
+    approveAStream(streamId, token);
+    setSomeStreamApproved(!someStreamApproved);
+  };
 
   return (
     <>

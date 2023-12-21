@@ -10,7 +10,7 @@ import AdminStreamersResumeView from "../AdminStreamersResumeView/AdminStreamers
 import AdminCampaignsResumeView from "../AdminCampaignsResumeView/AdminCampaignsResumeView";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { NewAdminStreamResumeView } from "../_NEW_AdminStreamResumeView/NewAdminStreamResumeView";
+import { NewAdminStreamsResumeView } from "../_NEW_AdminStreamsResumeView/NewAdminStreamsResumeView";
 
 //dejo comentados las vistas de admin antiguas por si acaso las necesito ya que estoy testeando las nuevas
 //import AdminStreamsResumeView from "../AdminStreamsResumeView/AdminStreamsResumeView";
@@ -132,11 +132,12 @@ export const AdminPanel = () => {
             </div>
           </div>
           <div className="admin-panel-main-content">
+            {/*si hace falta volver a las vistas antiguas borrar el New*/}
             {isOnDashboard && <Dashboard />}
             {isOnUsers && <AdminUsersResumeView />}
             {isOnBrands && <AdminBrandsResumeView />}
             {isOnStreamers && <AdminStreamersResumeView />}
-            {isOnStreams && <NewAdminStreamResumeView />}
+            {isOnStreams && <NewAdminStreamsResumeView />}
             {isOnCampaigns && <AdminCampaignsResumeView />}
           </div>
         </div>
