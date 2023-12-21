@@ -20,6 +20,8 @@ export const ReportAStream = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState("");
   const [image2, setImage2] = useState("");
+  const [is430px, setIs430px] = useState(false);
+  const [destintation, setDestination] = useState("/profile");
   const [formData, setFormData] = useState({
     streamer_id: "",
     stream_title: "",
@@ -44,6 +46,13 @@ export const ReportAStream = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (window.innerWidth < 430) {
+      setIs430px(true);
+      setDestination("/testing");
+    }
   }, []);
 
   useEffect(() => {
@@ -279,7 +288,7 @@ export const ReportAStream = () => {
             <button
               type="back"
               className="button-back-to-profile"
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate(destintation)}
             >
               Volver
             </button>

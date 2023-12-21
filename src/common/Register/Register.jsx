@@ -14,7 +14,13 @@ const Register = () => {
   const [is430px, setIs430px] = useState(false);
   const [destintation, setDestination] = useState("/profile");
 
-  //testing conditional rendering in movile
+  useEffect(() => {
+    getProfile(token).then((response) => {
+      setProfile(response.data.data.user.user_role);
+    });
+  }, [token]);
+
+  //testing conditional rendering in movil
   useEffect(() => {
     if (window.innerWidth < 430) {
       setIs430px(true);
@@ -22,11 +28,9 @@ const Register = () => {
     }
   }, []);
 
-  useEffect(() => {
-    getProfile(token).then((response) => {
-      setProfile(response.data.data.user.user_role);
-    });
-  }, [token]);
+  //resize a 430px
+
+
 
   const enrutador =
     profile === "admin"
@@ -42,11 +46,11 @@ const Register = () => {
           "/profile": { textButton: "Volver al inicio", navigation: "/" },
           "/getStreamsByStreamer": {
             textButton: "Volver al panel de usuario",
-            navigation: "/profile",
+            navigation: destintation,
           },
           "/streamers": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destintation,
           },
           "/brands": {
             textButton: "Ir a mi panel de Usuario",
@@ -54,11 +58,11 @@ const Register = () => {
           },
           "/reportAStream": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destintation,
           },
           "/editUserInfo": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destintation,
           },
           "/editBrandInfo": {
             textButton: "Ir a mi panel de Usuario",
@@ -89,7 +93,6 @@ const Register = () => {
   }
 
   return (
-
     //comportamiento condicional para movil
     <div className="body-register">
       {is430px && (

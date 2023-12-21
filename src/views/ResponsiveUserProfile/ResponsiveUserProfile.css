@@ -38,6 +38,7 @@
 }
 
 .profileResponsive-user-card-profile-pic img {
+   width: 13em;
    height: 13em;
    border-radius: 50%;
    background-color: orange;
@@ -46,9 +47,13 @@
 
 .profileResponsive-user-card-profile-data-text {
    color: white;
-   font-size: 1.5em;
+   font-size: 1.2em;
    margin-top: 0.2em;
    margin-left: 0.5em;
+   max-height: 1.5em;
+   overflow: hidden;
+   max-width: 80vw;
+
 }
 
 .profileResponsive-user-card-profile-data-text-email {

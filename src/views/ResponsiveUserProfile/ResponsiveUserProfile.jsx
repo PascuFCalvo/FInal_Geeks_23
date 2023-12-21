@@ -2,11 +2,13 @@ import { useSelector } from "react-redux";
 import { getProfile } from "../../services/apiCalls";
 import "./ResponsiveUserProfile.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ResponsiveUserProfile = () => {
   const [profile, setProfile] = useState(null);
   const [streams, setStreams] = useState(false);
   const token = useSelector((state) => state.token.value);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,10 +65,20 @@ export const ResponsiveUserProfile = () => {
               src={profile.streamer.image_stream}
             ></img>
             <div className="profileResponsive-streamer-card-streamer-buttons">
-              <button className="profileResponsive-streamer-card-streamer-buttons-ver">
+              <button
+                className="profileResponsive-streamer-card-streamer-buttons-ver"
+                onClick={() => {
+                  navigate("/getStreamsByStreamer");
+                }}
+              >
                 Ver mis strems
               </button>
-              <button className="profileResponsive-streamer-card-streamer-buttons-report">
+              <button
+                className="profileResponsive-streamer-card-streamer-buttons-report"
+                onClick={() => {
+                  navigate("/ReportAStream");
+                }}
+              >
                 Reportar un stream
               </button>
             </div>
