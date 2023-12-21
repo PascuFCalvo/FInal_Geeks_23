@@ -71,7 +71,7 @@ export const ResponsiveUserProfile = () => {
                   navigate("/getStreamsByStreamer");
                 }}
               >
-                Ver mis strems
+                Ver mis streams
               </button>
               <button
                 className="profileResponsive-streamer-card-streamer-buttons-report"

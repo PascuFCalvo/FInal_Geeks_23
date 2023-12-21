@@ -36,7 +36,7 @@ export const GetStreamsByStreamer = () => {
 
   //testing conditional rendering in movil
   useEffect(() => {
-    if (window.innerWidth < 430) {
+    if (window.innerWidth <= 430) {
       setIs430px(true);
       setDestination("/testing");
     }

@@ -20,66 +20,66 @@ export const ResponsiveBrandProfile = () => {
   }, []);
 
   return (
-   <div>
-     {profile && (
-       <div className="profileResponsive-background">
-         <div className="profileResponsive-user-card">
-           <button className="profileResponsive-button-close">x</button>
-           <div className="profileResponsive-user-card-profile-data">
-             <p className="profileResponsive-user-card-profile-data-text">
-               {profile.user.user_name}
-             </p>
-             <p className="profileResponsive-user-card-profile-data-text-email">
-               {profile.user.user_email}
-             </p>
-             <p className="profileResponsive-user-card-profile-data-text-role">
-               {profile.user.user_role}
-             </p>
-           </div>
-           <div className="profileResponsive-user-card-profile-pic">
-             <img src={profile.user.user_avatar_link}></img>
-           </div>
-         </div>
-         <div className="profileResponsive-streamer-card">
-           <div className="profileResponsive-streamer-card-streamer-data">
-             <p className="profileResponsive-streamer-card-streamer-data-nick">
-               {profile.brand.brand_name}
-             </p>
-             <p className="profileResponsive-streamer-card-streamer-data-text">
-               {profile.brand.brand_CIF}
-             </p>
-             <p className="profileResponsive-streamer-card-streamer-data-text">
-               {profile.brand.brand_description}
-             </p>
-             <p className="profileResponsive-streamer-card-streamer-data-text">
-               {""}
-             </p>
-           </div>
-           <img
-             className="profileResponsive-streamer-card-streamer-stream-pic "
-             src={profile.brand.brand_logo_link}
-           ></img>
-           <div className="profileResponsive-streamer-card-streamer-buttons">
-             <button
-               className="profileResponsive-streamer-card-streamer-buttons-ver"
-               onClick={() => {
-                 navigate("/getStreamsByStreamer");
-               }}
-             >
-               Ver mis strems
-             </button>
-             <button
-               className="profileResponsive-streamer-card-streamer-buttons-report"
-               onClick={() => {
-                 navigate("/ReportAStream");
-               }}
-             >
-               Reportar un stream
-             </button>
-           </div>
-         </div>
-       </div>
-     )}
-   </div>
- );
+    <div>
+      {profile && (
+        <div className="profileResponsive-background">
+          <div className="profileResponsive-user-card">
+            <button className="profileResponsive-button-close">x</button>
+            <div className="profileResponsive-user-card-profile-data">
+              <p className="profileResponsive-user-card-profile-data-text">
+                {profile.user.user_name}
+              </p>
+              <p className="profileResponsive-user-card-profile-data-text-email">
+                {profile.user.user_email}
+              </p>
+              <p className="profileResponsive-user-card-profile-data-text-role">
+                {profile.user.user_role}
+              </p>
+            </div>
+            <div className="profileResponsive-user-card-profile-pic">
+              <img src={profile.user.user_avatar_link}></img>
+            </div>
+          </div>
+          <div className="profileResponsive-streamer-card">
+            <div className="profileResponsive-streamer-card-streamer-data">
+              <p className="profileResponsive-streamer-card-streamer-data-nick">
+                {profile.brand.brand_name}
+              </p>
+              <p className="profileResponsive-streamer-card-streamer-data-text">
+                {profile.brand.brand_CIF}
+              </p>
+              <p className="profileResponsive-streamer-card-streamer-data-text">
+                {profile.brand.brand_description}
+              </p>
+              <p className="profileResponsive-streamer-card-streamer-data-text">
+                {""}
+              </p>
+            </div>
+            <img
+              className="profileResponsive-streamer-card-streamer-stream-pic "
+              src={profile.brand.brand_logo_link}
+            ></img>
+            <div className="profileResponsive-streamer-card-streamer-buttons">
+              <button
+                className="profileResponsive-streamer-card-streamer-buttons-ver"
+                onClick={() => {
+                  navigate("/getStreamsByStreamer");
+                }}
+              >
+                Ver mis campañas
+              </button>
+              <button
+                className="profileResponsive-streamer-card-streamer-buttons-report"
+                onClick={() => {
+                  navigate("/CreateACampaign");
+                }}
+              >
+                Crear una campaña
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
