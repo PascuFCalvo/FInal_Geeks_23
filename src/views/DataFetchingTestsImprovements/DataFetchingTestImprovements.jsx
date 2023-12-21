@@ -54,5 +54,10 @@ export const DatafetchingTestImprovements = () => {
   }, []);
 
   console.log(userInfo);
-  return <div></div>;
+  console.log(brandInfo);
+  return (
+    <div>
+      <p>hola</p>
+    </div>
+  );
 };
