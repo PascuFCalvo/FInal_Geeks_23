@@ -86,3 +86,18 @@
    cursor: pointer;
    color: white;
 }
+
+@media only screen and (max-width: 430px) {
+   .register {
+      transform: scale(0.8);
+
+   }
+
+   .user-panel {
+      transform: scale(0.8);
+      margin-left: -3em;
+
+
+
+   }
+}

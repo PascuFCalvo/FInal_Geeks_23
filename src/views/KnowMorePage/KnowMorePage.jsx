@@ -186,15 +186,12 @@ const KnowMoreSection = () => {
             </div>
           </div>
           <div className="buttons-know-more">
-            <div
-              className="button-saber-mas-know"
-              onClick={() => navigate("/")}
-            >
+            <div className="button-volver" onClick={() => navigate("/")}>
               VOLVER
             </div>
 
             <div
-              className="button-empezar-ahora"
+              className="button-empezar-ahora-knowmorepage"
               onClick={() => navigate("/registerStreamer")}
             >
               EMPEZAR AHORA
