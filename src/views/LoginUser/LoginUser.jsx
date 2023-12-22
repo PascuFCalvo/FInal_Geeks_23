@@ -77,7 +77,9 @@ const LoginUser = () => {
             />
           </div>
           <div className="buttons">
-            <button className="buttonBack">Volver</button>
+            <button className="buttonBack" onClick={() => navigate("/")}>
+              Volver
+            </button>
             <button type="submit">Login</button>
           </div>
         </form>
