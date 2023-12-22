@@ -4,7 +4,7 @@
 
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 480px) {
    .image-logo {
       width: 14em;
       margin-left: 0;

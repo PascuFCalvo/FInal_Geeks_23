@@ -30,14 +30,14 @@ export const GetStreamsByStreamer = () => {
   const [deletedStreamId, setDeletedStreamId] = useState(null);
   const [loading, setLoading] = useState(true);
   // eslint-disable-next-line no-unused-vars
-  const [is430px, setIs430px] = useState(false);
+  const [is480px, setIs480px] = useState(false);
   const [destintation, setDestination] = useState("/profile");
   const Navigate = useNavigate();
 
   //testing conditional rendering in movil
   useEffect(() => {
     if (window.innerWidth <= 430) {
-      setIs430px(true);
+      setIs480px(true);
       setDestination("/testing");
     }
   }, []);

@@ -28,15 +28,15 @@ const GetCampaignsAsABrand = () => {
     setSelectedCampaignId(id);
     console.log(id);
   };
-  const [is430px, setIs430px] = useState(false);
+  const [is480px, setIs480px] = useState(false);
   const [destintation, setDestination] = useState("/profile");
 
   useEffect(() => {
     if (window.innerWidth <= 430) {
-      setIs430px(true);
+      setIs480px(true);
       setDestination("/responsiveBrandProfile");
     }
-  }, [is430px]);
+  }, [is480px]);
 
   const handleDeleteCampaign = async (id) => {
     try {

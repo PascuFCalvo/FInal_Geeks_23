@@ -128,7 +128,7 @@
    cursor: pointer;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 480px) {
    .form-body-streamer-report {
       width: 95vw;
    }

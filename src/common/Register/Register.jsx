@@ -11,7 +11,7 @@ const Register = () => {
   const token = useSelector((state) => state.token.value);
   const [profile, setProfile] = useState({});
   // eslint-disable-next-line no-unused-vars
-  const [is430px, setIs430px] = useState(false);
+  const [is480px, setIs480px] = useState(false);
   const [destination, setDestination] = useState("");
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const Register = () => {
       console.log(userRole);
 
       if (window.innerWidth <= 430 && profile === "streamer") {
-        setIs430px(true);
+        setIs480px(true);
         setDestination("/testing");
       } else if (window.innerWidth <= 430 && profile === "brand") {
-        setIs430px(true);
+        setIs480px(true);
         setDestination("/responsiveBrandProfile");
       } else setDestination("/profile");
 
@@ -35,7 +35,7 @@ const Register = () => {
 
   //testing conditional rendering in movil
 
-  //resize a 430px
+  //resize a 480px
 
   const enrutador =
     profile === "admin"

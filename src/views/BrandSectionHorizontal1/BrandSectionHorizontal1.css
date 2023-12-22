@@ -90,7 +90,7 @@
    color: white;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 480px) {
 
    .brand-section-1 {
       width: 100vw;

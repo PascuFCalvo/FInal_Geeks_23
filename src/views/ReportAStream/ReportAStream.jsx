@@ -21,7 +21,7 @@ export const ReportAStream = () => {
   const [image, setImage] = useState("");
   const [image2, setImage2] = useState("");
   // eslint-disable-next-line no-unused-vars
-  const [is430px, setIs430px] = useState(false);
+  const [is480px, setIs480px] = useState(false);
   const [destintation, setDestination] = useState("/profile");
   const [formData, setFormData] = useState({
     streamer_id: "",
@@ -51,7 +51,7 @@ export const ReportAStream = () => {
 
   useEffect(() => {
     if (window.innerWidth < 430) {
-      setIs430px(true);
+      setIs480px(true);
       setDestination("/testing");
     }
   }, []);

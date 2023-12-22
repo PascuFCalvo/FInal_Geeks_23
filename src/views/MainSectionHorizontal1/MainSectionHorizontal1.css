@@ -87,7 +87,7 @@
    color: white;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 480px) {
    .main-section-1 {
       width: 100vw;
       height: auto;

@@ -17,6 +17,7 @@
    font-size: 3em;
    color: white;
    display: flex;
+   margin-top: 2em;
    text-align: center;
 
 }
@@ -67,7 +68,7 @@
    font-size: 2em;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 480px) {
 
    .streamer-section-1-background {
       width: 100vw;
@@ -77,13 +78,13 @@
    }
 
    .streamer-title-section1-h1 {
-      width: 100vw;
+      width: 90vw;
       font-size: 2em;
-      margin-top: -2em;
+
    }
 
    .streamer-section-content-1 {
-      width: 100vw;
+      width: 90vw;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -106,4 +107,5 @@
    }
 
 
+}
 }
