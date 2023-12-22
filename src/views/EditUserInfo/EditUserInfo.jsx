@@ -136,14 +136,17 @@ const EditUserInfo = () => {
       console.error("Error al editar el usuario:", error);
     }
   };
-  
+
   console.log(profileData);
   return (
     <>
       <NavBar />
       <div className="edit-profile-panel-background">
         <div className="edit-profile-panel-design">
-          <img className = "edit-profile-avatar-profile" src={profileData.user.user_avatar_link}></img>
+          <img
+            className="edit-profile-avatar-profile"
+            src={profileData.user.user_avatar_link}
+          ></img>
           <div>
             <label>Selecciona una foto de perfil</label>
             <input
@@ -219,6 +222,7 @@ const EditUserInfo = () => {
                   handleStreamerChange("streamer_platform", e.target.value)
                 }
               />
+              <p className ="change-password-user">¿Cambiar contraseña?</p>
             </>
           )}
 

@@ -16,7 +16,7 @@
 
 }
 
-.form-body-streamer {
+.form-body-crate-campaign {
    font-size: 1em;
    margin-bottom: 2em;
    margin-top: 2em;
@@ -24,6 +24,7 @@
    display: flex;
    flex-direction: column;
    width: 34em;
+
    margin: 0 auto;
    background-color: #ffffff;
    padding: 1.5em;
@@ -68,7 +69,7 @@
 }
 
 
-.buttons-report-stream-form {
+.buttons-report-campaign-form {
    display: flex;
    width: 24em;
 
@@ -125,5 +126,19 @@
    filter: invert(1);
    cursor: pointer;
    transform: scale(1.5);
+
+}
+
+@media only screen and (max-width: 430px) {
+
+   .form-body-crate-campaign {
+      width: 90vw;
+      margin-bottom: 2em;
+   }
+
+   .buttons-report-campaign-form {
+      transform: scale(0.8);
+      margin-left: -1.5em;
+   }
 
 }

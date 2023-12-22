@@ -5,6 +5,7 @@ import { getCountries, registerBrand } from "../../services/apiCalls";
 import Logo from "../../common/Logo/logo";
 import { validator } from "../../services/useful";
 import spinner from "../../assets/images/GIFS/spinner.gif";
+import BannerMarcas1 from "../BannerMarcas1/BannerMarcas1";
 
 const RegisterBrand = () => {
   useEffect(() => {
@@ -418,6 +419,7 @@ const RegisterBrand = () => {
           </div>
         </form>
       </div>
+      <BannerMarcas1 />
     </div>
   );
 };

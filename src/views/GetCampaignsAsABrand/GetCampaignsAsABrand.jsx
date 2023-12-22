@@ -13,9 +13,9 @@ import FooterSection from "../FooterSection/FooterSection";
 import NavBar from "../NavBar/NavBar";
 import "./GetCampaignsAsABrand.css";
 import spinner from "../../assets/images/GIFS/spinner.gif";
+import { is } from "date-fns/locale";
 
 const GetCampaignsAsABrand = () => {
-  
   const token = useSelector((state) => state.token.value);
   const [profileData, setProfileData] = useState(null);
   const [campaigns, setCampaigns] = useState({ campaigns: [] });
@@ -28,6 +28,15 @@ const GetCampaignsAsABrand = () => {
     setSelectedCampaignId(id);
     console.log(id);
   };
+  const [is430px, setIs430px] = useState(false);
+  const [destintation, setDestination] = useState("/profile");
+
+  useEffect(() => {
+    if (window.innerWidth <= 430) {
+      setIs430px(true);
+      setDestination("/responsiveBrandProfile");
+    }
+  }, [is430px]);
 
   const handleDeleteCampaign = async (id) => {
     try {
@@ -99,11 +108,7 @@ const GetCampaignsAsABrand = () => {
         {loading ? (
           <div className="spinner-screen">
             <p>Accediendo a tus campañas</p>
-            <img
-              src={spinner}
-              alt="loading"
-              className="loading-gif"
-            />
+            <img src={spinner} alt="loading" className="loading-gif" />
           </div>
         ) : (
           <div className="general-campaign-background">
@@ -144,7 +149,9 @@ const GetCampaignsAsABrand = () => {
                         {campaign.is_active && (
                           <button
                             className="pause-campaign-button"
-                            onClick={() => handlerInctivateCampaign(campaign.id)}
+                            onClick={() =>
+                              handlerInctivateCampaign(campaign.id)
+                            }
                           >
                             Pausar
                           </button>
@@ -154,7 +161,7 @@ const GetCampaignsAsABrand = () => {
                     <div className="column-campagn-list-col-even">
                       <p className="price-view">
                         {" "}
-                        {campaign.price_per_single_view + " $"} 
+                        {campaign.price_per_single_view + " $"}
                       </p>
                     </div>
                   </div>

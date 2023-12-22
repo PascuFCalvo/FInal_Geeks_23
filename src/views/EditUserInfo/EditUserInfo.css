@@ -113,3 +113,13 @@
    width: 10em;
    height: 10em;
 }
+
+.change-password-user {
+   color: red;
+   text-align: end;
+}
+
+.change-password-user:hover {
+   color: darkred;
+   cursor: pointer;
+}

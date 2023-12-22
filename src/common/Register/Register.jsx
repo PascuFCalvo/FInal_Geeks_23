@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getProfile } from "../../services/apiCalls";
 
+
+
 const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,21 +14,30 @@ const Register = () => {
   const [profile, setProfile] = useState({});
   // eslint-disable-next-line no-unused-vars
   const [is430px, setIs430px] = useState(false);
-  const [destintation, setDestination] = useState("/profile");
-
-  //testing conditional rendering in movile
-  useEffect(() => {
-    if (window.innerWidth < 430) {
-      setIs430px(true);
-      setDestination("/testing");
-    }
-  }, []);
+  const [destination, setDestination] = useState("");
 
   useEffect(() => {
     getProfile(token).then((response) => {
-      setProfile(response.data.data.user.user_role);
+      const userRole = response.data.data.user.user_role;
+      setProfile(userRole);
+      console.log(userRole);
+
+      if (window.innerWidth <= 430 && profile === "streamer") {
+        setIs430px(true);
+        setDestination("/testing");
+      } else if (window.innerWidth <= 430 && profile === "brand") {
+        setIs430px(true);
+        setDestination("/responsiveBrandProfile");
+      } else setDestination("/profile");
+
+      console.log(destination);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  //testing conditional rendering in movil
+
+  //resize a 430px
 
   const enrutador =
     profile === "admin"
@@ -37,16 +48,16 @@ const Register = () => {
       : {
           "/": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: destintation,
+            navigation: destination,
           },
           "/profile": { textButton: "Volver al inicio", navigation: "/" },
           "/getStreamsByStreamer": {
             textButton: "Volver al panel de usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
           "/streamers": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
           "/brands": {
             textButton: "Ir a mi panel de Usuario",
@@ -54,11 +65,11 @@ const Register = () => {
           },
           "/reportAStream": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
           "/editUserInfo": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
           "/editBrandInfo": {
             textButton: "Ir a mi panel de Usuario",
@@ -66,11 +77,11 @@ const Register = () => {
           },
           "/createACampaign": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
           "/getCampaignsAsABrand": {
             textButton: "Ir a mi panel de Usuario",
-            navigation: "/profile",
+            navigation: destination,
           },
         };
 
@@ -89,10 +100,18 @@ const Register = () => {
   }
 
   return (
+    //comportamiento condicional para movil
     <div className="body-register">
-      <div onMouseEnter={() => setShow(!show)} className="register">
-        Regístrate
-      </div>
+      {is430px && (
+        <div onClick={() => setShow(!show)} className="register">
+          Regístrate
+        </div>
+      )}
+      {!is430px && (
+        <div onMouseEnter={() => setShow(!show)} className="register">
+          Regístrate
+        </div>
+      )}
 
       {show && (
         <div className="body-register-hover">

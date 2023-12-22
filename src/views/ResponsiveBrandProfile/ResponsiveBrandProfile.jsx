@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 import { getProfile } from "../../services/apiCalls";
-import "./ResponsiveUserProfile.css";
+import "./ResponsiveBrandProfile.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const ResponsiveUserProfile = () => {
+export const ResponsiveBrandProfile = () => {
   const [profile, setProfile] = useState(null);
-  const [streams, setStreams] = useState(false);
   const token = useSelector((state) => state.token.value);
   const navigate = useNavigate();
 
@@ -14,14 +13,10 @@ export const ResponsiveUserProfile = () => {
     const fetchData = async () => {
       getProfile(token).then((res) => {
         setProfile(res.data.data);
-        console.log(profile);
+        console.log(res.data.data);
       });
     };
     fetchData();
-
-    if (profile && profile.streamer.streams.length > 0) {
-      setStreams(true);
-    }
   }, []);
 
   return (
@@ -48,21 +43,21 @@ export const ResponsiveUserProfile = () => {
           <div className="profileResponsive-streamer-card">
             <div className="profileResponsive-streamer-card-streamer-data">
               <p className="profileResponsive-streamer-card-streamer-data-nick">
-                {profile.streamer.streamer_nick}
+                {profile.brand.brand_name}
               </p>
               <p className="profileResponsive-streamer-card-streamer-data-text">
-                {profile.streamer.country.country_name}
+                {profile.brand.brand_CIF}
               </p>
               <p className="profileResponsive-streamer-card-streamer-data-text">
-                {profile.streamer.streamer_platform}
+                {profile.brand.brand_description}
               </p>
               <p className="profileResponsive-streamer-card-streamer-data-text">
-                {streams ? "Streams activos: SI" : "Streams activos : NO"}
+                {""}
               </p>
             </div>
             <img
               className="profileResponsive-streamer-card-streamer-stream-pic "
-              src={profile.streamer.image_stream}
+              src={profile.brand.brand_logo_link}
             ></img>
             <div className="profileResponsive-streamer-card-streamer-buttons">
               <button
@@ -71,15 +66,15 @@ export const ResponsiveUserProfile = () => {
                   navigate("/getStreamsByStreamer");
                 }}
               >
-                Ver mis streams
+                Ver mis campañas
               </button>
               <button
                 className="profileResponsive-streamer-card-streamer-buttons-report"
                 onClick={() => {
-                  navigate("/ReportAStream");
+                  navigate("/CreateACampaign");
                 }}
               >
-                Reportar un stream
+                Crear una campaña
               </button>
             </div>
           </div>

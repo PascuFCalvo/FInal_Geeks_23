@@ -14,7 +14,7 @@
    margin-left: 0.5em;
 }
 
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 430px) {
    .banner-marcas1-background {
       padding-top: 2em;
       flex-direction: column;

@@ -245,6 +245,7 @@ const EditBrandInfo = () => {
                   handleBrandChange("brand_description", e.target.value)
                 }
               />
+              <p className="change-password-user">¿Cambiar contraseña?</p>
             </>
           )}
 

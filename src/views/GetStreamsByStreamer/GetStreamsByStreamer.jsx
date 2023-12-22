@@ -29,7 +29,18 @@ export const GetStreamsByStreamer = () => {
   const [selectedStreamId, setSelectedStreamId] = useState(null);
   const [deletedStreamId, setDeletedStreamId] = useState(null);
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [is430px, setIs430px] = useState(false);
+  const [destintation, setDestination] = useState("/profile");
   const Navigate = useNavigate();
+
+  //testing conditional rendering in movil
+  useEffect(() => {
+    if (window.innerWidth <= 430) {
+      setIs430px(true);
+      setDestination("/testing");
+    }
+  }, []);
 
   const handlerPayStream = (streamId, token) => {
     payStreamAPI(streamId, token);
@@ -43,7 +54,7 @@ export const GetStreamsByStreamer = () => {
     deleteAStreamById(streamId, token);
     setDeletedStreamId(streamId);
     setTimeout(() => {
-      setDeletedStreamId(null); 
+      setDeletedStreamId(null);
     }, 2000);
   };
 
@@ -143,11 +154,7 @@ export const GetStreamsByStreamer = () => {
       {loading ? (
         <div className="spinner-screen">
           <p>Accediendo a tus Streams</p>
-          <img
-            src={spinner}
-            alt="loading"
-            className="loading-gif"
-          />
+          <img src={spinner} alt="loading" className="loading-gif" />
         </div>
       ) : (
         <div className="container-streamcard-grid">
@@ -296,7 +303,7 @@ export const GetStreamsByStreamer = () => {
           )}
           <button
             className="button-navigate-streams-resumen"
-            onClick={() => Navigate("/profile")}
+            onClick={() => Navigate(destintation)}
           >
             Volver
           </button>

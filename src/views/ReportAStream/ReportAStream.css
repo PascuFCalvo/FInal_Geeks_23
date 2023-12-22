@@ -16,7 +16,7 @@
 
 }
 
-.form-body-streamer {
+.form-body-streamer-report {
    font-size: 1em;
    margin-bottom: 2em;
    margin-top: 2em;
@@ -126,4 +126,15 @@
    width: 50%;
    font-size: 1em;
    cursor: pointer;
+}
+
+@media only screen and (max-width: 430px) {
+   .form-body-streamer-report {
+      width: 95vw;
+   }
+
+   .buttons-report-stream-form {
+      transform: scale(0.8);
+      margin-left: -1.8em;
+   }
 }

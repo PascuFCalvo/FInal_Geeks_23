@@ -53,11 +53,10 @@ export const DatafetchingTestImprovements = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(userInfo);
-  console.log(info);
+  console.log(brandInfo);
   return (
     <div>
-      
+      <p>hola</p>
     </div>
   );
 };
