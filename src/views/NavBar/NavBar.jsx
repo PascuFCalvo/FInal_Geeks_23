@@ -8,10 +8,10 @@ const NavBar = () => {
     <div className="navbar-background">
       <div className="navbar-content">
         <Logo />
-        <div className="buttons-navbar">
-          <Login />
-          <Register />
-        </div>
+      </div>
+      <div className="buttons-navbar">
+        <Login />
+        <Register />
       </div>
     </div>
   );

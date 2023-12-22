@@ -4,8 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getProfile } from "../../services/apiCalls";
 
-
-
 const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -102,16 +100,9 @@ const Register = () => {
   return (
     //comportamiento condicional para movil
     <div className="body-register">
-      {is430px && (
-        <div onClick={() => setShow(!show)} className="register">
-          Regístrate
-        </div>
-      )}
-      {!is430px && (
-        <div onMouseEnter={() => setShow(!show)} className="register">
-          Regístrate
-        </div>
-      )}
+      <div onClick={() => setShow(!show)} className="register">
+        Regístrate
+      </div>
 
       {show && (
         <div className="body-register-hover">

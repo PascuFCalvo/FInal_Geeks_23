@@ -25,29 +25,22 @@
 @media only screen and (max-width: 430px) {
    .navbar-background {
       overflow-x: hidden;
-      height: 20em;
+      height: 18em;
       width: 100vw;
    }
 
-   .navbar-content {
-      overflow-x: hidden;
-      position: relative;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      margin-left: 0em
-   }
 
    .buttons-navbar {
       overflow-x: hidden;
       position: absolute;
-      bottom: 8em;
+      height: 10em;
+      bottom: 40em;
 
 
    }
 
    .image-logo {
-      margin-left: 10vw;
+      margin-left: 20vw;
    }
 
 
