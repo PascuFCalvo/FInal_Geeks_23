@@ -27,6 +27,7 @@
       overflow-x: hidden;
       height: 18em;
       width: 100vw;
+      position: relative;
    }
 
 
@@ -34,7 +35,7 @@
       overflow-x: hidden;
       position: absolute;
       height: 10em;
-      bottom: 40em;
+      top: 5vh;
 
 
    }

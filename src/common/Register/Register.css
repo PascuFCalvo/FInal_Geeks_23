@@ -92,14 +92,14 @@
 
    .register {
       transform: scale(0.8);
-      z-index: 6 !important;
+
 
    }
 
    .user-panel {
       transform: scale(0.8);
       margin-left: -3em;
-      z-index: 6 !important;
+
 
    }
 
@@ -111,7 +111,7 @@
       left: 15em;
       top: 2em;
       height: 10em;
-      z-index: 6 !important;
+
    }
 
 
